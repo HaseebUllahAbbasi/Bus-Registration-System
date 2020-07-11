@@ -21,13 +21,18 @@ public class Controller
     TextField pass_word;
     @FXML
     Button login_button;
-    public void Login_button_method(ActionEvent event) throws SQLException
+    public void Login_button_method(ActionEvent event) throws SQLException //throws SQLException
     {
+
         Connection connection = null;
         Statement statement = null;
+
+
+
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             statement.execute("Select * from [Admin]");
             ResultSet resultSet = statement.getResultSet();
@@ -40,6 +45,7 @@ public class Controller
                     /*
                     Code for the new Screen
                      */
+
                     ((Node)event.getSource()).getScene().getWindow().hide();
                     Stage primaryStage = new Stage();
                     FXMLLoader loader = new FXMLLoader();
@@ -54,7 +60,7 @@ public class Controller
                     /*
                     Code for the new Screen Ended
                      */
-                }
+               }
             }
         }
         catch (SQLException | IOException throwables)
@@ -69,6 +75,7 @@ public class Controller
                 connection.close();
             }
         }
+
 
     }
 }
