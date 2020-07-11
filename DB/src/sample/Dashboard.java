@@ -73,15 +73,12 @@ public class Dashboard
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("remove_Vehicle.fxml").openStream());
-        
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
     
-    
-    
-    
+
     
 }
