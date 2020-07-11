@@ -47,6 +47,7 @@ public class Controller
 
                     Dashboard dashboard = (Dashboard)loader.getController();
                     dashboard.show(resultSet.getString("id"));
+
                     Scene scene = new Scene(root);
                     primaryStage.setScene(scene);
                     primaryStage.show();
