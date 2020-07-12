@@ -81,15 +81,21 @@ public class Insertion implements Initializable
         try
         {
             //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
-            statement.execute("INSERT INTO Customer VALUES ("+name.getText()+","+cnic.getText()+","+date_id.getValue()+","+bus_box.getValue()+","+rout_box.getValue()+")");
-            ResultSet resultSet = statement.getResultSet();
+            /*This statements needs to be improved, */
+            statement.execute("INSERT INTO [Customer](CusName,Cnic,IssueDate,Rout,Bus) VALUES ("+name.getText()+","+cnic.getText()+","+date_id.getValue()+","+bus_box.getValue()+","+rout_box.getValue()+")");
+            System.out.println("Name : "+name.getText());
+            System.out.println("Name : "+cnic.getText());
+            System.out.println("Name : "+date_id.getValue());
+            System.out.println("Name : "+bus_box.getValue());
+            System.out.println("Name : "+rout_box.getValue());
+            //ResultSet resultSet = statement.getResultSet();
 
         }
         catch (SQLException throwables)
         {
-            //throwables.printStackTrace();
+            System.out.println(throwables.getMessage());
         }
         finally
         {
