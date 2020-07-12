@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,19 +31,26 @@ public class Dashboard
     Button view_history_button;
     @FXML
     Button total_button;
+    Alert alert;
     public void show(String user)
     {
         user_name.setText(user);
     }
     public void signOut(ActionEvent event) throws IOException
     {
-        ((Node)event.getSource()).getScene().getWindow().hide();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Logout !", ButtonType.YES,ButtonType.NO);
+        alert.showAndWait();
+        // confirmation for the long out
+        if(alert.getResult() == ButtonType.YES)
+        {
+            ((Node)event.getSource()).getScene().getWindow().hide();
+            Stage primaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
     }
     public void insert(ActionEvent event) throws IOException
     {

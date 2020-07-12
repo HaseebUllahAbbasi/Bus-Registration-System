@@ -34,7 +34,7 @@ public class Insertion implements Initializable
     ComboBox bus_box;
     @FXML
     Button back_butt;
-
+    Alert alert;
 
     @FXML
     private ComboBox<String> rout_box;
@@ -42,7 +42,8 @@ public class Insertion implements Initializable
     private ObservableList<String> dbTypeList = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
     private ObservableList<String> dbTypeList2 = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         rout_box.setItems(dbTypeList);
         bus_box.setItems(dbTypeList2);
     }
@@ -60,30 +61,51 @@ public class Insertion implements Initializable
     }
     public void  insert(ActionEvent ae) throws SQLException
     {
-        /* These are just useless comments added to the insertion class*/
         Connection connection = null;
         Statement statement = null;
 
-
-
         try
         {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
+
             /*This statements needs to be improved, */
-            statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-            System.out.println("Name : "+name.getText());
-            System.out.println("Cnic : "+cnic.getText());
-            System.out.println("Issue Date : "+date_id.getValue());
-            System.out.println("Name : "+bus_box.getValue());
-            System.out.println("Name : "+rout_box.getValue());
-            //ResultSet resultSet = statement.getResultSet();
+            /*
+            what kind of improvements
+             */
+
+            //statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+
+            /**
+             * this data is printed in order to check the insertion in database
+             */
+
+            {
+                System.out.println("Name : " + name.getText());
+                System.out.println("Cnic : " + cnic.getText());
+                System.out.println("Issue Date : " + date_id.getValue());
+                System.out.println("Name : " + bus_box.getValue());
+                System.out.println("Name : " + rout_box.getValue());
+                //ResultSet resultSet = statement.getResultSet();
+
+                //  Alert as confirmation that data is inserted
+                alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Book Seat !",ButtonType.YES,ButtonType.NO);
+                alert.showAndWait();
+                if(alert.getResult() == ButtonType.YES)
+                {
+                    statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+                    alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Book !",ButtonType.OK);
+                    alert.showAndWait();
+                }
+
+            }
 
         }
         catch (SQLException throwables)
         {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"ERROR ACCURED!",ButtonType.OK);
+
+            alert = new Alert(Alert.AlertType.ERROR,"ERROR OCCURRED !",ButtonType.OK);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.OK) {
@@ -99,6 +121,5 @@ public class Insertion implements Initializable
                 connection.close();
             }
         }
-
     }
 }

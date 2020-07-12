@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Insertion">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="375.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TextField fx:id="cnic" layoutX="327.0" layoutY="125.0" prefHeight="25.0" prefWidth="157.0" promptText="45XXXXXXXXXXX" />
+            <DatePicker fx:id="date_id" layoutX="327.0" layoutY="174.0" prefHeight="25.0" prefWidth="157.0" />
+            <Label layoutX="180.0" layoutY="75.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="179.0" layoutY="124.0" text="CNIC">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="181.0" layoutY="173.0" text="Date">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="rout_box" editable="true" layoutX="331.0" layoutY="230.0" prefWidth="150.0" promptText="None" />
+            <Label layoutX="180.0" layoutY="229.0" text="Route">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="bus_box" editable="true" layoutX="330.0" layoutY="278.0" prefWidth="150.0" promptText="None" />
+            <Label layoutX="180.0" layoutY="277.0" text="View Buses">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="back_butt" layoutX="547.0" layoutY="330.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="79.0" text="Back">
+               <font>
+                  <Font name="Calisto MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="book_butt" layoutX="243.0" layoutY="329.0" mnemonicParsing="false" onAction="#insert" prefHeight="48.0" prefWidth="131.0" text=" Book Seats">
+               <font>
+                  <Font name="Calisto MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <TextField fx:id="name" layoutX="326.0" layoutY="76.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
+            <Label layoutX="218.0" layoutY="20.0" text="Registration Form">
+               <font>
+                  <Font name="Wingdings 2" size="22.0" />
+               </font>
+            </Label>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
