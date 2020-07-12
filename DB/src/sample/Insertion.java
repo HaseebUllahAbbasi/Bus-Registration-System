@@ -32,7 +32,6 @@ public class Insertion implements Initializable
     DatePicker date_id;
     @FXML
     ComboBox bus_box;
-
     @FXML
     Button back_butt;
 

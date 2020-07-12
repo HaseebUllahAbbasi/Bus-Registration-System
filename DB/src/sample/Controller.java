@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.input.*;
 
 public class Controller
 {
@@ -51,7 +52,7 @@ public class Controller
                     FXMLLoader loader = new FXMLLoader();
                     Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
-                    Dashboard dashboard = (Dashboard)loader.getController();
+                    Dashboard dashboard = loader.getController();
                     dashboard.show(resultSet.getString("id"));
 
                     Scene scene = new Scene(root);
@@ -71,6 +72,7 @@ public class Controller
         {
             if (connection!=null)
             {
+                assert statement != null;
                 statement.close();
                 connection.close();
             }
