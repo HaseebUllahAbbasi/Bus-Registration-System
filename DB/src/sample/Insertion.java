@@ -19,18 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.io.IOException;
-import java.sql.*;
-import java.sql.ResultSet;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.control.*;
 
 
 public class Insertion implements Initializable
@@ -84,7 +73,7 @@ public class Insertion implements Initializable
             connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             /*This statements needs to be improved, */
-            statement.execute("INSERT INTO [Customer](CusName,Cnic,IssueDate,Rout,Bus) VALUES ("+name.getText()+","+cnic.getText()+","+date_id.getValue()+","+bus_box.getValue()+","+rout_box.getValue()+")");
+            statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
             System.out.println("Name : "+name.getText());
             System.out.println("Name : "+cnic.getText());
             System.out.println("Name : "+date_id.getValue());
@@ -95,6 +84,12 @@ public class Insertion implements Initializable
         }
         catch (SQLException throwables)
         {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"ERROR ACCURED!",ButtonType.OK);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.OK) {
+                System.out.println("Dialogue box clicked!");
+            }
             System.out.println(throwables.getMessage());
         }
         finally
