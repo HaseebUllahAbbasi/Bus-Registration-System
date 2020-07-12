@@ -27,6 +27,7 @@ public class Controller
     @FXML
     Button login_button;
     Alert alert;
+    int user_found = 0;
     public void Login_button_method(ActionEvent event) throws SQLException
     {
 
@@ -53,6 +54,8 @@ public class Controller
                         //Printed in order to check the whether the user  is same or not
                         System.out.println(resultSet.getString("id") + "\t" + resultSet.getString("password"));
 
+                        user_found++;
+
                     /*
                     Code for the new Screen
                     Started
@@ -78,6 +81,12 @@ public class Controller
                     */
                     }
                 }
+                //
+                if(user_found==0)
+                {
+                    alert = new Alert(Alert.AlertType.ERROR,"Please Enter Correct User Name and Password  ", ButtonType.OK);
+                    alert.showAndWait();
+                }
             }
             catch (SQLException | IOException throwable)
             {
@@ -92,6 +101,7 @@ public class Controller
                     connection.close();
                 }
             }
+
         }
     }
 }
