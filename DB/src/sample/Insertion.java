@@ -75,8 +75,8 @@ public class Insertion implements Initializable
             /*This statements needs to be improved, */
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
             System.out.println("Name : "+name.getText());
-            System.out.println("Name : "+cnic.getText());
-            System.out.println("Name : "+date_id.getValue());
+            System.out.println("Cnic : "+cnic.getText());
+            System.out.println("Issue Date : "+date_id.getValue());
             System.out.println("Name : "+bus_box.getValue());
             System.out.println("Name : "+rout_box.getValue());
             //ResultSet resultSet = statement.getResultSet();

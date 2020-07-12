@@ -6,72 +6,33 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Insertion">
   <children>
-    <MenuBar prefHeight="25.0" prefWidth="705.0" VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="375.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextField fx:id="cnic" layoutX="321.0" layoutY="102.0" prefHeight="25.0" prefWidth="157.0" promptText="45XXXXXXXXXXX" />
-            <DatePicker fx:id="date_id" layoutX="321.0" layoutY="151.0" prefHeight="25.0" prefWidth="157.0" />
-            <Label layoutX="180.0" layoutY="52.0" text="Name">
+            <TextField fx:id="cnic" layoutX="327.0" layoutY="125.0" prefHeight="25.0" prefWidth="157.0" promptText="45XXXXXXXXXXX" />
+            <DatePicker fx:id="date_id" layoutX="327.0" layoutY="174.0" prefHeight="25.0" prefWidth="157.0" />
+            <Label layoutX="180.0" layoutY="75.0" text="Name">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="178.0" layoutY="102.0" text="CNIC">
+            <Label layoutX="179.0" layoutY="124.0" text="CNIC">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="180.0" layoutY="150.0" text="DOB">
+            <Label layoutX="181.0" layoutY="173.0" text="Date">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="rout_box" editable="true" layoutX="325.0" layoutY="207.0" prefWidth="150.0" promptText="None" />
-            <Label layoutX="174.0" layoutY="206.0" text="Route">
+            <ComboBox fx:id="rout_box" editable="true" layoutX="331.0" layoutY="230.0" prefWidth="150.0" promptText="None" />
+            <Label layoutX="180.0" layoutY="229.0" text="Route">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="bus_box" editable="true" layoutX="324.0" layoutY="255.0" prefWidth="150.0" promptText="None" />
-            <Label layoutX="174.0" layoutY="254.0" text="View Buses">
+            <ComboBox fx:id="bus_box" editable="true" layoutX="330.0" layoutY="278.0" prefWidth="150.0" promptText="None" />
+            <Label layoutX="180.0" layoutY="277.0" text="View Buses">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -81,13 +42,13 @@
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="book_butt" layoutX="237.0" layoutY="306.0" mnemonicParsing="false" onAction="#insert" prefHeight="48.0" prefWidth="131.0" text=" Book Seats">
+            <Button fx:id="book_butt" layoutX="243.0" layoutY="329.0" mnemonicParsing="false" onAction="#insert" prefHeight="48.0" prefWidth="131.0" text=" Book Seats">
                <font>
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="name" layoutX="320.0" layoutY="53.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
-            <Label layoutX="239.0" layoutY="7.0" text="Registration Form">
+            <TextField fx:id="name" layoutX="326.0" layoutY="76.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
+            <Label layoutX="218.0" layoutY="20.0" text="Registration Form">
                <font>
                   <Font name="Wingdings 2" size="22.0" />
                </font>
