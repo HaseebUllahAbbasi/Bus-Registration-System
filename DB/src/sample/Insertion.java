@@ -49,15 +49,23 @@ public class Insertion implements Initializable
     }
     public void back(ActionEvent ae) throws IOException
     {
-        ((Node)ae.getSource()).getScene().getWindow().hide();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
+        if(name.getText()!=null||cnic.getText()!=null||date_id.getValue()!=null||bus_box.getValue()!=null||rout_box.getValue()!=null)
+        {
+            alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Go Back !",ButtonType.YES,ButtonType.NO);
+            alert.showAndWait();
+            if(alert.getResult() == ButtonType.YES)
+            {
+                ((Node)ae.getSource()).getScene().getWindow().hide();
+                Stage primaryStage = new Stage();
+                FXMLLoader loader = new FXMLLoader();
+                Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+                Scene scene = new Scene(root);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            }
+        }
     }
     public void  insert(ActionEvent ae) throws SQLException
     {
@@ -71,34 +79,35 @@ public class Insertion implements Initializable
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
-            /*
-            what kind of improvements
-             */
 
-            //statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-
-            /**
-             * this data is printed in order to check the insertion in database
-             */
-
+            if(name.getText().equals("")||cnic.getText().equals("")||date_id.getValue()==null||bus_box.getValue()==null||rout_box.getValue()==null)
             {
+                alert = new Alert(Alert.AlertType.ERROR,"Please Enter the All Required Data  !",ButtonType.OK);
+                alert.showAndWait();
+            }
+            else
+            {
+                //  this data is printed in order to check the insertion in database
+
                 System.out.println("Name : " + name.getText());
                 System.out.println("Cnic : " + cnic.getText());
                 System.out.println("Issue Date : " + date_id.getValue());
-                System.out.println("Name : " + bus_box.getValue());
-                System.out.println("Name : " + rout_box.getValue());
+                System.out.println("bus : " + bus_box.getValue());
+                System.out.println("rout : " + rout_box.getValue());
                 //ResultSet resultSet = statement.getResultSet();
 
                 //  Alert as confirmation that data is inserted
                 alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Book Seat !",ButtonType.YES,ButtonType.NO);
                 alert.showAndWait();
+
+                //alert at the point
                 if(alert.getResult() == ButtonType.YES)
                 {
                     statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+
                     alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Book !",ButtonType.OK);
                     alert.showAndWait();
                 }
-
             }
 
         }
