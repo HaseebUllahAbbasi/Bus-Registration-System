@@ -8,10 +8,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.input.*;
+
+import javax.swing.*;
 
 public class Controller
 {
@@ -21,61 +26,82 @@ public class Controller
     TextField pass_word;
     @FXML
     Button login_button;
-    public void Login_button_method(ActionEvent event) throws SQLException //throws SQLException
+    Alert alert;
+    int user_found = 0;
+    public void Login_button_method(ActionEvent event) throws SQLException
     {
 
-        Connection connection = null;
-        Statement statement = null;
-
-
-
-        try
+        if(user_name.getText().equals("")||pass_word.getText().equals(""))
         {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
-            statement = connection.createStatement();
-            statement.execute("Select * from [Admin]");
-            ResultSet resultSet = statement.getResultSet();
-            while (resultSet.next())
+            alert = new Alert(Alert.AlertType.ERROR,"Please Enter  User Name and Password  ", ButtonType.OK);
+            alert.showAndWait();
+        }
+        else
+        {
+            Connection connection = null;
+            Statement statement = null;
+            try
             {
-                if(user_name.getText().equalsIgnoreCase(resultSet.getString("id")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
+                connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+                //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+                statement = connection.createStatement();
+                statement.execute("Select * from [Admin]");
+                ResultSet resultSet = statement.getResultSet();
+                while (resultSet.next())
                 {
-                    //Printed in order to check the whether the user  is same or not
-                    System.out.println(resultSet.getString("id")+"\t"+resultSet.getString("password"));
+                    if (user_name.getText().equalsIgnoreCase(resultSet.getString("id")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
+                    {
+                        //Printed in order to check the whether the user  is same or not
+                        System.out.println(resultSet.getString("id") + "\t" + resultSet.getString("password"));
+
+                        user_found++;
+
                     /*
                     Code for the new Screen
+                    Started
                      */
 
-                    ((Node)event.getSource()).getScene().getWindow().hide();
-                    Stage primaryStage = new Stage();
-                    FXMLLoader loader = new FXMLLoader();
-                    Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+                        alert = new Alert(Alert.AlertType.INFORMATION,user_name.getText()+" has Logged In ", ButtonType.OK);
+                        alert.showAndWait();
 
-                    Dashboard dashboard = (Dashboard)loader.getController();
-                    dashboard.show(resultSet.getString("id"));
+                        ((Node) event.getSource()).getScene().getWindow().hide();
+                        Stage primaryStage = new Stage();
+                        FXMLLoader loader = new FXMLLoader();
+                        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
-                    Scene scene = new Scene(root);
-                    primaryStage.setScene(scene);
-                    primaryStage.show();
+                        Dashboard dashboard = loader.getController();
+                        dashboard.show(resultSet.getString("id"));
+
+                        Scene scene = new Scene(root);
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+
                     /*
                     Code for the new Screen Ended
-                     */
-               }
+                    */
+                    }
+                }
+                //
+                if(user_found==0)
+                {
+                    alert = new Alert(Alert.AlertType.ERROR,"Please Enter Correct User Name and Password  ", ButtonType.OK);
+                    alert.showAndWait();
+                }
             }
-        }
-        catch (SQLException | IOException throwables)
-        {
-            throwables.printStackTrace();
-        }
-        finally
-        {
-            if (connection!=null)
+            catch (SQLException | IOException throwable)
             {
-                statement.close();
-                connection.close();
+                throwable.printStackTrace();
             }
+            finally
+            {
+                if (connection != null)
+                {
+                    assert statement != null;
+                    statement.close();
+                    connection.close();
+                }
+            }
+
         }
-
-
     }
 }
