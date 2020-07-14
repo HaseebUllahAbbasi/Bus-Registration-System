@@ -2,17 +2,19 @@
 
 ## Project Proposal:
 Bus Registration System
-Project Overview:
+
+## Project Overview:
+```
 The bus registration system is designed to keep track of information of the
 administration, customer and price.
-
+```
 ## Project Description:
-
+```
 The bus registration system allows only authentic registration by the only
 administrators. Administrators can book seats ,modify customer record , delete
 any customer record and can view the availability of seats in a particular routed
 bus. It can also be used in transport organization globally.
-
+```
 ## Purpose Of The Project:
 ```
 The bus registration system maintains the record each customer information
@@ -41,11 +43,13 @@ The construction of this new system encircle the following activities, which try
 automate the entire process with respect to the view of database integration
 approach.
 • System retains the backup of data in case of any system failure.
-• System provides rich user interface which provide ease of access to the users, and maintains user friendliness through interactive tools in a system.
+• System provides rich user interface which provide ease of access to the users, 
+  and maintains user friendliness through interactive tools in a system.
 • The system makes the overall project management much easier and flexible.
 • The student information can be stored in centralized database which can be maintained by the system.
 • System maintains data security and guarantees its safety.
-• Authentication is provided for this project through which only certain enrolled /registered bus administrator can access and manipulate data,
+• Authentication is provided for this project through which only certain enrolled /registered 
+  bus administrator can access and manipulate data,
 • while customers are only allowed to view the data but are not authorized to manipulate it.
 • Administrator can rollback or retrieve the previous data from the stored backup database.
 ```
