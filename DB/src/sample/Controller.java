@@ -28,8 +28,10 @@ public class Controller
     Button login_button;
     @FXML
     Button new_user_button;
+
     Alert alert;
     int user_found = 0;
+
     public void new_user_button_method(ActionEvent event) throws IOException
     {
         ((Node) event.getSource()).getScene().getWindow().hide();
@@ -83,7 +85,7 @@ public class Controller
                         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
                         Dashboard dashboard = loader.getController();
-                        dashboard.show(resultSet.getString("id"));
+                        dashboard.show(resultSet.getString("name"));
 
                         Scene scene = new Scene(root);
                         primaryStage.setScene(scene);

@@ -35,6 +35,11 @@ public class Insertion implements Initializable
     @FXML
     Button back_butt;
     Alert alert;
+    String User_Label;
+    public void show(String user)
+    {
+        this.User_Label = user;
+    }
 
     @FXML
     private ComboBox<String> rout_box;
@@ -54,6 +59,9 @@ public class Insertion implements Initializable
                 Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+
+                Dashboard dashboard = loader.getController();
+                dashboard.show(User_Label);
 
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);

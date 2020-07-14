@@ -1,5 +1,4 @@
 package sample;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 public class New_User
 {
     @FXML
@@ -41,18 +38,24 @@ public class New_User
     }
     public void register_method()
     {
-        if (name.getText().equals("") || name.getText().equals("") || passwordField.getText().equals("")) {
+        //if fields are empty then user is alerted
+        if (name.getText().equals("") || name.getText().equals("") || passwordField.getText().equals(""))
+        {
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter the All Required Data !", ButtonType.OK);
             alert.showAndWait();
-        } else if (passwordField.getText().length() < 5) {
+        }
+        //if password length is less then 5 then alert
+        else if (passwordField.getText().length() < 5)
+        {
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter with more than four letters !", ButtonType.OK);
             alert.showAndWait();
         }
-        else {
+        else
+            {
             Connection connection = null;
             Statement statement = null;
-
-            try {
+            try
+            {
                 connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
                 //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
                 statement = connection.createStatement();
@@ -66,9 +69,6 @@ public class New_User
                 alert = new Alert(Alert.AlertType.ERROR, "Error Occurred in Entering New User !", ButtonType.OK);
                 alert.showAndWait();
             }
-
         }
     }
-
-
 }

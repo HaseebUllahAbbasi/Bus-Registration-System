@@ -32,8 +32,10 @@ public class Dashboard
     @FXML
     Button total_button;
     Alert alert;
+    String User_Label;
     public void show(String user)
     {
+        this.User_Label = user;
         user_name.setText(user);
     }
     public void signOut(ActionEvent event) throws IOException
@@ -59,6 +61,8 @@ public class Dashboard
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
         
+        Insertion insertion = loader.getController();
+        insertion.show(User_Label);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
