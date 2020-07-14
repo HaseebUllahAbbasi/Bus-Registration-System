@@ -39,23 +39,17 @@ public class Insertion implements Initializable
     @FXML
     private ComboBox<String> rout_box;
 
-    private ObservableList<String> dbTypeList = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
-    private ObservableList<String> dbTypeList2 = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
+    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
+    private ObservableList<String> buses = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        rout_box.setItems(dbTypeList);
-        bus_box.setItems(dbTypeList2);
+        rout_box.setItems(cities);
+        bus_box.setItems(buses);
     }
     public void back(ActionEvent ae) throws IOException
     {
 
-        if(name.getText()!=null||cnic.getText()!=null||date_id.getValue()!=null||bus_box.getValue()!=null||rout_box.getValue()!=null)
-        {
-            alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Go Back !",ButtonType.YES,ButtonType.NO);
-            alert.showAndWait();
-            if(alert.getResult() == ButtonType.YES)
-            {
                 ((Node)ae.getSource()).getScene().getWindow().hide();
                 Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
@@ -64,8 +58,7 @@ public class Insertion implements Initializable
                 Scene scene = new Scene(root);
                 primaryStage.setScene(scene);
                 primaryStage.show();
-            }
-        }
+
     }
     public void  insert(ActionEvent ae) throws SQLException
     {
@@ -96,18 +89,12 @@ public class Insertion implements Initializable
                 System.out.println("rout : " + rout_box.getValue());
                 //ResultSet resultSet = statement.getResultSet();
 
-                //  Alert as confirmation that data is inserted
-                alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Book Seat !",ButtonType.YES,ButtonType.NO);
-                alert.showAndWait();
 
                 //alert at the point
-                if(alert.getResult() == ButtonType.YES)
-                {
-                    statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+                statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
 
-                    alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Book !",ButtonType.OK);
-                    alert.showAndWait();
-                }
+                alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Book !",ButtonType.OK);
+                alert.showAndWait();
             }
 
         }

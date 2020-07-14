@@ -26,8 +26,21 @@ public class Controller
     TextField pass_word;
     @FXML
     Button login_button;
+    @FXML
+    Button new_user_button;
     Alert alert;
     int user_found = 0;
+    public void new_user_button_method(ActionEvent event) throws IOException
+    {
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("new_user.fxml").openStream());
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
     public void Login_button_method(ActionEvent event) throws SQLException
     {
 
