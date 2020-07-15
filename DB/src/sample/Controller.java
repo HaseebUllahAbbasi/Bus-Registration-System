@@ -76,7 +76,7 @@ public class Controller
                     Started
                      */
 
-                        alert = new Alert(Alert.AlertType.INFORMATION,user_name.getText()+" has Logged In ", ButtonType.OK);
+                        alert = new Alert(Alert.AlertType.INFORMATION,resultSet.getString("name")+" has Logged In ", ButtonType.OK);
                         alert.showAndWait();
 
                         ((Node) event.getSource()).getScene().getWindow().hide();

@@ -73,8 +73,11 @@ public class Dashboard
         ((Node)event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("search_vehicles.fxml").openStream());
-        
+        Pane root = loader.load(getClass().getResource("search.fxml").openStream());
+
+        Search search = loader.getController();
+        search.show(User_Label);
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -91,7 +94,5 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
 
-    
 }
