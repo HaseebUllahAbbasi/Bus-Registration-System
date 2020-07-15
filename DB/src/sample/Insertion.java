@@ -24,16 +24,11 @@ import javafx.scene.control.*;
 
 public class Insertion implements Initializable
 {
-    @FXML
-    TextField name;
-    @FXML
-    TextField cnic;
-    @FXML
-    DatePicker date_id;
-    @FXML
-    ComboBox bus_box;
-    @FXML
-    Button back_butt;
+    @FXML TextField name;
+    @FXML TextField cnic;
+    @FXML DatePicker date_id;
+    @FXML ComboBox bus_box;
+    @FXML Button back_butt;
     Alert alert;
     String User_Label;
     public void show(String user)
@@ -41,8 +36,7 @@ public class Insertion implements Initializable
         this.User_Label = user;
     }
 
-    @FXML
-    private ComboBox<String> rout_box;
+    @FXML private ComboBox<String> rout_box;
 
     private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
     private ObservableList<String> buses = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");

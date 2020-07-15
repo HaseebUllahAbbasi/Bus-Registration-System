@@ -20,14 +20,10 @@ import javax.swing.*;
 
 public class Controller
 {
-    @FXML
-    TextField user_name;
-    @FXML
-    TextField pass_word;
-    @FXML
-    Button login_button;
-    @FXML
-    Button new_user_button;
+    @FXML TextField user_name;
+    @FXML TextField pass_word;
+    @FXML Button login_button;
+    @FXML Button new_user_button;
 
     Alert alert;
     int user_found = 0;

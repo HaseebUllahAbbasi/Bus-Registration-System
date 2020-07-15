@@ -114,7 +114,6 @@ public class Delete implements Initializable
             {
                 alert = new Alert(Alert.AlertType.WARNING,"NOT Found any One with "+search_text_field.getText(), ButtonType.OK);
                 alert.showAndWait();
-
             }
             else if(user_found>0)
             {
@@ -137,10 +136,13 @@ public class Delete implements Initializable
         }
 
     }
-    public void click()
+    public void click(javafx.scene.input.MouseEvent mouseEvent)
     {
-        Customer item = tableView.getFocusModel().getFocusedItem();
-        this.to_be_del = item;
+        if(mouseEvent.getClickCount()==2)
+        {
+            Customer item = tableView.getFocusModel().getFocusedItem();
+            this.to_be_del = item;
+        }
     }
     public void delete()
     {

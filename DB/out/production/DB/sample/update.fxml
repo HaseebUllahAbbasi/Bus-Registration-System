@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Update">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="966.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="9.0" layoutY="12.0" text="Name/CNIC">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="choice_box" editable="true" layoutX="315.0" layoutY="11.0" prefHeight="26.0" prefWidth="128.0" promptText="None" />
+            <Button layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#search" prefHeight="33.0" prefWidth="104.0" text="Search">
+               <font>
+                  <Font name="Calisto MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="568.0" layoutY="8.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="128.0" text="Update">
+               <font>
+                  <Font name="Calisto MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <TextField fx:id="search_text_field" layoutX="144.0" layoutY="11.0" prefHeight="25.0" prefWidth="157.0" promptText="Name/45#######" />
+            <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="53.0" onMouseClicked="#click" prefHeight="347.0" prefWidth="652.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="53.0">
+              <columns>
+                <TableColumn fx:id="name" prefWidth="148.0" resizable="false" text="name" />
+                <TableColumn fx:id="cnic" minWidth="0.0" prefWidth="161.0" resizable="false" text="cnic" />
+                  <TableColumn fx:id="route" minWidth="0.0" prefWidth="179.0" resizable="false" text="route" />
+                  <TableColumn fx:id="bus" minWidth="0.0" prefWidth="164.0" resizable="false" text="bus" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </TableView>
+            <Button layoutX="712.0" layoutY="8.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="128.0" text="Back">
+               <font>
+                  <Font name="Calisto MT Bold" size="17.0" />
+               </font>
+            </Button>
+            <TextField fx:id="name_field" layoutX="698.0" layoutY="61.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
+            <TextField fx:id="cnic_field" layoutX="698.0" layoutY="122.0" prefHeight="25.0" prefWidth="157.0" promptText="45#######" />
+             <ComboBox fx:id="buses" editable="true" layoutX="701.0" layoutY="193.0" prefWidth="150.0" promptText="None" />
+             <ComboBox fx:id="routes" editable="true" layoutX="702.0" layoutY="272.0" prefWidth="150.0" promptText="None" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

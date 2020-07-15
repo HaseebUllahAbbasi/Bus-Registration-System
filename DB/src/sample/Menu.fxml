@@ -59,7 +59,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="edit_button" layoutX="265.0" layoutY="172.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="169.0" text="update customer record">
+      <Button fx:id="edit_button" layoutX="265.0" layoutY="172.0" mnemonicParsing="false" onAction="#update_date" prefHeight="50.0" prefWidth="169.0" text="update customer record">
          <font>
             <Font size="17.0" />
          </font>

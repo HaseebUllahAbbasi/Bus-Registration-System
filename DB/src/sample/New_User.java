@@ -14,18 +14,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 public class New_User
 {
-    @FXML
-    TextField name;
-    @FXML
-    TextField cnic;
-    @FXML
-    PasswordField passwordField;
-    @FXML
-    Alert alert;
-    @FXML
-    Button login_screen;
-    @FXML
-    Button new_user;
+    @FXML TextField name;
+    @FXML TextField cnic;
+    @FXML PasswordField passwordField;
+    @FXML Alert alert;
+    @FXML Button login_screen;
+    @FXML Button new_user;
     public void back_to_login(ActionEvent event) throws IOException
     {
         ((Node)event.getSource()).getScene().getWindow().hide();

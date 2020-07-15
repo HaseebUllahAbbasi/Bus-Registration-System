@@ -14,23 +14,14 @@ import javafx.stage.Stage;
 
 public class Dashboard
 {
-    @FXML
-    Button sign_out;
-    @FXML
-    Label user_name;
-
-    @FXML
-    Button insert_button;
-    @FXML
-    Button edit_button;
-    @FXML
-    Button search_button;
-    @FXML
-    Button remove_button;
-    @FXML
-    Button view_history_button;
-    @FXML
-    Button total_button;
+    @FXML Button sign_out;
+    @FXML Label user_name;
+    @FXML Button insert_button;
+    @FXML Button edit_button;
+    @FXML Button search_button;
+    @FXML Button remove_button;
+    @FXML Button view_history_button;
+    @FXML Button total_button;
     Alert alert;
     String User_Label;
     public void show(String user)
@@ -96,5 +87,18 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    public void update_date(ActionEvent event) throws IOException
+    {
 
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("update.fxml").openStream());
+
+        Update update = loader.getController();
+        update.show(User_Label);
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }

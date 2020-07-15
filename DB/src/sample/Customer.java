@@ -1,7 +1,5 @@
 package sample;
-
 import javafx.beans.property.SimpleStringProperty;
-
 public class Customer
 {
     SimpleStringProperty name;
@@ -61,5 +59,15 @@ public class Customer
 
     public void setBus(String bus) {
         this.bus.set(bus);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name=" + name +
+                ", cnic=" + cnic +
+                ", route=" + route +
+                ", bus=" + bus +
+                '}';
     }
 }

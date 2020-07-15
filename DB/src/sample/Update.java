@@ -18,9 +18,12 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-
-public class Search implements Initializable
+public class Update implements Initializable
 {
+    @FXML TextField name_field;
+    @FXML TextField cnic_field;
+    @FXML ComboBox<String> buses;
+    @FXML ComboBox<String> routes;
     @FXML TextField search_text_field;
     String User_Label;
     @FXML private ComboBox<String> choice_box;
@@ -30,11 +33,15 @@ public class Search implements Initializable
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
     int user_found = 0;
+    Customer to_be_updated;
     Alert alert;
     private final ObservableList<Customer> data
             = FXCollections.observableArrayList();
 
     private ObservableList<String> choice = FXCollections.observableArrayList("Name","CNIC");
+    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
+    private ObservableList<String> bus_list = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
+
     public void show(String user)
     {
         this.User_Label = user;
@@ -48,7 +55,8 @@ public class Search implements Initializable
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
         choice_box.setItems(choice);
-
+        buses.setItems(bus_list);
+        routes.setItems(cities);
     }
     public void back(ActionEvent ae) throws IOException
     {
@@ -64,7 +72,7 @@ public class Search implements Initializable
                 primaryStage.setScene(scene);
                 primaryStage.show();
     }
-    public void search_data(ActionEvent ae) throws SQLException
+    public void search(ActionEvent ae) throws SQLException
     {
         if(search_text_field.getText().equals("")||choice_box.getValue().equals(""))
         {
@@ -80,6 +88,7 @@ public class Search implements Initializable
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
+
             statement.execute("Select * from [Customer]");
             ResultSet resultSet = statement.getResultSet();
 
@@ -103,15 +112,18 @@ public class Search implements Initializable
                         user_found++;
                     }
                 }
+
             }
             if(user_found==0)
             {
                 alert = new Alert(Alert.AlertType.WARNING,"NOT Found any One with "+search_text_field.getText(), ButtonType.OK);
                 alert.showAndWait();
+
             }
             else if(user_found>0)
             {
                 tableView.setItems(data);
+
             }
         }
         catch (SQLException throwable)
@@ -126,6 +138,59 @@ public class Search implements Initializable
                 statement.close();
                 connection.close();
             }
+        }
+
+    }
+  //  public void click(MouseEvent event)
+    //{
+
+
+    //}
+    public void update()
+    {
+        if(to_be_updated.getCnic()==null)
+        {
+            alert = new Alert(Alert.AlertType.WARNING,"Please Search and Then Select any Row to Update", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+        alert = new Alert(Alert.AlertType.WARNING,"Do You Really Want to Update ", ButtonType.YES,ButtonType.NO);
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.NO)
+        {
+            return;
+        }
+        Connection connection = null;
+        Statement statement = null;
+        try
+        {
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            statement = connection.createStatement();
+
+            statement.execute("UPDATE Customer\n" +
+                    "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"', Rout = '"+ routes.getValue()+"', Bus = '"+ buses.getValue()+"' \n" +
+                    "WHERE Cnic = "+ to_be_updated.getCnic()+";");
+
+            alert = new Alert(Alert.AlertType.WARNING,"User With  "+ to_be_updated.getCnic()+" CNINC is Updated", ButtonType.OK);
+            alert.showAndWait();
+
+        }
+        catch (SQLException sqlException)
+        {
+            sqlException.printStackTrace();
+        }
+    }
+
+    public void click(javafx.scene.input.MouseEvent mouseEvent)
+    {
+        if(mouseEvent.getClickCount()==2)
+        {
+            Customer item = tableView.getFocusModel().getFocusedItem();
+            this.to_be_updated = item;
+            System.out.println(to_be_updated);
+            cnic_field.setText(to_be_updated.getCnic());
+            name_field.setText(to_be_updated.getName());
         }
     }
 }
