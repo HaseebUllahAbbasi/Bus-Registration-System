@@ -69,7 +69,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="remove_button" layoutX="265.0" layoutY="233.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="169.0" text="remove customer record">
+      <Button fx:id="remove_button" layoutX="265.0" layoutY="233.0" mnemonicParsing="false" onAction="#remove_data" prefHeight="50.0" prefWidth="169.0" text="remove customer record">
          <font>
             <Font size="17.0" />
          </font>

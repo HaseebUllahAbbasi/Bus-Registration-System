@@ -88,8 +88,10 @@ public class Dashboard
         ((Node)event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("remove_Vehicle.fxml").openStream());
+        Pane root = loader.load(getClass().getResource("delete.fxml").openStream());
 
+        Delete delete = loader.getController();
+        delete.show(User_Label);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
