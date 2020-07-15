@@ -112,18 +112,15 @@ public class Update implements Initializable
                         user_found++;
                     }
                 }
-
             }
             if(user_found==0)
             {
                 alert = new Alert(Alert.AlertType.WARNING,"NOT Found any One with "+search_text_field.getText(), ButtonType.OK);
                 alert.showAndWait();
-
             }
             else if(user_found>0)
             {
                 tableView.setItems(data);
-
             }
         }
         catch (SQLException throwable)
@@ -139,18 +136,12 @@ public class Update implements Initializable
                 connection.close();
             }
         }
-
     }
-  //  public void click(MouseEvent event)
-    //{
-
-
-    //}
     public void update()
     {
-        if(to_be_updated.getCnic()==null)
+        if(to_be_updated.getCnic()==null||name_field.getText().equals("") || cnic_field.getText().equals(""))
         {
-            alert = new Alert(Alert.AlertType.WARNING,"Please Search and Then Select any Row to Update", ButtonType.OK);
+            alert = new Alert(Alert.AlertType.WARNING,"Please Search and Then Write new Changes to Update", ButtonType.OK);
             alert.showAndWait();
             return;
         }
@@ -181,7 +172,6 @@ public class Update implements Initializable
             sqlException.printStackTrace();
         }
     }
-
     public void click(javafx.scene.input.MouseEvent mouseEvent)
     {
         if(mouseEvent.getClickCount()==2)

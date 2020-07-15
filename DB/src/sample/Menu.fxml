@@ -75,7 +75,7 @@
          </font>
       </Button>
       <Button fx:id="sign_out" layoutX="540.0" layoutY="180.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
-      <Button fx:id="view_history_button" layoutX="31.0" layoutY="301.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="169.0" text="View all record">
+      <Button fx:id="view_history_button" layoutX="31.0" layoutY="301.0" mnemonicParsing="false" onAction="#view_data" prefHeight="50.0" prefWidth="169.0" text="View all record">
          <font>
             <Font size="17.0" />
          </font>

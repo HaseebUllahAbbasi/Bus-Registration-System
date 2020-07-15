@@ -89,7 +89,6 @@ public class Dashboard
     }
     public void update_date(ActionEvent event) throws IOException
     {
-
         ((Node)event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
@@ -101,4 +100,18 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    public void view_data(ActionEvent event) throws IOException
+    {
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("view.fxml").openStream());
+
+        View view = loader.getController();
+        view.show(User_Label);
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 }
