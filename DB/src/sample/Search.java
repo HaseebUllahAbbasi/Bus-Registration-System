@@ -61,6 +61,7 @@ public class Search implements Initializable
                 dashboard.show(User_Label);
 
                 Scene scene = new Scene(root);
+                primaryStage.setTitle("DashBoard");
                 primaryStage.setScene(scene);
                 primaryStage.show();
     }

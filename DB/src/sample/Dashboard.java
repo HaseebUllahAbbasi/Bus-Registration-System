@@ -41,6 +41,8 @@ public class Dashboard
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
             Scene scene = new Scene(root);
+
+            primaryStage.setTitle("Login Screen");
             primaryStage.setScene(scene);
             primaryStage.show();
         }
@@ -56,6 +58,8 @@ public class Dashboard
         insertion.show(User_Label);
 
         Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Seat Booking");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -70,6 +74,8 @@ public class Dashboard
         search.show(User_Label);
 
         Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Search Record");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -84,6 +90,8 @@ public class Dashboard
         Delete delete = loader.getController();
         delete.show(User_Label);
         Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Delete Record");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -97,6 +105,8 @@ public class Dashboard
         Update update = loader.getController();
         update.show(User_Label);
         Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Update Record");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -110,6 +120,8 @@ public class Dashboard
         View view = loader.getController();
         view.show(User_Label);
         Scene scene = new Scene(root);
+
+        primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

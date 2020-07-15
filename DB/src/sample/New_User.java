@@ -27,6 +27,7 @@ public class New_User
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
         Scene scene = new Scene(root);
+        primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

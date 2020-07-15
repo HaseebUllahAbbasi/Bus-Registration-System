@@ -35,8 +35,7 @@ public class Update implements Initializable
     int user_found = 0;
     Customer to_be_updated;
     Alert alert;
-    private final ObservableList<Customer> data
-            = FXCollections.observableArrayList();
+    private final ObservableList<Customer> data = FXCollections.observableArrayList();
 
     private ObservableList<String> choice = FXCollections.observableArrayList("Name","CNIC");
     private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
@@ -69,7 +68,8 @@ public class Update implements Initializable
                 dashboard.show(User_Label);
 
                 Scene scene = new Scene(root);
-                primaryStage.setScene(scene);
+            primaryStage.setTitle("DashBoard");
+        primaryStage.setScene(scene);
                 primaryStage.show();
     }
     public void search(ActionEvent ae) throws SQLException
