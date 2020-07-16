@@ -35,5 +35,10 @@
             <Font name="System Bold" size="31.0" />
          </font>
       </Label>
+      <Button fx:id="bkbtn1" layoutX="255.0" layoutY="350.0" mnemonicParsing="false" onAction="#Bookbtn" prefHeight="36.0" prefWidth="110.0" text="Book Seats">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

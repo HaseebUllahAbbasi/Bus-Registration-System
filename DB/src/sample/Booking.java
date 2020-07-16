@@ -22,6 +22,13 @@ public class Booking implements Initializable {
 
 
     @FXML Button bkbtn;
+    String cnicNum;
+    Alert alert;
+    public void getCnic(String user)
+    {
+        this.cnicNum=user;
+    }
+
     public ArrayList<String> SeatNo = new ArrayList<String>();
     public void toggle_1(ActionEvent event){
         ToggleButton toggl =(ToggleButton)event.getSource();
@@ -35,7 +42,7 @@ public class Booking implements Initializable {
             SeatNo.remove(toggl.getText());
         }
     }
-    public void Bookbtn(ActionEvent event) throws SQLException, IOException {
+    public void Bookbtn(ActionEvent event) throws SQLException {
 
         Connection connection = null;
         Statement statement = null;
@@ -47,17 +54,19 @@ public class Booking implements Initializable {
 
             connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
-            Insertion ob = new Insertion();
-            System.out.println(ob.CNIC);
 
             /*This statements needs to be improved, */
-            for(int i =0 ; i<=SeatNo.size(); i++)
+            for(int i =0 ; i<SeatNo.size(); i++)
             {
-                statement.execute("INSERT INTO seats (Cnic , SeatNo) VALUES ("+ob.cnic+","+Integer.parseInt(SeatNo.get(i).substring(6))+");");
+                String str;
+                str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
+                //System.out.println(Integer.parseInt(cnicNum)+"  "+);
+                statement.execute("INSERT INTO seats (Cnic , SeatNo) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+");");
+
             }
 
-            Alert alert;
-            alert = new Alert(Alert.AlertType.INFORMATION,"Seats is Booked !",ButtonType.OK);
+
+            alert = new Alert(Alert.AlertType.INFORMATION,"Seats are Booked !",ButtonType.OK);
             alert.showAndWait();
 
         }catch (SQLException ax){

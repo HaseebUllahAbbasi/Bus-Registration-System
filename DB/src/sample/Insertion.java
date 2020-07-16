@@ -31,7 +31,6 @@ public class Insertion implements Initializable
     @FXML Button back_butt;
     Alert alert;
     String User_Label;
-    public String CNIC;
     public void show(String user)
     {
         this.User_Label = user;
@@ -47,6 +46,10 @@ public class Insertion implements Initializable
         rout_box.setItems(cities);
         bus_box.setItems(buses);
     }
+    public String getCnic(){
+        return cnic.getText();
+    }
+
     public void back(ActionEvent ae) throws IOException
     {
                 ((Node)ae.getSource()).getScene().getWindow().hide();
@@ -85,13 +88,16 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-            CNIC = cnic.getText();
             alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Booked !",ButtonType.OK);
             alert.showAndWait();
             ((Node)ae.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+            Booking obj = loader.getController();
+            obj.getCnic(cnic.getText());
+
+
             Scene scene = new Scene(root);
             primaryStage.setTitle("Booking");
             primaryStage.setScene(scene);
