@@ -82,9 +82,19 @@ public class Booking implements Initializable {
 
     }
 
-
+    public void Back(ActionEvent event) throws IOException{
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Register Customer");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
 }
