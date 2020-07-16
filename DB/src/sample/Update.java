@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class Update implements Initializable
@@ -26,12 +27,14 @@ public class Update implements Initializable
     @FXML ComboBox<String> routes;
     @FXML TextField search_text_field;
     String User_Label;
+    @FXML DatePicker datePicker;
     @FXML private ComboBox<String> choice_box;
     @FXML private TableView<Customer> tableView;
     @FXML private TableColumn<Customer,String> name;
     @FXML private TableColumn<Customer,String> cnic;
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
+    @FXML private TableColumn<Customer,String> date;
     int user_found = 0;
     Customer to_be_updated;
     Alert alert;
@@ -53,6 +56,8 @@ public class Update implements Initializable
         route.setCellValueFactory(new PropertyValueFactory<>("route"));
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+
         choice_box.setItems(choice);
         buses.setItems(bus_list);
         routes.setItems(cities);
@@ -68,8 +73,8 @@ public class Update implements Initializable
                 dashboard.show(User_Label);
 
                 Scene scene = new Scene(root);
-            primaryStage.setTitle("DashBoard");
-        primaryStage.setScene(scene);
+                primaryStage.setTitle("DashBoard");
+                primaryStage.setScene(scene);
                 primaryStage.show();
     }
     public void search(ActionEvent ae) throws SQLException
@@ -99,7 +104,7 @@ public class Update implements Initializable
                 {
                     if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("CusName")))
                     {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus")));
+                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
                         user_found++;
                     }
                 }
@@ -108,7 +113,7 @@ public class Update implements Initializable
                 {
                     if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("Cnic")))
                     {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus")));
+                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
                         user_found++;
                     }
                 }
@@ -139,7 +144,7 @@ public class Update implements Initializable
     }
     public void update()
     {
-        if(to_be_updated.getCnic()==null||name_field.getText().equals("") || cnic_field.getText().equals(""))
+        if(to_be_updated.getCnic()==null || name_field.getText().equals("") || cnic_field.getText().equals("")||routes.getValue().equals("")||buses.getValue().equals("")||datePicker.getValue()==null)
         {
             alert = new Alert(Alert.AlertType.WARNING,"Please Search and Then Write new Changes to Update", ButtonType.OK);
             alert.showAndWait();
@@ -160,7 +165,7 @@ public class Update implements Initializable
             statement = connection.createStatement();
 
             statement.execute("UPDATE Customer\n" +
-                    "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"', Rout = '"+ routes.getValue()+"', Bus = '"+ buses.getValue()+"' \n" +
+                    "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"', Rout = '"+ routes.getValue()+"', Bus = '"+ buses.getValue()+"', IssueDate = '"+datePicker.getValue()+"' \n" +
                     "WHERE Cnic = "+ to_be_updated.getCnic()+";");
 
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+ to_be_updated.getCnic()+" CNINC is Updated", ButtonType.OK);
@@ -178,9 +183,10 @@ public class Update implements Initializable
         {
             Customer item = tableView.getFocusModel().getFocusedItem();
             this.to_be_updated = item;
-            System.out.println(to_be_updated);
             cnic_field.setText(to_be_updated.getCnic());
             name_field.setText(to_be_updated.getName());
+            buses.setValue(to_be_updated.getBus());
+            routes.setValue(to_be_updated.getRoute());
         }
     }
 }

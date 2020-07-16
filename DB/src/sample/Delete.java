@@ -32,6 +32,7 @@ public class Delete implements Initializable
     @FXML private TableColumn<Customer,String> cnic;
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
+    @FXML private TableColumn<Customer,String> date;
     int user_found = 0;
     Customer to_be_del;
     Alert alert;
@@ -51,6 +52,8 @@ public class Delete implements Initializable
         route.setCellValueFactory(new PropertyValueFactory<>("route"));
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+
         choice_box.setItems(choice);
 
     }
@@ -96,7 +99,7 @@ public class Delete implements Initializable
                 {
                     if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("CusName")))
                     {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus")));
+                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
                         user_found++;
                     }
                 }
@@ -105,7 +108,7 @@ public class Delete implements Initializable
                 {
                     if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("Cnic")))
                     {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus")));
+                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
                         user_found++;
                     }
                 }

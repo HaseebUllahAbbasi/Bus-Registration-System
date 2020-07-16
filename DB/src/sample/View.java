@@ -28,6 +28,7 @@ public class View implements Initializable
     @FXML private TableColumn<Customer,String> cnic;
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
+    @FXML private TableColumn<Customer,String> date;
     int user_found = 0;
     Alert alert;
     private final ObservableList<Customer> data = FXCollections.observableArrayList();
@@ -43,6 +44,7 @@ public class View implements Initializable
         route.setCellValueFactory(new PropertyValueFactory<>("route"));
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
+        date.setCellValueFactory(new PropertyValueFactory<>("cnic"));
 
         Connection connection = null;
         Statement statement = null;
@@ -56,7 +58,7 @@ public class View implements Initializable
             ResultSet resultSet = statement.getResultSet();
             while (resultSet.next())
             {
-                data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus")));
+                data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
                 user_found++;
             }
             if(user_found==0)
