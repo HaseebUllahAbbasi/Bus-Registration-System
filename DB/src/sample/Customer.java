@@ -6,13 +6,15 @@ public class Customer
     SimpleStringProperty cnic;
     SimpleStringProperty route;
     SimpleStringProperty bus;
+    SimpleStringProperty date;
 
-    Customer(String name,String cnic,String route,String bus)
+    Customer(String name,String cnic,String route,String bus,String data)
     {
         this.bus = new SimpleStringProperty(bus);
         this.cnic = new SimpleStringProperty(cnic);
         this.route = new SimpleStringProperty(route);
         this.name = new SimpleStringProperty(name);
+        this.date = new SimpleStringProperty(data);
     }
 
     public String getName() {
@@ -49,6 +51,18 @@ public class Customer
         this.route.set(route);
     }
 
+    public String getDate() {
+        return date.get();
+    }
+
+    public SimpleStringProperty dateProperty() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date.set(date);
+    }
+
     public String getBus() {
         return bus.get();
     }
@@ -61,13 +75,5 @@ public class Customer
         this.bus.set(bus);
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "name=" + name +
-                ", cnic=" + cnic +
-                ", route=" + route +
-                ", bus=" + bus +
-                '}';
-    }
+
 }
