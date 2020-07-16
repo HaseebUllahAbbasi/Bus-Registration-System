@@ -114,4 +114,14 @@ public class Controller
 
         }
     }
+    public void Booking(ActionEvent event) throws IOException {
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Booking");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }
