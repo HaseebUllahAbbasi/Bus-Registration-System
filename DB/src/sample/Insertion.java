@@ -31,6 +31,7 @@ public class Insertion implements Initializable
     @FXML Button back_butt;
     Alert alert;
     String User_Label;
+    public String CNIC;
     public void show(String user)
     {
         this.User_Label = user;
@@ -69,8 +70,9 @@ public class Insertion implements Initializable
 
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
@@ -83,12 +85,21 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-
-            alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Book !",ButtonType.OK);
+            CNIC = cnic.getText();
+            alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Booked !",ButtonType.OK);
             alert.showAndWait();
+            ((Node)ae.getSource()).getScene().getWindow().hide();
+            Stage primaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Booking");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
 
         }
-        catch (SQLException throwables)
+        catch (SQLException | IOException throwables)
         {
 
             alert = new Alert(Alert.AlertType.ERROR,"ERROR OCCURRED !",ButtonType.OK);
