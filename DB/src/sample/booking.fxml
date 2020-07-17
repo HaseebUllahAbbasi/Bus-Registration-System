@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Booking">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Booking">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -42,7 +41,7 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <Button fx:id="back" layoutX="329.0" layoutY="340.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="110.0" text="Back">
+            <Button layoutX="329.0" layoutY="340.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="110.0" text="Back">
                <font>
                   <Font size="13.0" />
                </font>
@@ -50,4 +49,4 @@
          </children>
       </AnchorPane>
    </children>
-</fx:root>
+</VBox>

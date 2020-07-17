@@ -78,7 +78,6 @@ public class Insertion implements Initializable
             //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
-            /*This statements needs to be improved, */
 
             if(name.getText().equals("")||cnic.getText().equals("")||date_id.getValue()==null||bus_box.getValue()==null||rout_box.getValue()==null)
             {
@@ -94,9 +93,10 @@ public class Insertion implements Initializable
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
-            Booking obj = loader.getController();
-            obj.getCnic(cnic.getText());
 
+            Booking booking = loader.getController();
+            booking.getCnic(cnic.getText());
+            booking.show(User_Label);
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Booking");

@@ -44,7 +44,7 @@ public class View implements Initializable
         route.setCellValueFactory(new PropertyValueFactory<>("route"));
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
-        date.setCellValueFactory(new PropertyValueFactory<>("cnic"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         Connection connection = null;
         Statement statement = null;
