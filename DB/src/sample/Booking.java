@@ -28,6 +28,11 @@ public class Booking implements Initializable {
     {
         this.cnicNum=user;
     }
+    String User_Label;
+    public void show(String user)
+    {
+        this.User_Label = user;
+    }
 
     public ArrayList<String> SeatNo = new ArrayList<String>();
     public void toggle_1(ActionEvent event){
@@ -42,7 +47,8 @@ public class Booking implements Initializable {
             SeatNo.remove(toggl.getText());
         }
     }
-    public void Bookbtn(ActionEvent event) throws SQLException {
+    public void Bookbtn(ActionEvent event) throws SQLException
+    {
 
         Connection connection = null;
         Statement statement = null;
@@ -50,8 +56,8 @@ public class Booking implements Initializable {
         try
         {
 
-           // connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
@@ -61,10 +67,7 @@ public class Booking implements Initializable {
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
                 statement.execute("INSERT INTO seats (Cnic , SeatNo) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+");");
-
             }
-
-
             alert = new Alert(Alert.AlertType.INFORMATION,"Seats are Booked !",ButtonType.OK);
             alert.showAndWait();
 
@@ -81,20 +84,25 @@ public class Booking implements Initializable {
         }
 
     }
-
-    public void Back(ActionEvent event) throws IOException{
-        ((Node) event.getSource()).getScene().getWindow().hide();
+    public void back(ActionEvent ae) throws IOException
+    {
+        ((Node)ae.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
+        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+
+        Dashboard dashboard = loader.getController();
+        dashboard.show(User_Label);
+
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Register Customer");
+        primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
     }
 }

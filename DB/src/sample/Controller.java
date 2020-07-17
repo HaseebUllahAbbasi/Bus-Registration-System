@@ -61,14 +61,10 @@ public class Controller
                     if (user_name.getText().equalsIgnoreCase(resultSet.getString("id")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
                     {
                         //Printed in order to check the whether the user  is same or not
-                        System.out.println(resultSet.getString("id") + "\t" + resultSet.getString("password"));
+                        //System.out.println(resultSet.getString("id") + "\t" + resultSet.getString("password"));
 
                         user_found++;
 
-                    /*
-                    Code for the new Screen
-                    Started
-                     */
 
                         alert = new Alert(Alert.AlertType.INFORMATION,resultSet.getString("name")+" has Logged In ", ButtonType.OK);
                         alert.showAndWait();
@@ -86,9 +82,6 @@ public class Controller
                         primaryStage.setScene(scene);
                         primaryStage.show();
 
-                    /*
-                    Code for the new Screen Ended
-                    */
                     }
                 }
 
