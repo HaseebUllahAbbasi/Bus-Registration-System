@@ -22,16 +22,12 @@ public class Booking implements Initializable {
 
 
     @FXML Button bkbtn;
-    String cnicNum;
+    String cnicNum, busName;
     Alert alert;
-    public void getCnic(String user)
+    public void getVal(String user, String user2)
     {
         this.cnicNum=user;
-    }
-    String User_Label;
-    public void show(String user)
-    {
-        this.User_Label = user;
+        this.busName=user2;
     }
 
     public ArrayList<String> SeatNo = new ArrayList<String>();
@@ -44,11 +40,9 @@ public class Booking implements Initializable {
         }
         else {
             toggl.setStyle(null);
-            SeatNo.remove(toggl.getText());
         }
     }
-    public void Bookbtn(ActionEvent event) throws SQLException
-    {
+    public void Bookbtn(ActionEvent event) throws SQLException {
 
         Connection connection = null;
         Statement statement = null;
@@ -56,8 +50,8 @@ public class Booking implements Initializable {
         try
         {
 
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+           // connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
@@ -66,8 +60,10 @@ public class Booking implements Initializable {
                 String str;
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+");");
+                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"');");
             }
+
+
             alert = new Alert(Alert.AlertType.INFORMATION,"Seats are Booked !",ButtonType.OK);
             alert.showAndWait();
 
@@ -84,21 +80,16 @@ public class Booking implements Initializable {
         }
 
     }
-    public void back(ActionEvent ae) throws IOException
-    {
-        ((Node)ae.getSource()).getScene().getWindow().hide();
+
+    public void Back(ActionEvent event) throws IOException{
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
-
-        Dashboard dashboard = loader.getController();
-        dashboard.show(User_Label);
-
+        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
         Scene scene = new Scene(root);
-        primaryStage.setTitle("DashBoard");
+        primaryStage.setTitle("Register Customer");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     @Override

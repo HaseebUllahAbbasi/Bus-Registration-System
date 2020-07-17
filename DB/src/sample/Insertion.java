@@ -73,9 +73,9 @@ public class Insertion implements Initializable
 
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
 
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
 
@@ -87,21 +87,20 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-            alert = new Alert(Alert.AlertType.INFORMATION,"Seat is Booked !",ButtonType.OK);
-            alert.showAndWait();
-            ((Node)ae.getSource()).getScene().getWindow().hide();
+
+            ((Node) ae.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
 
-            Booking booking = loader.getController();
-            booking.getCnic(cnic.getText());
-            booking.show(User_Label);
+            Booking ob = loader.getController();
+            ob.getVal(cnic.getText(), (String)bus_box.getValue());
 
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Booking");
+            primaryStage.setTitle("Booking Seats");
             primaryStage.setScene(scene);
             primaryStage.show();
+
 
 
         }
@@ -111,10 +110,8 @@ public class Insertion implements Initializable
             alert = new Alert(Alert.AlertType.ERROR,"ERROR OCCURRED !",ButtonType.OK);
             alert.showAndWait();
 
-            if (alert.getResult() == ButtonType.OK) {
-                System.out.println("Dialogue box clicked!");
-            }
             System.out.println(throwables.getMessage());
+            throwables.printStackTrace();
         }
         finally
         {
