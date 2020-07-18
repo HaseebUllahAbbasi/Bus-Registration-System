@@ -147,26 +147,26 @@ public class Booking implements Initializable{
     {
         for(int i=0 ; i<SeatNoD.size(); i++)
         {
-            if(SeatNoD.get(i)==1) t1.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==2) t2.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==3) t3.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==4) t4.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==5) t5.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==6) t6.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==7) t7.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==8) t8.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==9) t9.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==10) t10.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==11) t11.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==12) t12.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==13) t13.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==14) t14.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==15) t15.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==16) t16.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==17) t17.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==18) t18.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==19) t19.setStyle("-fx-background-color: Red");
-            if(SeatNoD.get(i)==20) t20.setStyle("-fx-background-color: Red");
+            if(SeatNoD.get(i)==1) t1.setStyle("-fx-background-color: Red; -fx-text-fill: White");
+            if(SeatNoD.get(i)==2) t2.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==3) t3.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==4) t4.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==5) t5.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==6) t6.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==7) t7.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==8) t8.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==9) t9.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==10) t10.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==11) t11.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==12) t12.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==13) t13.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==14) t14.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==15) t15.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==16) t16.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==17) t17.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==18) t18.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==19) t19.setStyle("-fx-background-color: Red;-fx-text-fill: White");
+            if(SeatNoD.get(i)==20) t20.setStyle("-fx-background-color: Red;-fx-text-fill: White");
             // System.out.println(SeatNoD.get(i));
         }
     }
