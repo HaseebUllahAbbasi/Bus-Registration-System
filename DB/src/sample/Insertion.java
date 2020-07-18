@@ -88,7 +88,7 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
-            statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"'");
+            statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"'");
             ResultSet resultSet = statement.getResultSet();
             while(resultSet.next())
             {
@@ -101,7 +101,7 @@ public class Insertion implements Initializable
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
 
             Booking ob = loader.getController();
-            ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD);
+            ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD,date_id.getValue());
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Booking Seats");
