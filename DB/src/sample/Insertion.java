@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.*;
 
@@ -70,7 +71,7 @@ public class Insertion implements Initializable
     {
         Connection connection = null;
         Statement statement = null;
-
+        ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
         try
         {
             //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
@@ -87,6 +88,12 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+            statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"'");
+            ResultSet resultSet = statement.getResultSet();
+            while(resultSet.next())
+            {
+                SeatNoD.add(Integer.parseInt(resultSet.getString("SeatNo")));
+            }
 
             ((Node) ae.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
@@ -94,7 +101,7 @@ public class Insertion implements Initializable
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
 
             Booking ob = loader.getController();
-            ob.getVal(cnic.getText(), (String)bus_box.getValue());
+            ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD);
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Booking Seats");
@@ -122,4 +129,5 @@ public class Insertion implements Initializable
             }
         }
     }
+
 }

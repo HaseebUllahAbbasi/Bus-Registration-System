@@ -10,7 +10,9 @@ import javafx.scene.input.*;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.application.Preloader;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -18,20 +20,28 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class Booking implements Initializable {
+public class Booking implements Initializable{
 
 
     @FXML Button bkbtn;
+    @FXML ToggleButton t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20;
+    ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
     String cnicNum, busName;
     Alert alert;
-    public void getVal(String user, String user2)
+
+    public void getVal(String user, String user2, ArrayList<Integer> Arr)
     {
         this.cnicNum=user;
         this.busName=user2;
+        this.SeatNoD=Arr;
+       Dis();
     }
+
+
 
     public ArrayList<String> SeatNo = new ArrayList<String>();
     public void toggle_1(ActionEvent event){
+        //Dis();
         ToggleButton toggl =(ToggleButton)event.getSource();
         boolean status=toggl.isSelected();
         if(status) {
@@ -66,8 +76,19 @@ public class Booking implements Initializable {
 
             alert = new Alert(Alert.AlertType.INFORMATION,"Seats are Booked !",ButtonType.OK);
             alert.showAndWait();
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            Stage primaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
 
-        }catch (SQLException ax){
+
+            Scene scene = new Scene(root);
+            primaryStage.setTitle("Menu Screen");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+
+        }catch (SQLException | IOException ax){
             System.out.println(ax.getMessage());
         }
         finally
@@ -91,9 +112,36 @@ public class Booking implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+    public void Dis()
+    {
+        for(int i=0 ; i<SeatNoD.size(); i++)
+        {
+            if(SeatNoD.get(i)==1) t1.setDisable(true);
+            if(SeatNoD.get(i)==2) t2.setDisable(true);
+            if(SeatNoD.get(i)==3) t3.setDisable(true);
+            if(SeatNoD.get(i)==4) t4.setDisable(true);
+            if(SeatNoD.get(i)==5) t5.setDisable(true);
+            if(SeatNoD.get(i)==6) t6.setDisable(true);
+            if(SeatNoD.get(i)==7) t7.setDisable(true);
+            if(SeatNoD.get(i)==8) t8.setDisable(true);
+            if(SeatNoD.get(i)==9) t9.setDisable(true);
+            if(SeatNoD.get(i)==10) t10.setDisable(true);
+            if(SeatNoD.get(i)==11) t11.setDisable(true);
+            if(SeatNoD.get(i)==12) t12.setDisable(true);
+            if(SeatNoD.get(i)==13) t13.setDisable(true);
+            if(SeatNoD.get(i)==14) t14.setDisable(true);
+            if(SeatNoD.get(i)==15) t15.setDisable(true);
+            if(SeatNoD.get(i)==16) t16.setDisable(true);
+            if(SeatNoD.get(i)==17) t17.setDisable(true);
+            if(SeatNoD.get(i)==18) t18.setDisable(true);
+            if(SeatNoD.get(i)==19) t19.setDisable(true);
+            if(SeatNoD.get(i)==20) t20.setDisable(true);
+           // System.out.println(SeatNoD.get(i));
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    //t3.setDisable(true);
+    //Dis();
     }
 }
