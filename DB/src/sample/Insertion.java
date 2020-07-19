@@ -51,22 +51,6 @@ public class Insertion implements Initializable
         return cnic.getText();
     }
 
-    public void back(ActionEvent ae) throws IOException
-    {
-                ((Node)ae.getSource()).getScene().getWindow().hide();
-                Stage primaryStage = new Stage();
-                FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
-
-                Dashboard dashboard = loader.getController();
-                dashboard.show(User_Label);
-
-                Scene scene = new Scene(root);
-                primaryStage.setTitle("DashBoard");
-                primaryStage.setScene(scene);
-                primaryStage.show();
-
-    }
     public void  insert(ActionEvent ae) throws SQLException
     {
         Connection connection = null;
@@ -74,9 +58,9 @@ public class Insertion implements Initializable
         ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
         try
         {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
 
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
 
@@ -87,7 +71,7 @@ public class Insertion implements Initializable
                 return;
             }
 
-            statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+bus_box.getValue()+"','"+rout_box.getValue()+"')");
+            statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+rout_box.getValue()+"','"+bus_box.getValue()+"')");
             statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"'");
             ResultSet resultSet = statement.getResultSet();
             while(resultSet.next())
@@ -128,6 +112,22 @@ public class Insertion implements Initializable
                 connection.close();
             }
         }
+    }
+    public void back(ActionEvent ae) throws IOException
+    {
+        ((Node)ae.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+
+        Dashboard dashboard = loader.getController();
+        dashboard.show(User_Label);
+
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("DashBoard");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
     }
 
 }

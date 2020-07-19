@@ -11,26 +11,26 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ToggleButton fx:id="toggle1" layoutX="113.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 1" />
-            <ToggleButton layoutX="179.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 2" />
-            <ToggleButton layoutX="113.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 5" />
-            <ToggleButton layoutX="179.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text=" Seat 6" />
-            <ToggleButton layoutX="113.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 9" />
-            <ToggleButton layoutX="179.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" text="Seat 10" />
-            <ToggleButton layoutX="179.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 14" />
-            <ToggleButton layoutX="113.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 13" />
-            <ToggleButton layoutX="113.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 17" />
-            <ToggleButton layoutX="179.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 18" />
-            <ToggleButton layoutX="356.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 3" />
-            <ToggleButton layoutX="429.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 4" />
-            <ToggleButton layoutX="356.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 7" />
-            <ToggleButton layoutX="429.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 8" />
-            <ToggleButton layoutX="356.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 11" />
-            <ToggleButton layoutX="429.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 12" />
-            <ToggleButton layoutX="429.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 16" />
-            <ToggleButton layoutX="356.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 15" />
-            <ToggleButton layoutX="356.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 19" />
-            <ToggleButton layoutX="429.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 20" />
+            <ToggleButton fx:id="t1" layoutX="113.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 1" />
+            <ToggleButton fx:id="t2" layoutX="179.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 2" />
+            <ToggleButton fx:id="t5" layoutX="113.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 5" />
+            <ToggleButton fx:id="t6" layoutX="179.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text=" Seat 6" />
+            <ToggleButton fx:id="t9" layoutX="113.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 9" />
+            <ToggleButton fx:id="t10" layoutX="179.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" text="Seat 10" />
+            <ToggleButton fx:id="t14" layoutX="179.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 14" />
+            <ToggleButton fx:id="t13" layoutX="113.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 13" />
+            <ToggleButton fx:id="t17" layoutX="113.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 17" />
+            <ToggleButton fx:id="t18" layoutX="179.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 18" />
+            <ToggleButton fx:id="t3" layoutX="356.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 3" />
+            <ToggleButton fx:id="t4" layoutX="429.0" layoutY="105.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 4" />
+            <ToggleButton fx:id="t7" layoutX="356.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 7" />
+            <ToggleButton fx:id="t8" layoutX="429.0" layoutY="152.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 8" />
+            <ToggleButton fx:id="t11" layoutX="356.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 11" />
+            <ToggleButton fx:id="t12" layoutX="429.0" layoutY="197.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 12" />
+            <ToggleButton fx:id="t16" layoutX="429.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 16" />
+            <ToggleButton fx:id="t15" layoutX="356.0" layoutY="240.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 15" />
+            <ToggleButton fx:id="t19" layoutX="356.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 19" />
+            <ToggleButton fx:id="t20" layoutX="429.0" layoutY="285.0" mnemonicParsing="false" onAction="#toggle_1" prefHeight="25.0" prefWidth="56.0" text="Seat 20" />
             <Button fx:id="bkbtn" layoutX="180.0" layoutY="340.0" mnemonicParsing="false" onAction="#Bookbtn" prefHeight="36.0" prefWidth="110.0" text="Book Seats">
                <font>
                   <Font size="13.0" />
@@ -41,7 +41,7 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <Button layoutX="329.0" layoutY="340.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="110.0" text="Back">
+            <Button layoutX="329.0" layoutY="340.0" mnemonicParsing="false" onAction="#Back" prefHeight="36.0" prefWidth="110.0" text="Back">
                <font>
                   <Font size="13.0" />
                </font>
