@@ -1,36 +1,30 @@
 package sample;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.*;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.application.Preloader;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
 
-
-public class Booking implements Initializable{
-
-
-    @FXML Button bkbtn;
-    @FXML ToggleButton t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20;
+public class View_Buses
+{
+    @FXML
+    Button bkbtn;
+    @FXML
+    ToggleButton t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20;
     ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
     String cnicNum, busName;
     LocalDate IssueDate;
-    Alert alert;
+    private String user_label;
+    private String date;
 
     public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date)
     {
@@ -43,74 +37,17 @@ public class Booking implements Initializable{
     }
 
 
-
     public ArrayList<String> SeatNo = new ArrayList<String>();
-    public void toggle_1(ActionEvent event){
-        ToggleButton toggl =(ToggleButton)event.getSource();
-        boolean status=toggl.isSelected();
-        if(status) {
-            toggl.setStyle("-fx-background-color: Blue");
-            SeatNo.add(toggl.getText());
-        }
-        else {
-            toggl.setStyle(null);
-        }
-    }
-    public void Bookbtn(ActionEvent event) throws SQLException {
-
-        Connection connection = null;
-        Statement statement = null;
-
-        try
-        {
-
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
-            statement = connection.createStatement();
-
-            /*This statements needs to be improved, */
-            for(int i =0 ; i<SeatNo.size(); i++)
-            {
-                String str;
-                str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
-                //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"')");
-            }
-
-
-            alert = new Alert(Alert.AlertType.INFORMATION,"Seats are Booked !",ButtonType.OK);
-            alert.showAndWait();
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            Stage primaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
-
-
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("Menu Screen");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-
-        }catch (SQLException | IOException ax){
-            System.out.println(ax.getMessage());
-        }
-        finally
-        {
-            if (connection!=null)
-            {
-                statement.close();
-                connection.close();
-            }
-        }
-
-    }
-
-    public void Back(ActionEvent event) throws IOException{
+    public void Back(ActionEvent event) throws IOException
+    {
         ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
+        Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
+
+        Buses_Menu buses_menu = loader.getController();
+        buses_menu.show(user_label);
+        
         Scene scene = new Scene(root);
         primaryStage.setTitle("Register Customer");
         primaryStage.setScene(scene);
@@ -140,7 +77,7 @@ public class Booking implements Initializable{
             if(SeatNoD.get(i)==18) t18.setDisable(true);
             if(SeatNoD.get(i)==19) t19.setDisable(true);
             if(SeatNoD.get(i)==20) t20.setDisable(true);
-           // System.out.println(SeatNoD.get(i));
+            // System.out.println(SeatNoD.get(i));
         }
     }
     public void Dred()
@@ -170,9 +107,12 @@ public class Booking implements Initializable{
             // System.out.println(SeatNoD.get(i));
         }
     }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    //t3.setDisable(true);
-    //Dis();
+    public void set_date(String date)
+    {
+        this.date = date;
+    }
+    public void show(String user_label) 
+    {
+        this.user_label = user_label;
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View_Buses">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ToggleButton fx:id="t1" layoutX="113.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 1" />
+            <ToggleButton fx:id="t2" layoutX="179.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 2" />
+            <ToggleButton fx:id="t5" layoutX="113.0" layoutY="152.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 5" />
+            <ToggleButton fx:id="t6" layoutX="179.0" layoutY="152.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text=" Seat 6" />
+            <ToggleButton fx:id="t9" layoutX="113.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 9" />
+            <ToggleButton fx:id="t10" layoutX="179.0" layoutY="197.0" mnemonicParsing="false" text="Seat 10" />
+            <ToggleButton fx:id="t14" layoutX="179.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 14" />
+            <ToggleButton fx:id="t13" layoutX="113.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 13" />
+            <ToggleButton fx:id="t17" layoutX="113.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 17" />
+            <ToggleButton fx:id="t18" layoutX="179.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 18" />
+            <ToggleButton fx:id="t3" layoutX="356.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 3" />
+            <ToggleButton fx:id="t4" layoutX="429.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 4" />
+            <ToggleButton fx:id="t7" layoutX="356.0" layoutY="152.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 7" />
+            <ToggleButton fx:id="t8" layoutX="429.0" layoutY="152.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 8" />
+            <ToggleButton fx:id="t11" layoutX="356.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 11" />
+            <ToggleButton fx:id="t12" layoutX="429.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 12" />
+            <ToggleButton fx:id="t16" layoutX="429.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 16" />
+            <ToggleButton fx:id="t15" layoutX="356.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 15" />
+            <ToggleButton fx:id="t19" layoutX="356.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 19" />
+            <ToggleButton fx:id="t20" layoutX="429.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Seat 20" />
+            <Label layoutX="241.0" layoutY="26.0" text="Seats">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Button layoutX="241.0" layoutY="337.0" mnemonicParsing="false" onAction="#Back" prefHeight="36.0" prefWidth="110.0" text="Back">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

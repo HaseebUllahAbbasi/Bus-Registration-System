@@ -125,5 +125,20 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    public void bus_menu(ActionEvent event) throws IOException {
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
+
+        Buses_Menu buses_menu = loader.getController();
+        buses_menu.show(User_Label);
+
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("All Records");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
 
 }
