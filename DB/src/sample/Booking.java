@@ -28,16 +28,17 @@ public class Booking implements Initializable{
     @FXML Button bkbtn;
     @FXML ToggleButton t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20;
     ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
-    String cnicNum, busName;
+    String cnicNum, busName, Time;
     LocalDate IssueDate;
     Alert alert;
 
-    public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date)
+    public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date, String time)
     {
         this.cnicNum=user;
         this.busName=user2;
         this.SeatNoD=Arr;
         this.IssueDate=date;
+        this.Time=time;
         Dred();
         Dis();
     }
@@ -82,7 +83,7 @@ public class Booking implements Initializable{
                 String str;
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"')");
+                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"');");
             }
 
 

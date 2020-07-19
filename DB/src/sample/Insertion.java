@@ -30,6 +30,7 @@ public class Insertion implements Initializable
     @FXML DatePicker date_id;
     @FXML ComboBox bus_box;
     @FXML Button back_butt;
+    @FXML ComboBox time;
     Alert alert;
     String User_Label;
     public void show(String user)
@@ -39,13 +40,15 @@ public class Insertion implements Initializable
 
     @FXML private ComboBox<String> rout_box;
 
-    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
-    private ObservableList<String> buses = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
+    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan","Sukkur","Lahore","Islamabad");
+    private ObservableList<String> buses = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp","Juventus Exp","Paris Exp","Barca Exp");
+    private ObservableList<String> timeList = FXCollections.observableArrayList("05:00 PM","11:00 PM","09:00 PM");
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         rout_box.setItems(cities);
         bus_box.setItems(buses);
+        time.setItems(timeList);
     }
     public String getCnic(){
         return cnic.getText();
@@ -72,7 +75,7 @@ public class Insertion implements Initializable
             }
 
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+rout_box.getValue()+"','"+bus_box.getValue()+"')");
-            statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"'");
+            statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"' AND Time='"+time.getValue()+"'");
             ResultSet resultSet = statement.getResultSet();
             while(resultSet.next())
             {
@@ -85,7 +88,7 @@ public class Insertion implements Initializable
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
 
             Booking ob = loader.getController();
-            ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD,date_id.getValue());
+            ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD,date_id.getValue(), (String) time.getValue());
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Booking Seats");
