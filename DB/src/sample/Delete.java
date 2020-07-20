@@ -33,13 +33,15 @@ public class Delete implements Initializable
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
     @FXML private TableColumn<Customer,String> date;
+    @FXML private TableColumn<Customer,String> seat;
+    @FXML private TableColumn<Customer,String> time;
     int user_found = 0;
     Customer to_be_del;
     Alert alert;
     private final ObservableList<Customer> data
             = FXCollections.observableArrayList();
 
-    private ObservableList<String> choice = FXCollections.observableArrayList("Name","CNIC");
+    private ObservableList<String> choice = FXCollections.observableArrayList("Name","CNIC","Date","Bus","Route");
     public void show(String user)
     {
         this.User_Label = user;
@@ -53,7 +55,6 @@ public class Delete implements Initializable
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-
         choice_box.setItems(choice);
 
     }
@@ -72,7 +73,7 @@ public class Delete implements Initializable
                 primaryStage.setScene(scene);
                 primaryStage.show();
     }
-    public void search(ActionEvent ae) throws SQLException
+    public void search_data(ActionEvent ae) throws SQLException
     {
         if(search_text_field.getText().equals("")||choice_box.getValue().equals(""))
         {
@@ -88,31 +89,45 @@ public class Delete implements Initializable
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
-
-            statement.execute("Select * from [Customer]");
+            if(choice_box.getValue().equals("Name"))
+                statement.execute("select * from Customer where CusName like '"+search_text_field.getText()+"%'");
+            else if(choice_box.getValue().equals("Bus"))
+                statement.execute("select * from Customer where Bus like '"+search_text_field.getText()+"%'");
+            else if(choice_box.getValue().equals("Route"))
+                statement.execute("select * from Customer where Rout like '"+search_text_field.getText()+"%'");
+            else if(choice_box.getValue().equals("Date"))
+                statement.execute("select * from Customer where IssueDate like '"+search_text_field.getText()+"%'");
+            else if(choice_box.getValue().equals("CNIC"))
+                statement.execute("select * from Customer where cnic like '"+search_text_field.getText()+"%'");
             ResultSet resultSet = statement.getResultSet();
 
             while (resultSet.next())
             {
-                // IF Name is Selected
                 if(choice_box.getValue().equals("Name"))
                 {
-                    if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("CusName")))
-                    {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
-                        user_found++;
-                    }
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    user_found++;
                 }
-                // if CNIC is selected
                 else if(choice_box.getValue().equals("CNIC"))
                 {
-                    if (search_text_field.getText().equalsIgnoreCase(resultSet.getString("Cnic")))
-                    {
-                        data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
-                        user_found++;
-                    }
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    user_found++;
                 }
-
+                else if(choice_box.getValue().equals("Bus"))
+                {
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    user_found++;
+                }
+                else if(choice_box.getValue().equals("Route"))
+                {
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    user_found++;
+                }
+                else if(choice_box.getValue().equals("Date"))
+                {
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    user_found++;
+                }
             }
             if(user_found==0)
             {
@@ -122,7 +137,6 @@ public class Delete implements Initializable
             else if(user_found>0)
             {
                 tableView.setItems(data);
-
             }
         }
         catch (SQLException throwable)
@@ -138,7 +152,6 @@ public class Delete implements Initializable
                 connection.close();
             }
         }
-
     }
     public void click(javafx.scene.input.MouseEvent mouseEvent)
     {
