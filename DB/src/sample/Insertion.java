@@ -40,7 +40,7 @@ public class Insertion implements Initializable
 
     @FXML private ComboBox<String> rout_box;
 
-    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan","Sukkur","Lahore","Islamabad");
+    private ObservableList<String> cities = FXCollections.observableArrayList("KHR - SUK","LHR - ISL","MUL - KHR","SUK - ISL","ISL - SUK","KHR - MUL");
     private ObservableList<String> buses = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp","Juventus Exp","Paris Exp","Barca Exp");
     private ObservableList<String> timeList = FXCollections.observableArrayList("05:00 PM","11:00 PM","09:00 PM");
     @Override
