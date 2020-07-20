@@ -94,10 +94,10 @@ public class Buses_Menu
                 ((Node)actionEvent.getSource()).getScene().getWindow().hide();
                 Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+                Pane root = loader.load(getClass().getResource("view_buses.fxml").openStream());
 
-                Booking ob = loader.getController();
-                ob.getVal(SeatNoD,BusName);
+                View_Buses ob = loader.getController();
+                ob.getVal(SeatNoD);
 
                 Scene scene = new Scene(root);
                 primaryStage.setTitle("Bookings");

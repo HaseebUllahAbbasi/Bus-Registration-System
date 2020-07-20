@@ -42,14 +42,7 @@ public class Booking implements Initializable{
         Dred();
         Dis();
     }
-    public void getVal(ArrayList<Integer> Arr,String Bus)
-    {
-        this.busName=Bus;
-        this.SeatNoD=Arr;
-        bkbtn.setDisable(true);
-        Dred();
-        Dis();
-    }
+
 
 
 
