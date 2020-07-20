@@ -85,7 +85,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="541.0" layoutY="402.0" text="number">
+      <Label fx:id="earned" layoutX="541.0" layoutY="402.0" text="number">
          <font>
             <Font size="24.0" />
          </font>
@@ -95,7 +95,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="549.0" layoutY="460.0" text="number">
+      <Label fx:id="total_buses" layoutX="549.0" layoutY="460.0" text="6">
          <font>
             <Font size="24.0" />
          </font>
@@ -107,5 +107,15 @@
          </font>
       </Button>
       <Button fx:id="sign_out1" layoutX="540.0" layoutY="241.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
+      <Label layoutX="297.0" layoutY="499.0" prefHeight="50.0" prefWidth="169.0" text="Seats Booked : ">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="totol_booking" layoutX="541.0" layoutY="507.0" text="number">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

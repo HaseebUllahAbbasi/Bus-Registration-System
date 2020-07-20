@@ -1,8 +1,13 @@
 package sample;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,31 +17,40 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Dashboard
-{
-    @FXML Button sign_out;
-    @FXML Label user_name;
-    @FXML Button insert_button;
-    @FXML Button edit_button;
-    @FXML Button search_button;
-    @FXML Button remove_button;
-    @FXML Button view_history_button;
-    @FXML Button total_button;
+public class Dashboard implements Initializable {
+    @FXML
+    Button sign_out;
+    @FXML
+    Label user_name;
+    @FXML
+    Button insert_button;
+    @FXML
+    Button edit_button;
+    @FXML
+    Button search_button;
+    @FXML
+    Button remove_button;
+    @FXML
+    Button view_history_button;
+    @FXML
+    Button total_button;
     Alert alert;
     String User_Label;
-    public void show(String user)
-    {
+    @FXML Label earned;
+    @FXML Label total_buses;
+    @FXML Label totol_booking;
+
+    public void show(String user) {
         this.User_Label = user;
         user_name.setText(user);
     }
-    public void signOut(ActionEvent event) throws IOException
-    {
-        alert = new Alert(Alert.AlertType.CONFIRMATION," Are you really want to Logout !", ButtonType.YES,ButtonType.NO);
+
+    public void signOut(ActionEvent event) throws IOException {
+        alert = new Alert(Alert.AlertType.CONFIRMATION, " Are you really want to Logout !", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         // confirmation for the long out
-        if(alert.getResult() == ButtonType.YES)
-        {
-            ((Node)event.getSource()).getScene().getWindow().hide();
+        if (alert.getResult() == ButtonType.YES) {
+            ((Node) event.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
@@ -47,13 +61,13 @@ public class Dashboard
             primaryStage.show();
         }
     }
-    public void insert(ActionEvent event) throws IOException
-    {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    public void insert(ActionEvent event) throws IOException {
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
-        
+
         Insertion insertion = loader.getController();
         insertion.show(User_Label);
 
@@ -63,9 +77,9 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void search_data(ActionEvent event) throws IOException
-    {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    public void search_data(ActionEvent event) throws IOException {
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("search.fxml").openStream());
@@ -79,10 +93,10 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void remove_data(ActionEvent event) throws IOException
-    {
-        
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    public void remove_data(ActionEvent event) throws IOException {
+
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("delete.fxml").openStream());
@@ -95,9 +109,9 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void update_date(ActionEvent event) throws IOException
-    {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    public void update_date(ActionEvent event) throws IOException {
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("update.fxml").openStream());
@@ -110,9 +124,9 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    public void view_data(ActionEvent event) throws IOException
-    {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    public void view_data(ActionEvent event) throws IOException {
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("view.fxml").openStream());
@@ -125,8 +139,9 @@ public class Dashboard
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     public void bus_menu(ActionEvent event) throws IOException {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
@@ -141,4 +156,45 @@ public class Dashboard
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        int sum = 0;
+        int count = 0;
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            statement = connection.createStatement();
+            statement.execute("Select * from [Seats]");
+            ResultSet resultSet = statement.getResultSet();
+            while (resultSet.next())
+            {
+                count++;
+                sum+=Integer.parseInt(resultSet.getString("price"));
+            }
+            System.out.println("total seats booked are "+count);
+            System.out.println("total booking earning is "+sum);
+            totol_booking.setText(Integer.toString(count));
+            earned.setText(Integer.toString(sum));
+
+
+
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        finally {
+            if(connection!=null)
+            {
+                try {
+                    statement.close();
+                    connection.close();
+                } catch (SQLException sqlException)
+                {
+                    sqlException.printStackTrace();
+                }
+            }
+        }
+    }
 }

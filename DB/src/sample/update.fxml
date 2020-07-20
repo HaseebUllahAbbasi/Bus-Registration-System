@@ -22,7 +22,7 @@
                </font>
             </Label>
             <ComboBox fx:id="choice_box" editable="true" layoutX="315.0" layoutY="11.0" prefHeight="26.0" prefWidth="128.0" promptText="None" />
-            <Button layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#search" prefHeight="33.0" prefWidth="104.0" text="Search">
+            <Button layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#search_data" prefHeight="33.0" prefWidth="104.0" text="Search">
                <font>
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
@@ -35,11 +35,13 @@
             <TextField fx:id="search_text_field" layoutX="144.0" layoutY="11.0" prefHeight="25.0" prefWidth="157.0" promptText="Name/45#######" />
             <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="61.0" onMouseClicked="#click" prefHeight="339.0" prefWidth="661.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="234.0" AnchorPane.topAnchor="61.0">
               <columns>
-                <TableColumn fx:id="name" prefWidth="131.0" resizable="false" text="name" />
-                <TableColumn fx:id="cnic" minWidth="0.0" prefWidth="144.0" resizable="false" text="cnic" />
-                  <TableColumn fx:id="route" minWidth="0.0" prefWidth="117.0" resizable="false" text="route" />
-                  <TableColumn fx:id="bus" minWidth="0.0" prefWidth="122.0" resizable="false" text="bus" />
-                  <TableColumn fx:id="date" minWidth="0.0" prefWidth="146.0" resizable="false" text="date" />
+                <TableColumn fx:id="name" prefWidth="97.0" resizable="false" text="name" />
+                <TableColumn fx:id="cnic" minWidth="0.0" prefWidth="100.0" resizable="false" text="cnic" />
+                  <TableColumn fx:id="route" minWidth="0.0" prefWidth="97.0" resizable="false" text="route" />
+                  <TableColumn fx:id="bus" minWidth="0.0" prefWidth="96.0" resizable="false" text="bus" />
+                  <TableColumn fx:id="date" minWidth="0.0" prefWidth="95.0" resizable="false" text="date" />
+                  <TableColumn fx:id="seat" minWidth="0.0" prefWidth="75.0" resizable="false" text="Seat" />
+                  <TableColumn fx:id="time" minWidth="0.0" prefWidth="100.0" resizable="false" text="Time" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

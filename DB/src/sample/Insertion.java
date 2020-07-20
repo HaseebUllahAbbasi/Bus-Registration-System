@@ -58,19 +58,15 @@ public class Insertion implements Initializable
         ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
         try
         {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
-
-
             if(name.getText().equals("")||cnic.getText().equals("")||date_id.getValue()==null||bus_box.getValue()==null||rout_box.getValue()==null)
             {
                 alert = new Alert(Alert.AlertType.ERROR,"Please Enter the All Required Data  !",ButtonType.OK);
                 alert.showAndWait();
                 return;
             }
-
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+rout_box.getValue()+"','"+bus_box.getValue()+"')");
             statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"'");
             ResultSet resultSet = statement.getResultSet();
@@ -91,9 +87,6 @@ public class Insertion implements Initializable
             primaryStage.setTitle("Booking Seats");
             primaryStage.setScene(scene);
             primaryStage.show();
-
-
-
         }
         catch (SQLException | IOException throwables)
         {
@@ -127,7 +120,5 @@ public class Insertion implements Initializable
         primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
-
 }

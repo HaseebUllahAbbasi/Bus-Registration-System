@@ -7,8 +7,34 @@ public class Customer
     SimpleStringProperty route;
     SimpleStringProperty bus;
     SimpleStringProperty date;
+    SimpleStringProperty seat;
+    SimpleStringProperty time;
 
-    Customer(String name,String cnic,String route,String bus,String data)
+    public String getSeat() {
+        return seat.get();
+    }
+
+    public SimpleStringProperty seatProperty() {
+        return seat;
+    }
+
+    public void setSeat(String seat) {
+        this.seat.set(seat);
+    }
+
+    public String getTime() {
+        return time.get();
+    }
+
+    public SimpleStringProperty timeProperty() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time.set(time);
+    }
+
+    Customer(String name, String cnic, String route, String bus, String data)
     {
         this.bus = new SimpleStringProperty(bus);
         this.cnic = new SimpleStringProperty(cnic);

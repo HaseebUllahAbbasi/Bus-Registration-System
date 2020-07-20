@@ -29,6 +29,8 @@ public class View implements Initializable
     @FXML private TableColumn<Customer,String> bus;
     @FXML private TableColumn<Customer,String> route;
     @FXML private TableColumn<Customer,String> date;
+    @FXML private TableColumn<Customer,String> seat;
+    @FXML private TableColumn<Customer,String> time;
     int user_found = 0;
     Alert alert;
     private final ObservableList<Customer> data = FXCollections.observableArrayList();
