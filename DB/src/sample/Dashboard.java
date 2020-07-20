@@ -14,10 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.Chart;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -44,6 +41,7 @@ public class Dashboard implements Initializable {
     @FXML Label total_buses;
     @FXML Label totol_booking;
     @FXML PieChart pieChart;
+
 
     public void show(String user) {
         this.User_Label = user;
@@ -168,6 +166,12 @@ public class Dashboard implements Initializable {
         int count = 0;
         Connection connection = null;
         Statement statement = null;
+        int city = 0;
+        int juventus = 0;
+        int madrid = 0;
+        int paris = 0;
+        int barca = 0;
+        int bayern = 0;
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
@@ -176,6 +180,22 @@ public class Dashboard implements Initializable {
             ResultSet resultSet = statement.getResultSet();
             while (resultSet.next())
             {
+                switch (resultSet.getString("Bus"))
+                {
+                    case "Madrid Exp":
+                        madrid++;
+                        break;
+                    case "City Exp":
+                        city++;
+                    case "Barca Exp":
+                        barca++;
+                    case "Bayern Exp":
+                        bayern++;
+                    case "Juventus Exp":
+                        juventus++;
+                    case "Paris Exp":
+                        paris++;
+                }
                 count++;
                 sum+=Integer.parseInt(resultSet.getString("price"));
             }
@@ -184,12 +204,12 @@ public class Dashboard implements Initializable {
             totol_booking.setText(Integer.toString(count));
             earned.setText(Integer.toString(sum));
 
-            ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList(new PieChart.Data("City EXP",8),
-                    new PieChart.Data("Madrid EXP",10),
-            new PieChart.Data("Juventus EXP",12),
-            new PieChart.Data("Bayern EXP",8),
-            new PieChart.Data("Paris EXP",8),
-            new PieChart.Data("Barca EXP",90));
+            ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList(
+                    new PieChart.Data("City EXP",city), new PieChart.Data("Madrid EXP",madrid),
+            new PieChart.Data("Juventus EXP",juventus),
+            new PieChart.Data("Bayern EXP",bayern),
+            new PieChart.Data("Paris EXP",paris),
+            new PieChart.Data("Barca EXP",barca));
             pieChart.setData(pie_chart_data);
 
 

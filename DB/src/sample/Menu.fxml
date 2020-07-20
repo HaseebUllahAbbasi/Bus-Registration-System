@@ -4,9 +4,6 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,30 +13,6 @@
       <Insets />
    </opaqueInsets>
    <children>
-      <MenuBar layoutY="2.0" prefHeight="29.0" prefWidth="869.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Options">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Book Seat" />
-              <MenuItem mnemonicParsing="false" text="Search Record" />
-                  <MenuItem mnemonicParsing="false" text="Cancel Seat" />
-                  <MenuItem mnemonicParsing="false" text="Long Out" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Update Record" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="How to Use ?" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
       <Label alignment="CENTER" layoutX="14.0" layoutY="36.0" prefHeight="17.0" prefWidth="639.0" text="Dashboard">
          <font>
             <Font size="36.0" />
