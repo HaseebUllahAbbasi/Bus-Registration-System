@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -10,25 +11,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="705.0">
+      <MenuBar layoutY="2.0" prefHeight="29.0" prefWidth="869.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Options">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Insert Vehicle" />
-              <MenuItem mnemonicParsing="false" text="Search Vehicle" />
-                  <MenuItem mnemonicParsing="false" text="Remove Vehicle" />
+                  <MenuItem mnemonicParsing="false" text="Book Seat" />
+              <MenuItem mnemonicParsing="false" text="Search Record" />
+                  <MenuItem mnemonicParsing="false" text="Cancel Seat" />
                   <MenuItem mnemonicParsing="false" text="Long Out" />
                   <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Change Data" />
+              <MenuItem mnemonicParsing="false" text="Update Record" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -49,73 +50,74 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <Label fx:id="user_name" layoutX="98.0" layoutY="93.0" prefHeight="38.0" prefWidth="202.0" text="User_Name">
+      <Label fx:id="user_name" layoutX="98.0" layoutY="90.0" prefHeight="38.0" prefWidth="202.0" text="User_Name">
          <font>
-            <Font size="28.0" />
+            <Font size="33.0" />
          </font>
       </Label>
-      <Button fx:id="insert_button" layoutX="31.0" layoutY="172.0" mnemonicParsing="false" onAction="#insert" prefHeight="50.0" prefWidth="169.0" text="book seat">
+      <Button fx:id="insert_button" layoutX="31.0" layoutY="172.0" mnemonicParsing="false" onAction="#insert" prefHeight="50.0" prefWidth="169.0" text="Book Seat">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="edit_button" layoutX="265.0" layoutY="172.0" mnemonicParsing="false" onAction="#update_date" prefHeight="50.0" prefWidth="169.0" text="update customer record">
+      <Button fx:id="edit_button" layoutX="265.0" layoutY="172.0" mnemonicParsing="false" onAction="#update_date" prefHeight="50.0" prefWidth="169.0" text="Update Record">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="search_button" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" onAction="#search_data" prefHeight="50.0" prefWidth="169.0" text="view customer detail">
+      <Button fx:id="search_button" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" onAction="#search_data" prefHeight="50.0" prefWidth="169.0" text="Search Record">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="remove_button" layoutX="265.0" layoutY="233.0" mnemonicParsing="false" onAction="#remove_data" prefHeight="50.0" prefWidth="169.0" text="remove customer record">
+      <Button fx:id="remove_button" layoutX="265.0" layoutY="233.0" mnemonicParsing="false" onAction="#remove_data" prefHeight="50.0" prefWidth="169.0" text="Cancel Seat">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="sign_out" layoutX="540.0" layoutY="180.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
+      <Button fx:id="sign_out" layoutX="732.0" layoutY="41.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
       <Button fx:id="view_history_button" layoutX="31.0" layoutY="301.0" mnemonicParsing="false" onAction="#view_data" prefHeight="50.0" prefWidth="169.0" text="View all record">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Label layoutX="297.0" layoutY="394.0" prefHeight="50.0" prefWidth="169.0" text="Earned Today :">
+      <Label layoutX="33.0" layoutY="385.0" prefHeight="50.0" prefWidth="169.0" text="Earned Today :">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="earned" layoutX="541.0" layoutY="402.0" text="number">
+      <Label fx:id="earned" layoutX="277.0" layoutY="393.0" text="number">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="294.0" layoutY="461.0" text="Present Vehicle :">
+      <Label layoutX="30.0" layoutY="452.0" text="Present Vehicle :">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="total_buses" layoutX="549.0" layoutY="460.0" text="6">
+      <Label fx:id="total_buses" layoutX="285.0" layoutY="451.0" text="6">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Separator layoutX="25.0" layoutY="369.0" prefHeight="16.0" prefWidth="667.0" />
+      <Separator layoutX="25.0" layoutY="369.0" prefHeight="16.0" prefWidth="413.0" />
       <Button fx:id="total_button" layoutX="265.0" layoutY="301.0" mnemonicParsing="false" onAction="#bus_menu" prefHeight="50.0" prefWidth="169.0" text="View buses">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="sign_out1" layoutX="540.0" layoutY="241.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
-      <Label layoutX="297.0" layoutY="499.0" prefHeight="50.0" prefWidth="169.0" text="Seats Booked : ">
+      <Button fx:id="sign_out1" layoutX="732.0" layoutY="91.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
+      <Label layoutX="33.0" layoutY="490.0" prefHeight="50.0" prefWidth="169.0" text="Seats Booked : ">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="totol_booking" layoutX="541.0" layoutY="507.0" text="number">
+      <Label fx:id="totol_booking" layoutX="277.0" layoutY="498.0" text="number">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="140.0" />
    </children>
 </AnchorPane>

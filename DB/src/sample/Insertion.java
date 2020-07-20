@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -123,5 +124,43 @@ public class Insertion implements Initializable
         primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    public void check_route(ActionEvent actionEvent)
+    {
+        if(rout_box.getValue()!=null)
+        {
+
+            if(rout_box.getValue().equals("KHR - SUK"))
+                bus_box.setValue("Madrid Exp");
+            else if(rout_box.getValue().equals("LHR - ISL"))
+                bus_box.setValue("City Exp");
+            else if(rout_box.getValue().equals("MUL - KHR"))
+                bus_box.setValue("Bayern Exp");
+            else if(rout_box.getValue().equals("SUK - ISL"))
+                bus_box.setValue("Juventus Exp");
+            else if(rout_box.getValue().equals("ISL - SUK"))
+                bus_box.setValue("Paris Exp");
+            else if(rout_box.getValue().equals("KHR - MUL"))
+                bus_box.setValue("Barca Exp");
+        }
+    }
+
+    public void check_bus(ActionEvent actionEvent)
+    {
+        if(bus_box.getValue()!=null)
+        {
+            if(bus_box.getValue().equals("Madrid Exp"))
+                rout_box.setValue("KHR - SUK");
+            else if(bus_box.getValue().equals("City Exp"))
+                rout_box.setValue("LHR - ISL");
+            else if(bus_box.getValue().equals("Bayern Exp"))
+                rout_box.setValue("MUL - KHR");
+            else if(bus_box.getValue().equals("Juventus Exp"))
+                rout_box.setValue("SUK - ISL");
+            else if(bus_box.getValue().equals("Paris Exp"))
+                rout_box.setValue("ISL - SUK");
+            else if(bus_box.getValue().equals("Barca Exp"))
+                rout_box.setValue("KHR - MUL");
+        }
     }
 }

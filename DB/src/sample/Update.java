@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
@@ -23,11 +24,9 @@ public class Update implements Initializable
 {
     @FXML TextField name_field;
     @FXML TextField cnic_field;
-    @FXML ComboBox<String> buses;
-    @FXML ComboBox<String> routes;
     @FXML TextField search_text_field;
     String User_Label;
-    @FXML DatePicker datePicker;
+    @FXML PieChart pieChart;
     @FXML private ComboBox<String> choice_box;
     @FXML private TableView<Customer> tableView;
     @FXML private TableColumn<Customer,String> name;
@@ -43,8 +42,6 @@ public class Update implements Initializable
     private final ObservableList<Customer> data = FXCollections.observableArrayList();
 
     private ObservableList<String> choice = FXCollections.observableArrayList("Name","CNIC","Date","Bus","Route");
-    private ObservableList<String> cities = FXCollections.observableArrayList("Karachi","Peshawar","Multan");
-    private ObservableList<String> bus_list = FXCollections.observableArrayList("Madrid Exp","City Exp","Bayern Exp");
 
     public void show(String user)
     {
@@ -61,8 +58,6 @@ public class Update implements Initializable
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         choice_box.setItems(choice);
-        buses.setItems(bus_list);
-        routes.setItems(cities);
     }
     public void back(ActionEvent ae) throws IOException
     {
@@ -161,7 +156,7 @@ public class Update implements Initializable
     }
     public void update()
     {
-        if(to_be_updated.getCnic()==null || name_field.getText().equals("") || cnic_field.getText().equals("")||routes.getValue().equals("")||buses.getValue().equals("")||datePicker.getValue()==null)
+        if(to_be_updated.getCnic()==null || name_field.getText().equals("") || cnic_field.getText().equals(""))
         {
             alert = new Alert(Alert.AlertType.WARNING,"Please Search and Then Write new Changes to Update", ButtonType.OK);
             alert.showAndWait();
@@ -182,7 +177,7 @@ public class Update implements Initializable
             statement = connection.createStatement();
 
             statement.execute("UPDATE Customer\n" +
-                    "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"', Rout = '"+ routes.getValue()+"', Bus = '"+ buses.getValue()+"', IssueDate = '"+datePicker.getValue()+"' \n" +
+                    "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"' \n" +
                     "WHERE Cnic = "+ to_be_updated.getCnic()+";");
 
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+ to_be_updated.getCnic()+" CNINC is Updated", ButtonType.OK);
@@ -202,8 +197,7 @@ public class Update implements Initializable
             this.to_be_updated = item;
             cnic_field.setText(to_be_updated.getCnic());
             name_field.setText(to_be_updated.getName());
-            buses.setValue(to_be_updated.getBus());
-            routes.setValue(to_be_updated.getRoute());
+
         }
     }
 }

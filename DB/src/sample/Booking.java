@@ -31,6 +31,11 @@ public class Booking implements Initializable{
     String cnicNum, busName, Time;
     LocalDate IssueDate;
     Alert alert;
+    String User_Label;
+    public void show(String user)
+    {
+        this.User_Label = user;
+    }
 
     public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date, String time)
     {

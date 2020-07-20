@@ -4,12 +4,16 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.Chart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -39,6 +43,7 @@ public class Dashboard implements Initializable {
     @FXML Label earned;
     @FXML Label total_buses;
     @FXML Label totol_booking;
+    @FXML PieChart pieChart;
 
     public void show(String user) {
         this.User_Label = user;
@@ -174,10 +179,19 @@ public class Dashboard implements Initializable {
                 count++;
                 sum+=Integer.parseInt(resultSet.getString("price"));
             }
-            System.out.println("total seats booked are "+count);
-            System.out.println("total booking earning is "+sum);
+           // System.out.println("total seats booked are "+count);
+            //System.out.println("total booking earning is "+sum);
             totol_booking.setText(Integer.toString(count));
             earned.setText(Integer.toString(sum));
+
+            ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList(new PieChart.Data("City EXP",8),
+                    new PieChart.Data("Madrid EXP",10),
+            new PieChart.Data("Juventus EXP",12),
+            new PieChart.Data("Bayern EXP",8),
+            new PieChart.Data("Paris EXP",8),
+            new PieChart.Data("Barca EXP",90));
+            pieChart.setData(pie_chart_data);
+
 
 
 

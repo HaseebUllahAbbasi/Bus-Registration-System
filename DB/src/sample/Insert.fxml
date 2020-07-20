@@ -30,13 +30,13 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="rout_box" editable="true" layoutX="331.0" layoutY="230.0" prefWidth="150.0" promptText="None" />
+            <ComboBox fx:id="rout_box" editable="true" layoutX="331.0" layoutY="230.0" onAction="#check_route" prefWidth="150.0" promptText="None" />
             <Label layoutX="180.0" layoutY="229.0" text="Route">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="bus_box" editable="true" layoutX="330.0" layoutY="278.0" prefWidth="150.0" promptText="None" />
+            <ComboBox fx:id="bus_box" editable="true" layoutX="330.0" layoutY="278.0" onAction="#check_bus" prefWidth="150.0" promptText="None" />
             <Label layoutX="180.0" layoutY="277.0" text="View Buses">
                <font>
                   <Font name="System Bold" size="18.0" />

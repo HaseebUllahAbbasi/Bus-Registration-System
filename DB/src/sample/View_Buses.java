@@ -26,6 +26,7 @@ public class View_Buses
     private String user_label;
     private String date;
 
+
     public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date)
     {
         this.cnicNum=user;
@@ -47,9 +48,9 @@ public class View_Buses
 
         Buses_Menu buses_menu = loader.getController();
         buses_menu.show(user_label);
-        
+
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Register Customer");
+        primaryStage.setTitle("Buses Menu");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
