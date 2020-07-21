@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.Chart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -173,8 +175,8 @@ public class Dashboard implements Initializable {
         int barca = 0;
         int bayern = 0;
         try {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             statement.execute("Select * from [Seats]");
             ResultSet resultSet = statement.getResultSet();
@@ -212,8 +214,31 @@ public class Dashboard implements Initializable {
             new PieChart.Data("Barca EXP",barca));
             pieChart.setData(pie_chart_data);
 
+            /*for (final PieChart.Data data:pieChart.getData())
+            {
+                double finalCount = count;
+                data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        pieChart.setTitle(data.getName()+": "+Double.toString(data.getPieValue()/ finalCount)+"%");
+                        System.out.println("data : "+data.getPieValue()+" count "+finalCount);
+                    }
+                });
+            }
 
-
+             */
+            for (final PieChart.Data data : pieChart.getData())
+            {
+                int finalCount = count;
+                data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
+                        new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent e) {
+                                //System.out.println(String.valueOf(data.getPieValue()) + "%");
+                                pieChart.setTitle(data.getName()+" : "+(data.getPieValue()/ finalCount)+"%");
+                            }
+                        });
+            }
 
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

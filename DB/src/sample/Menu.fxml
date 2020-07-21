@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -48,7 +48,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button fx:id="sign_out" layoutX="732.0" layoutY="41.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
+      <Button fx:id="sign_out" layoutX="865.0" layoutY="19.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
       <Button fx:id="view_history_button" layoutX="31.0" layoutY="301.0" mnemonicParsing="false" onAction="#view_data" prefHeight="50.0" prefWidth="169.0" text="View all record">
          <font>
             <Font size="17.0" />
@@ -80,7 +80,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="sign_out1" layoutX="732.0" layoutY="91.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
+      <Button fx:id="sign_out1" layoutX="865.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
       <Label layoutX="33.0" layoutY="490.0" prefHeight="50.0" prefWidth="169.0" text="Seats Booked : ">
          <font>
             <Font size="22.0" />
@@ -91,6 +91,11 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="140.0" />
+      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="167.0" legendVisible="false" prefHeight="373.0" prefWidth="430.0" titleSide="BOTTOM" />
+      <Label layoutX="586.0" layoutY="129.0" text="Seats Booked">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
