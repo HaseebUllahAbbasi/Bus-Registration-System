@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Buses_Menu">
+   <children>
+      <Button fx:id="city" layoutX="13.0" layoutY="13.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="CITY EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="madrid" layoutX="179.0" layoutY="13.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="MADRID EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="bayern" layoutX="347.0" layoutY="13.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="BAYERN EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="barca" layoutX="12.0" layoutY="153.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="BARCA EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="juve" layoutX="178.0" layoutY="153.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="JUVENTUS EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="paris" layoutX="346.0" layoutY="153.0" mnemonicParsing="false" onAction="#display" prefHeight="118.0" prefWidth="152.0" text="PARIS EXP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="510.0" layoutY="336.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <DatePicker fx:id="datePicker" layoutX="183.0" layoutY="323.0" onMouseExited="#changed" prefHeight="33.0" prefWidth="152.0" />
+   </children>
+</AnchorPane>

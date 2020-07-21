@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="572.0" text="Vehicle Management System" textFill="#b16bd7">
+         <font>
+            <Font name="Lucida Calligraphy Italic" size="28.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="65.0" prefHeight="49.0" prefWidth="243.0" text="Login Screen">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <TextField fx:id="user_name" accessibleHelp="Enter User Name" accessibleRoleDescription="Enter User Name" accessibleText="Enter User Name" layoutX="44.0" layoutY="143.0" prefHeight="42.0" prefWidth="201.0" promptText="Enter User Name">
+         <font>
+            <Font size="19.0" />
+         </font></TextField>
+      <PasswordField fx:id="pass_word" layoutX="45.0" layoutY="210.0" prefHeight="42.0" prefWidth="201.0" promptText="Enter Password">
+         <font>
+            <Font size="19.0" />
+         </font></PasswordField>
+      <Button fx:id="login_button" layoutX="44.0" layoutY="281.0" mnemonicParsing="false" onAction="#Login_button_method" prefHeight="44.0" prefWidth="201.0" text="Login">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Separator layoutX="272.0" layoutY="65.0" opacity="0.71" orientation="VERTICAL" prefHeight="271.0" prefWidth="2.0" />
+      <Button fx:id="new_user_button" layoutX="44.0" layoutY="336.0" mnemonicParsing="false" onAction="#new_user_button_method" prefHeight="44.0" prefWidth="201.0" text="New User">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="login_button1" layoutX="330.0" layoutY="336.0" mnemonicParsing="false" onAction="#Booking" prefHeight="44.0" prefWidth="201.0" text="Booking">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
