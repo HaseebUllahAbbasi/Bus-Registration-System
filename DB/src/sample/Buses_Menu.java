@@ -80,8 +80,8 @@ public class Buses_Menu
             try {
 
                 System.out.println(BusName);
-                connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-                //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+                //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+                connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
                 statement = connection.createStatement();
                 statement.execute("SELECT * FROM [Seats] Where Bus='"+BusName+"' AND IssueDate = '"+datePicker.getValue()+"'");
                 ResultSet resultSet = statement.getResultSet();
@@ -94,10 +94,10 @@ public class Buses_Menu
                 ((Node)actionEvent.getSource()).getScene().getWindow().hide();
                 Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+                Pane root = loader.load(getClass().getResource("view_buses.fxml").openStream());
 
-                Booking ob = loader.getController();
-                ob.getVal(SeatNoD,BusName);
+                View_Buses ob = loader.getController();
+                ob.getVal(SeatNoD);
 
                 Scene scene = new Scene(root);
                 primaryStage.setTitle("Bookings");

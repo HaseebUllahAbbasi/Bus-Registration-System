@@ -47,14 +47,7 @@ public class Booking implements Initializable{
         Dred();
         Dis();
     }
-    public void getVal(ArrayList<Integer> Arr,String Bus)
-    {
-        this.busName=Bus;
-        this.SeatNoD=Arr;
-        bkbtn.setDisable(true);
-        Dred();
-        Dis();
-    }
+
 
 
 
@@ -78,8 +71,8 @@ public class Booking implements Initializable{
         try
         {
 
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
