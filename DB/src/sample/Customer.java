@@ -34,13 +34,16 @@ public class Customer
         this.time.set(time);
     }
 
-    Customer(String name, String cnic, String route, String bus, String data)
+
+    Customer(String name, String cnic, String route, String bus, String date,String seat,String time)
     {
         this.bus = new SimpleStringProperty(bus);
         this.cnic = new SimpleStringProperty(cnic);
         this.route = new SimpleStringProperty(route);
         this.name = new SimpleStringProperty(name);
-        this.date = new SimpleStringProperty(data);
+        this.date = new SimpleStringProperty(date);
+        this.time = new SimpleStringProperty(time);
+        this.seat = new SimpleStringProperty(seat);
     }
 
     public String getName() {

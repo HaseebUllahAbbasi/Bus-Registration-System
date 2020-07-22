@@ -94,7 +94,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="167.0" legendVisible="false" prefHeight="373.0" prefWidth="430.0" titleSide="BOTTOM" />
+      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="167.0" prefHeight="373.0" prefWidth="430.0" titleSide="BOTTOM" />
       <Label layoutX="586.0" layoutY="129.0" text="Seats Booked">
          <font>
             <Font size="28.0" />

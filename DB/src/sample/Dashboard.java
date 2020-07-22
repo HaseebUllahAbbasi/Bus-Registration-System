@@ -73,8 +73,8 @@ public class Dashboard implements Initializable {
         int barca = 0;
         int bayern = 0;
         try {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             statement.execute("Select * from [Seats] where IssueDate = '"+java.time.LocalDate.now()+"';");
             //statement.execute("Select * from [Seats]");
@@ -118,19 +118,6 @@ public class Dashboard implements Initializable {
                     new PieChart.Data("Barca EXP",barca));
             pieChart.setData(pie_chart_data);
 
-            /*for (final PieChart.Data data:pieChart.getData())
-            {
-                double finalCount = count;
-                data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        pieChart.setTitle(data.getName()+": "+Double.toString(data.getPieValue()/ finalCount)+"%");
-                        System.out.println("data : "+data.getPieValue()+" count "+finalCount);
-                    }
-                });
-            }
-
-             */
             for (final PieChart.Data data : pieChart.getData())
             {
                 int finalCount = count;
@@ -139,7 +126,7 @@ public class Dashboard implements Initializable {
                             @Override
                             public void handle(MouseEvent e) {
                                 //System.out.println(String.valueOf(data.getPieValue()) + "%");
-                                pieChart.setTitle(data.getName()+" : "+(data.getPieValue()/ finalCount*100)+"%");
+                                pieChart.setTitle(data.getName()+" : "+Math.round(data.getPieValue()/ finalCount*100)+"%");
                             }
                         });
             }

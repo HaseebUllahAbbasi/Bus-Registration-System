@@ -55,6 +55,9 @@ public class Delete implements Initializable
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        time.setCellValueFactory(new PropertyValueFactory<>("time"));
+        seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
+
         choice_box.setItems(choice);
 
     }
@@ -90,42 +93,41 @@ public class Delete implements Initializable
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             if(choice_box.getValue().equals("Name"))
-                statement.execute("select * from Customer where CusName like '"+search_text_field.getText()+"%'");
+                statement.execute("select * from [Customer] INNER join [seats] using(cnic) where CusName like '"+search_text_field.getText()+"%'");
             else if(choice_box.getValue().equals("Bus"))
-                statement.execute("select * from Customer where Bus like '"+search_text_field.getText()+"%'");
+                statement.execute("select * from [Customer] INNER join [seats] using(cnic) where Customer.Bus like '"+search_text_field.getText()+"%'");
             else if(choice_box.getValue().equals("Route"))
-                statement.execute("select * from Customer where Rout like '"+search_text_field.getText()+"%'");
+                statement.execute("select * from [Customer] INNER join [seats] using(cnic) where Customer.Rout like '"+search_text_field.getText()+"%'");
             else if(choice_box.getValue().equals("Date"))
-                statement.execute("select * from Customer where IssueDate like '"+search_text_field.getText()+"%'");
+                statement.execute("select * from [Customer] INNER join [seats] using(cnic) where Customer.IssueDate like '"+search_text_field.getText()+"%'");
             else if(choice_box.getValue().equals("CNIC"))
-                statement.execute("select * from Customer where cnic like '"+search_text_field.getText()+"%'");
+                statement.execute("select * from [Customer] INNER join [seats] using(cnic) where Customer.cnic like '"+search_text_field.getText()+"%'");
             ResultSet resultSet = statement.getResultSet();
-
             while (resultSet.next())
             {
                 if(choice_box.getValue().equals("Name"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                     user_found++;
                 }
                 else if(choice_box.getValue().equals("CNIC"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                     user_found++;
                 }
                 else if(choice_box.getValue().equals("Bus"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                     user_found++;
                 }
                 else if(choice_box.getValue().equals("Route"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                     user_found++;
                 }
                 else if(choice_box.getValue().equals("Date"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                     user_found++;
                 }
             }
@@ -179,8 +181,8 @@ public class Delete implements Initializable
         Statement statement = null;
         try
         {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");

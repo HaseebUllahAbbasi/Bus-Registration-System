@@ -47,6 +47,8 @@ public class View implements Initializable
         bus.setCellValueFactory(new PropertyValueFactory<>("bus"));
         cnic.setCellValueFactory(new PropertyValueFactory<>("cnic"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        time.setCellValueFactory(new PropertyValueFactory<>("time"));
+        seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
 
         Connection connection = null;
         Statement statement = null;
@@ -56,11 +58,11 @@ public class View implements Initializable
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
-            statement.execute("Select * from [Customer]");
+            statement.execute("SELECT * from [Customer] INNER join [seats] using(cnic)");
             ResultSet resultSet = statement.getResultSet();
             while (resultSet.next())
             {
-                data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate")));
+                data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
                 user_found++;
             }
             if(user_found==0)
