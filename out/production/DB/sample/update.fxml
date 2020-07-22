@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -57,9 +56,6 @@
             </Button>
             <TextField fx:id="name_field" layoutX="698.0" layoutY="61.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
             <TextField fx:id="cnic_field" layoutX="698.0" layoutY="122.0" prefHeight="25.0" prefWidth="157.0" promptText="45#######" />
-             <ComboBox fx:id="routes" editable="true" layoutX="701.0" layoutY="193.0" prefHeight="26.0" prefWidth="157.0" promptText="None" />
-             <ComboBox fx:id="buses" editable="true" layoutX="701.0" layoutY="244.0" prefHeight="26.0" prefWidth="157.0" promptText="None" />
-            <DatePicker fx:id="datePicker" layoutX="701.0" layoutY="294.0" prefHeight="26.0" prefWidth="157.0" />
          </children>
     </AnchorPane>
   </children>

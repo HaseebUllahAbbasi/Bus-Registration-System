@@ -13,8 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.Chart;
-import javafx.scene.chart.PieChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -37,6 +36,17 @@ public class Dashboard implements Initializable {
     Button view_history_button;
     @FXML
     Button total_button;
+
+    @FXML
+    private LineChart<?, ?> LineChart;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+
+
     Alert alert;
     String User_Label;
     @FXML Label earned;
@@ -48,6 +58,116 @@ public class Dashboard implements Initializable {
     public void show(String user) {
         this.User_Label = user;
         user_name.setText(user);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        int sum = 0;
+        int count = 0;
+        Connection connection = null;
+        Statement statement = null;
+        int city = 0;
+        int juventus = 0;
+        int madrid = 0;
+        int paris = 0;
+        int barca = 0;
+        int bayern = 0;
+        try {
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            statement = connection.createStatement();
+            statement.execute("Select * from [Seats] where IssueDate = '"+java.time.LocalDate.now()+"';");
+            //statement.execute("Select * from [Seats]");
+            ResultSet resultSet = statement.getResultSet();
+            while (resultSet.next())
+            {
+                switch (resultSet.getString("Bus"))
+                {
+                    case "Madrid Exp":
+                        madrid++;
+                        break;
+                    case "City Exp":
+                        city++;
+                        break;
+                    case "Barca Exp":
+                        barca++;
+                        break;
+                    case "Bayern Exp":
+                        bayern++;
+                        break;
+                    case "Juventus Exp":
+                        juventus++;
+                        break;
+                    case "Paris Exp":
+                        paris++;
+                        break;
+                }
+                count++;
+                sum+=Integer.parseInt(resultSet.getString("price"));
+            }
+            // System.out.println("total seats booked are "+count);
+            //System.out.println("total booking earning is "+sum);
+            totol_booking.setText(Integer.toString(count));
+            earned.setText(Integer.toString(sum));
+
+            ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList(
+                    new PieChart.Data("City EXP",city), new PieChart.Data("Madrid EXP",madrid),
+                    new PieChart.Data("Juventus EXP",juventus),
+                    new PieChart.Data("Bayern EXP",bayern),
+                    new PieChart.Data("Paris EXP",paris),
+                    new PieChart.Data("Barca EXP",barca));
+            pieChart.setData(pie_chart_data);
+
+            /*for (final PieChart.Data data:pieChart.getData())
+            {
+                double finalCount = count;
+                data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        pieChart.setTitle(data.getName()+": "+Double.toString(data.getPieValue()/ finalCount)+"%");
+                        System.out.println("data : "+data.getPieValue()+" count "+finalCount);
+                    }
+                });
+            }
+
+             */
+            for (final PieChart.Data data : pieChart.getData())
+            {
+                int finalCount = count;
+                data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
+                        new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent e) {
+                                //System.out.println(String.valueOf(data.getPieValue()) + "%");
+                                pieChart.setTitle(data.getName()+" : "+(data.getPieValue()/ finalCount*100)+"%");
+                            }
+                        });
+            }
+
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        finally {
+            if(connection!=null)
+            {
+                try {
+                    statement.close();
+                    connection.close();
+                } catch (SQLException sqlException)
+                {
+                    sqlException.printStackTrace();
+                }
+            }
+        }
+       XYChart.Series series = new XYChart.Series();
+        series.getData().add(new XYChart.Data("Juventus Exp",juventus*100));
+        series.getData().add(new XYChart.Data("City Exp",city*100));
+        series.getData().add(new XYChart.Data("Bayern Exp",bayern*100));
+        series.getData().add(new XYChart.Data("Paris Exp",paris*100));
+        series.getData().add(new XYChart.Data("Barcelona Exp",barca*100));
+        series.getData().add(new XYChart.Data( "Madrid Exp",madrid*100));
+        LineChart.getData().addAll(series);
+
     }
 
     public void signOut(ActionEvent event) throws IOException {
@@ -161,99 +281,5 @@ public class Dashboard implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        int sum = 0;
-        int count = 0;
-        Connection connection = null;
-        Statement statement = null;
-        int city = 0;
-        int juventus = 0;
-        int madrid = 0;
-        int paris = 0;
-        int barca = 0;
-        int bayern = 0;
-        try {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
-            statement = connection.createStatement();
-            statement.execute("Select * from [Seats]");
-            ResultSet resultSet = statement.getResultSet();
-            while (resultSet.next())
-            {
-                switch (resultSet.getString("Bus"))
-                {
-                    case "Madrid Exp":
-                        madrid++;
-                        break;
-                    case "City Exp":
-                        city++;
-                    case "Barca Exp":
-                        barca++;
-                    case "Bayern Exp":
-                        bayern++;
-                    case "Juventus Exp":
-                        juventus++;
-                    case "Paris Exp":
-                        paris++;
-                }
-                count++;
-                sum+=Integer.parseInt(resultSet.getString("price"));
-            }
-           // System.out.println("total seats booked are "+count);
-            //System.out.println("total booking earning is "+sum);
-            totol_booking.setText(Integer.toString(count));
-            earned.setText(Integer.toString(sum));
 
-            ObservableList<PieChart.Data> pie_chart_data = FXCollections.observableArrayList(
-                    new PieChart.Data("City EXP",city), new PieChart.Data("Madrid EXP",madrid),
-            new PieChart.Data("Juventus EXP",juventus),
-            new PieChart.Data("Bayern EXP",bayern),
-            new PieChart.Data("Paris EXP",paris),
-            new PieChart.Data("Barca EXP",barca));
-            pieChart.setData(pie_chart_data);
-
-            /*for (final PieChart.Data data:pieChart.getData())
-            {
-                double finalCount = count;
-                data.getNode().addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        pieChart.setTitle(data.getName()+": "+Double.toString(data.getPieValue()/ finalCount)+"%");
-                        System.out.println("data : "+data.getPieValue()+" count "+finalCount);
-                    }
-                });
-            }
-
-             */
-            for (final PieChart.Data data : pieChart.getData())
-            {
-                int finalCount = count;
-                data.getNode().addEventHandler(MouseEvent.MOUSE_PRESSED,
-                        new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent e) {
-                                //System.out.println(String.valueOf(data.getPieValue()) + "%");
-                                pieChart.setTitle(data.getName()+" : "+(data.getPieValue()/ finalCount)+"%");
-                            }
-                        });
-            }
-
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        }
-        finally {
-            if(connection!=null)
-            {
-                try {
-                    statement.close();
-                    connection.close();
-                } catch (SQLException sqlException)
-                {
-                    sqlException.printStackTrace();
-                }
-            }
-        }
-    }
 }

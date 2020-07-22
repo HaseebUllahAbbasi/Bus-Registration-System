@@ -19,6 +19,8 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.*;
@@ -71,6 +73,14 @@ public class Insertion implements Initializable
                 alert.showAndWait();
                 return;
             }
+
+            if (date_id.getValue().isBefore(java.time.LocalDate.now()))
+            {
+                alert = new Alert(Alert.AlertType.ERROR,"Please Enter current date or after  !",ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+
             statement.execute("INSERT INTO Customer(CusName,Cnic,IssueDate,Rout,Bus) VALUES ('"+name.getText()+"',"+cnic.getText()+",'"+date_id.getValue()+"','"+rout_box.getValue()+"','"+bus_box.getValue()+"')");
             statement.execute("SELECT * FROM [Seats] Where Bus='"+(String) bus_box.getValue()+"' AND IssueDate = '"+date_id.getValue()+"' AND Time='"+time.getValue()+"'");
             ResultSet resultSet = statement.getResultSet();
