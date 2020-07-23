@@ -206,7 +206,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Earned Today ">
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Seats Booked">
                      <font>
                         <Font size="22.0" />
                      </font>

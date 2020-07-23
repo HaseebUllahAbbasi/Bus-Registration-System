@@ -2,6 +2,7 @@ package sample;
 import javafx.beans.property.SimpleStringProperty;
 public class Customer
 {
+    SimpleStringProperty id;
     SimpleStringProperty name;
     SimpleStringProperty cnic;
     SimpleStringProperty route;
@@ -12,6 +13,18 @@ public class Customer
 
     public String getSeat() {
         return seat.get();
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public SimpleStringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
     }
 
     public SimpleStringProperty seatProperty() {
@@ -35,7 +48,7 @@ public class Customer
     }
 
 
-    Customer(String name, String cnic, String route, String bus, String date,String seat,String time)
+    Customer(String name, String cnic, String route, String bus, String date,String seat,String time,String id)
     {
         this.bus = new SimpleStringProperty(bus);
         this.cnic = new SimpleStringProperty(cnic);
@@ -44,6 +57,7 @@ public class Customer
         this.date = new SimpleStringProperty(date);
         this.time = new SimpleStringProperty(time);
         this.seat = new SimpleStringProperty(seat);
+        this.id = new SimpleStringProperty(id);
     }
 
     public String getName() {

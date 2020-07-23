@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Update">
+<VBox prefHeight="400.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Update">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="886.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="950.0" VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="9.0" layoutY="12.0" text="Name/CNIC">
                <font>
@@ -32,10 +32,11 @@
                </font>
             </Button>
             <TextField fx:id="search_text_field" layoutX="144.0" layoutY="11.0" prefHeight="25.0" prefWidth="157.0" promptText="Name/45#######" />
-            <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="61.0" onMouseClicked="#click" prefHeight="339.0" prefWidth="661.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="234.0" AnchorPane.topAnchor="61.0">
+            <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="61.0" onMouseClicked="#click" prefHeight="339.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="61.0">
               <columns>
-                <TableColumn fx:id="name" prefWidth="97.0" resizable="false" text="name" />
-                <TableColumn fx:id="cnic" minWidth="0.0" prefWidth="100.0" resizable="false" text="cnic" />
+                  <TableColumn fx:id="id" prefWidth="55.0" resizable="false" text="id" />
+                <TableColumn fx:id="name" prefWidth="129.0" resizable="false" text="name" />
+                <TableColumn fx:id="cnic" minWidth="0.0" prefWidth="110.0" resizable="false" text="cnic" />
                   <TableColumn fx:id="route" minWidth="0.0" prefWidth="97.0" resizable="false" text="route" />
                   <TableColumn fx:id="bus" minWidth="0.0" prefWidth="96.0" resizable="false" text="bus" />
                   <TableColumn fx:id="date" minWidth="0.0" prefWidth="95.0" resizable="false" text="date" />
@@ -54,8 +55,8 @@
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="name_field" layoutX="698.0" layoutY="61.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
-            <TextField fx:id="cnic_field" layoutX="698.0" layoutY="122.0" prefHeight="25.0" prefWidth="157.0" promptText="45#######" />
+            <TextField fx:id="name_field" layoutX="777.0" layoutY="76.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
+            <TextField fx:id="cnic_field" layoutX="776.0" layoutY="135.0" prefHeight="25.0" prefWidth="157.0" promptText="45#######" />
          </children>
     </AnchorPane>
   </children>

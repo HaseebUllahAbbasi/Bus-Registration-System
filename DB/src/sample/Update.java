@@ -36,6 +36,8 @@ public class Update implements Initializable
     @FXML private TableColumn<Customer,String> date;
     @FXML private TableColumn<Customer,String> seat;
     @FXML private TableColumn<Customer,String> time;
+    @FXML private TableColumn<Customer,String> id;
+
     int user_found = 0;
     Customer to_be_updated;
     Alert alert;
@@ -58,6 +60,7 @@ public class Update implements Initializable
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
 
 
         choice_box.setItems(choice);
@@ -109,28 +112,23 @@ public class Update implements Initializable
             {
                 if(choice_box.getValue().equals("Name"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("CNIC"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Bus"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Route"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Date"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
             }
             if(user_found==0)
@@ -179,9 +177,10 @@ public class Update implements Initializable
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
-            statement.execute("UPDATE Customer\n" +
+            statement.executeQuery("UPDATE Customer\n" +
                     "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"' \n" +
                     "WHERE Cnic = "+ to_be_updated.getCnic()+";");
+
 
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+ to_be_updated.getCnic()+" CNINC is Updated", ButtonType.OK);
             alert.showAndWait();

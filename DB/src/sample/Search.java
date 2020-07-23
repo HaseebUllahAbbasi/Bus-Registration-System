@@ -32,6 +32,7 @@ public class Search implements Initializable
     @FXML private TableColumn<Customer,String> date;
     @FXML private TableColumn<Customer,String> seat;
     @FXML private TableColumn<Customer,String> time;
+    @FXML private TableColumn<Customer,String> id;
     int user_found = 0;
     Alert alert;
     private final ObservableList<Customer> data = FXCollections.observableArrayList();
@@ -52,6 +53,8 @@ public class Search implements Initializable
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
 
 
         choice_box.setItems(choice);
@@ -104,28 +107,24 @@ public class Search implements Initializable
             {
                 if(choice_box.getValue().equals("Name"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));
                     user_found++;
                 }
                 else if(choice_box.getValue().equals("CNIC"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Bus"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Route"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
                 else if(choice_box.getValue().equals("Date"))
                 {
-                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time")));
-                    user_found++;
+                    data.add(new Customer(resultSet.getString("CusName"),resultSet.getString("Cnic"),resultSet.getString("Rout"),resultSet.getString("Bus"),resultSet.getString("IssueDate"),resultSet.getString("seatNO"),resultSet.getString("time"),resultSet.getString("CusID")));                    user_found++;
                 }
             }
             if(user_found==0)
