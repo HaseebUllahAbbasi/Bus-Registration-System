@@ -177,11 +177,12 @@ public class Update implements Initializable
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
-            statement.executeQuery("UPDATE Customer\n" +
+            statement.executeUpdate("UPDATE Customer\n" +
                     "SET CusName = '"+ name_field.getText()+"', Cnic = '"+ cnic_field.getText()+"' \n" +
                     "WHERE Cnic = "+ to_be_updated.getCnic()+";");
-
-
+            statement.executeUpdate("UPDATE Seats\n" +
+                    "SET Cnic = '"+ cnic_field.getText()+"' \n" +
+                    "WHERE Cnic = "+ to_be_updated.getCnic()+";");
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+ to_be_updated.getCnic()+" CNINC is Updated", ButtonType.OK);
             alert.showAndWait();
 

@@ -184,6 +184,8 @@ public class Delete implements Initializable
             statement = connection.createStatement();
 
             statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
+            statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
+
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+to_be_del.getCnic()+" CNINC is Deleted", ButtonType.OK);
             alert.showAndWait();
         }

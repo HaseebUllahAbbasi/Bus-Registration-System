@@ -97,6 +97,7 @@ public class Buses_Menu
                 Pane root = loader.load(getClass().getResource("view_buses.fxml").openStream());
 
                 View_Buses ob = loader.getController();
+                ob.show(User_Label);
                 ob.getVal(SeatNoD);
 
                 Scene scene = new Scene(root);
