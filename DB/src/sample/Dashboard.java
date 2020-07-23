@@ -15,8 +15,12 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Dashboard implements Initializable {
@@ -46,6 +50,8 @@ public class Dashboard implements Initializable {
     @FXML
     private NumberAxis y;
 
+    @FXML ImageView img;
+    @FXML Image img_src;
 
     Alert alert;
     String User_Label;
@@ -154,8 +160,8 @@ public class Dashboard implements Initializable {
         series.getData().add(new XYChart.Data("Barcelona Exp",barca*100));
         series.getData().add(new XYChart.Data( "Madrid Exp",madrid*100));
         LineChart.getData().addAll(series);
-
     }
+
 
     public void signOut(ActionEvent event) throws IOException {
         alert = new Alert(Alert.AlertType.CONFIRMATION, " Are you really want to Logout !", ButtonType.YES, ButtonType.NO);
@@ -267,6 +273,20 @@ public class Dashboard implements Initializable {
         primaryStage.show();
 
     }
-
-
+    public void base_button(MouseEvent mouseEvent)
+    {
+        ((Button)mouseEvent.getSource()).setStyle("-fx-background-color: lightgreen");
+    }
+    public void changed_button(MouseEvent mouseEvent)
+    {
+        ((Button)mouseEvent.getSource()).setStyle("-fx-background-color: lightblue");
+    }
+    public void base_info(MouseEvent mouseEvent)
+    {
+        ((VBox)mouseEvent.getSource()).setStyle("-fx-background-color:  #bd77be");
+    }
+    public void changed_info(MouseEvent mouseEvent)
+    {
+        ((VBox)mouseEvent.getSource()).setStyle("-fx-background-color: pink");
+    }
 }

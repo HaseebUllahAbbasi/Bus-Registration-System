@@ -1,112 +1,236 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1239.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
    <children>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="36.0" prefHeight="17.0" prefWidth="639.0" text="Dashboard">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label layoutX="31.0" layoutY="88.0" text="HI,">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <Label fx:id="user_name" layoutX="98.0" layoutY="90.0" prefHeight="38.0" prefWidth="202.0" text="User_Name">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Button fx:id="insert_button" layoutX="31.0" layoutY="172.0" mnemonicParsing="false" onAction="#insert" prefHeight="50.0" prefWidth="169.0" text="Book Seat">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="edit_button" layoutX="265.0" layoutY="172.0" mnemonicParsing="false" onAction="#update_date" prefHeight="50.0" prefWidth="169.0" text="Update Record">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="search_button" layoutX="31.0" layoutY="233.0" mnemonicParsing="false" onAction="#search_data" prefHeight="50.0" prefWidth="169.0" text="Search Record">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="remove_button" layoutX="265.0" layoutY="233.0" mnemonicParsing="false" onAction="#remove_data" prefHeight="50.0" prefWidth="169.0" text="Cancel Seat">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Button fx:id="sign_out" layoutX="865.0" layoutY="19.0" mnemonicParsing="false" onAction="#signOut" prefHeight="35.0" prefWidth="112.0" text="Long Out" />
-      <Button fx:id="view_history_button" layoutX="31.0" layoutY="301.0" mnemonicParsing="false" onAction="#view_data" prefHeight="50.0" prefWidth="169.0" text="View all record">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
-      <Label layoutX="33.0" layoutY="385.0" prefHeight="50.0" prefWidth="169.0" text="Earned Today :">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="earned" layoutX="277.0" layoutY="393.0" text="number">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="30.0" layoutY="452.0" text="Present Vehicle :">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="total_buses" layoutX="285.0" layoutY="451.0" text="6">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Separator layoutX="25.0" layoutY="369.0" prefHeight="16.0" prefWidth="413.0" />
-      <Button fx:id="total_button" layoutX="265.0" layoutY="301.0" mnemonicParsing="false" onAction="#bus_menu" prefHeight="50.0" prefWidth="169.0" text="View buses">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="sign_out1" layoutX="865.0" layoutY="73.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="About" />
-      <Label layoutX="33.0" layoutY="490.0" prefHeight="50.0" prefWidth="169.0" text="Seats Booked : ">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="totol_booking" layoutX="277.0" layoutY="498.0" text="number">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <PieChart fx:id="pieChart" layoutX="467.0" layoutY="167.0" prefHeight="373.0" prefWidth="430.0" titleSide="BOTTOM" />
-      <Label layoutX="586.0" layoutY="129.0" text="Seats Booked">
+      <PieChart fx:id="pieChart" layoutX="292.0" layoutY="157.0" prefHeight="299.0" prefWidth="420.0" titleSide="BOTTOM">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></PieChart>
+      <Label layoutX="411.0" layoutY="105.0" text="Seats Booked">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <LineChart fx:id="LineChart" layoutX="921.0" layoutY="228.0" prefHeight="299.0" prefWidth="337.0">
+      <LineChart fx:id="LineChart" layoutX="756.0" layoutY="143.0" prefHeight="328.0" prefWidth="420.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="x" />
         </xAxis>
         <yAxis>
           <NumberAxis fx:id="y" side="LEFT" />
         </yAxis>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </LineChart>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: #394263;">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="136.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="246.0" style="-fx-background-color: #394263;">
+               <children>
+                  <Label fx:id="user_name" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="User_Name">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="205.0" style="-fx-background-color: #394263;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="DashBoard">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: #394263;" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" style="-fx-background-color: #394263;">
+               <children>
+                  <Button fx:id="sign_out1" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="About">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="240.0">
+               <children>
+                  <Button fx:id="sign_out" mnemonicParsing="false" onAction="#signOut" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="Long Out">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children></HBox>
+      <Label layoutX="915.0" layoutY="106.0" text="Price Earned">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="-1.0" layoutY="99.0" prefHeight="627.0" prefWidth="200.0" style="-fx-background-color: #394263; -fx-border-image-insets: black; -fx-border-width: 0px 2px 0px 0px;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="insert_button" mnemonicParsing="false" onAction="#insert" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="173.0" style="-fx-background-color: lightgreen;" text="Book Seat">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="search_button" mnemonicParsing="false" onAction="#search_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Search Record">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="view_history_button" mnemonicParsing="false" onAction="#view_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View all record">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="edit_button" mnemonicParsing="false" onAction="#update_date" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Update Record">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="remove_button" mnemonicParsing="false" onAction="#remove_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Cancel Seat">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="total_button" mnemonicParsing="false" onAction="#bus_menu" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View buses">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="243.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Earned Today ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane prefHeight="170.0" prefWidth="210.0">
+                     <children>
+                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="earned" text="number" textFill="#f8efef">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox layoutX="582.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
+               <children>
+                  <Label text="Present Vehicle ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="total_buses" text="6" textFill="#fcf5f5">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox layoutX="915.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Earned Today ">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane>
+                     <children>
+                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="totol_booking" alignment="CENTER" prefHeight="50.0" prefWidth="109.0" text="Bookings" textFill="#e8dfdf">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </VBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

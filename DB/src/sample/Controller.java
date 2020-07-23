@@ -78,6 +78,7 @@ public class Controller
                         dashboard.show(resultSet.getString("name"));
 
                         Scene scene = new Scene(root);
+                        //scene.getStylesheets().add("/home/peaceseeker/DB_project/DB/src/sample/style.css");
                         primaryStage.setTitle("DashBoard");
                         primaryStage.setScene(scene);
                         primaryStage.show();
