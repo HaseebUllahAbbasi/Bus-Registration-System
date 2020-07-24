@@ -1,12 +1,15 @@
 package sample;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,24 +20,28 @@ public class New_User
     @FXML TextField name;
     @FXML TextField cnic;
     @FXML PasswordField passwordField;
+    @FXML PasswordField passwordField2;
     @FXML Alert alert;
-    @FXML Button login_screen;
+    @FXML
+    FontAwesomeIcon login_screen;
     @FXML Button new_user;
-    public void back_to_login(ActionEvent event) throws IOException
-    {
-        ((Node)event.getSource()).getScene().getWindow().hide();
+
+    @FXML
+    private void back_to_login(MouseEvent event) throws IOException {
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
+
         Scene scene = new Scene(root);
-        primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
+        root.getStylesheets().add(getClass().getResource("Login.css").toString());
         primaryStage.show();
     }
     public void register_method()
     {
         //if fields are empty then user is alerted
-        if (name.getText().equals("") || name.getText().equals("") || passwordField.getText().equals(""))
+        if (name.getText().equals("") || name.getText().equals("") || passwordField.getText().equals("")|| passwordField2.getText().equals(""))
         {
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter the All Required Data !", ButtonType.OK);
             alert.showAndWait();
@@ -43,6 +50,11 @@ public class New_User
         else if (passwordField.getText().length() < 5)
         {
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter with more than four letters !", ButtonType.OK);
+            alert.showAndWait();
+        }
+        else if(passwordField.getText()!=passwordField2.getText())
+        {
+            alert = new Alert(Alert.AlertType.WARNING, "Please Enter same password !", ButtonType.OK);
             alert.showAndWait();
         }
         else

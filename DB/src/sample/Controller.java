@@ -5,27 +5,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.scene.input.*;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
 
 public class Controller
 {
-    @FXML TextField user_name;
-    @FXML TextField pass_word;
+    @FXML
+    TextField user_name;
+    @FXML
+    PasswordField pass_word;
+    @FXML Pane content_area;
+    @FXML
+    Button new_user_button;
     @FXML Button login_button;
-    @FXML Button new_user_button;
 
     Alert alert;
     int user_found = 0;
 
+
+
+
+    public void close_app(MouseEvent event)
+    {
+        System.exit(0);
+    }
+    @FXML
     public void new_user_button_method(ActionEvent event) throws IOException
     {
         ((Node) event.getSource()).getScene().getWindow().hide();
@@ -35,7 +46,9 @@ public class Controller
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        root.getStylesheets().add(getClass().getResource("Login.css").toString());
         primaryStage.show();
+
     }
     public void Login_button_method(ActionEvent event) throws SQLException
     {
@@ -51,8 +64,8 @@ public class Controller
             Statement statement = null;
             try
             {
-                connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-                //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+                //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+                connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
                 statement = connection.createStatement();
                 statement.execute("Select * from [Admin]");
                 ResultSet resultSet = statement.getResultSet();

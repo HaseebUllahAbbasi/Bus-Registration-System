@@ -1,44 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="forgot_label" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="36.0" prefWidth="572.0" text="Vehicle Management System" textFill="#b16bd7">
-         <font>
-            <Font name="Lucida Calligraphy Italic" size="28.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="65.0" prefHeight="49.0" prefWidth="243.0" text="Login Screen">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <TextField fx:id="user_name" accessibleHelp="Enter User Name" accessibleRoleDescription="Enter User Name" accessibleText="Enter User Name" layoutX="44.0" layoutY="143.0" prefHeight="42.0" prefWidth="201.0" promptText="Enter User Name">
-         <font>
-            <Font size="19.0" />
-         </font></TextField>
-      <PasswordField fx:id="pass_word" layoutX="45.0" layoutY="210.0" prefHeight="42.0" prefWidth="201.0" promptText="Enter Password">
-         <font>
-            <Font size="19.0" />
-         </font></PasswordField>
-      <Button fx:id="login_button" layoutX="44.0" layoutY="281.0" mnemonicParsing="false" onAction="#Login_button_method" prefHeight="44.0" prefWidth="201.0" text="Login">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Separator layoutX="272.0" layoutY="65.0" opacity="0.71" orientation="VERTICAL" prefHeight="271.0" prefWidth="2.0" />
-      <Button fx:id="new_user_button" layoutX="44.0" layoutY="336.0" mnemonicParsing="false" onAction="#new_user_button_method" prefHeight="44.0" prefWidth="201.0" text="New User">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="login_button1" layoutX="330.0" layoutY="336.0" mnemonicParsing="false" onAction="#Booking" prefHeight="44.0" prefWidth="201.0" text="Booking">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
+      <VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: teal;">
+         <children>
+            <ImageView fx:id="image" disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/Git_Prok/DB_project/DB/src/images/daweoon.png" />
+               </image>
+            </ImageView>
+            <Label text="Welcome To" textFill="WHITE">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="35.0" prefWidth="222.0" text="BUS MANAGMENT SYSTEM" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Pane fx:id="content_area" layoutX="400.0" layoutY="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;" styleClass="closebtn">
+         <children>
+            <Label layoutX="240.0" layoutY="388.0" styleClass="forgot_label" text="Forgot password?" textFill="#a3a3a3">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="511.0" styleClass="forgot_label" text="New User?" textFill="#a3a3a3">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="user_name" layoutX="57.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pass_word" layoutX="57.0" layoutY="336.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Password" />
+            <Button fx:id="login_button" layoutX="57.0" layoutY="431.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Login_button_method" prefHeight="50.0" prefWidth="300.0" styleClass="loginbtn" stylesheets="@login.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="new_user_button" layoutX="215.0" layoutY="507.0" mnemonicParsing="false" onAction="#new_user_button_method" style="-fx-background-color: Transparent;" text="Signup" textFill="TEAL">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="44.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/dawl.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="53.0" layoutY="141.0" text="Welcome Back" textFill="TEAL">
+               <font>
+                  <Font name="Impact" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="170.0" text="Signin to continue" textFill="#a3a3a3">
+               <font>
+                  <Font name="Ebrima Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
