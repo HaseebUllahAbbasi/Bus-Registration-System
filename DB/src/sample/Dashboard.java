@@ -164,7 +164,8 @@ public class Dashboard implements Initializable {
     }
 
 
-    public void signOut(ActionEvent event) throws IOException {
+    public void signOut(ActionEvent event) throws IOException
+    {
         alert = new Alert(Alert.AlertType.CONFIRMATION, " Are you really want to Logout !", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         // confirmation for the long out
@@ -175,6 +176,7 @@ public class Dashboard implements Initializable {
             Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
             Scene scene = new Scene(root);
 
+            scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             primaryStage.setTitle("Login Screen");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -192,6 +194,7 @@ public class Dashboard implements Initializable {
 
         Scene scene = new Scene(root);
 
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Seat Booking");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -208,6 +211,7 @@ public class Dashboard implements Initializable {
 
         Scene scene = new Scene(root);
 
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Search Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -224,6 +228,7 @@ public class Dashboard implements Initializable {
         delete.show(User_Label);
         Scene scene = new Scene(root);
 
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Delete Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -239,6 +244,7 @@ public class Dashboard implements Initializable {
         update.show(User_Label);
         Scene scene = new Scene(root);
 
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Update Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -252,8 +258,9 @@ public class Dashboard implements Initializable {
 
         View view = loader.getController();
         view.show(User_Label);
-        Scene scene = new Scene(root);
 
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -268,7 +275,10 @@ public class Dashboard implements Initializable {
         Buses_Menu buses_menu = loader.getController();
         buses_menu.show(User_Label);
 
+
         Scene scene = new Scene(root);
+
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -302,6 +312,7 @@ public class Dashboard implements Initializable {
         today_bookings.show(User_Label);
 
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();

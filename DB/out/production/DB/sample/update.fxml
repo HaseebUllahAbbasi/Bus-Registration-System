@@ -8,31 +8,32 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Update">
+<VBox prefHeight="482.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Update">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="950.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label layoutX="9.0" layoutY="12.0" text="Name/CNIC">
+            <Label layoutX="9.0" layoutY="84.0" text="Name/CNIC">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="choice_box" editable="true" layoutX="315.0" layoutY="11.0" prefHeight="26.0" prefWidth="128.0" promptText="None" />
-            <Button layoutX="450.0" layoutY="8.0" mnemonicParsing="false" onAction="#search_data" prefHeight="33.0" prefWidth="104.0" text="Search">
+            <ComboBox fx:id="choice_box" editable="true" layoutX="315.0" layoutY="83.0" prefHeight="33.0" prefWidth="128.0" promptText="None" />
+            <Button layoutX="464.0" layoutY="80.0" mnemonicParsing="false" onAction="#search_data" prefHeight="41.0" prefWidth="148.0" styleClass="loginbtn" stylesheets="@login.css" text="Search">
                <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <Button layoutX="568.0" layoutY="8.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="128.0" text="Update">
+            <Button layoutX="633.0" layoutY="80.0" mnemonicParsing="false" onAction="#update" prefHeight="41.0" prefWidth="148.0" styleClass="loginbtn" stylesheets="@login.css" text="Update">
                <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="search_text_field" layoutX="144.0" layoutY="11.0" prefHeight="25.0" prefWidth="157.0" promptText="Name/45#######" />
-            <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="61.0" onMouseClicked="#click" prefHeight="339.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="61.0">
+            <TextField fx:id="search_text_field" layoutX="144.0" layoutY="83.0" prefHeight="33.0" prefWidth="157.0" promptText="Name/45#######" />
+            <TableView fx:id="tableView" editable="true" layoutX="1.0" layoutY="133.0" onMouseClicked="#click" prefHeight="349.0" prefWidth="754.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="133.0">
               <columns>
                   <TableColumn fx:id="id" prefWidth="55.0" resizable="false" text="id" />
                 <TableColumn fx:id="name" prefWidth="129.0" resizable="false" text="name" />
@@ -50,13 +51,22 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </TableView>
-            <Button layoutX="712.0" layoutY="8.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="128.0" text="Back">
+            <Button layoutX="800.0" layoutY="80.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="148.0" styleClass="loginbtn" stylesheets="@login.css" text="Back">
                <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="name_field" layoutX="777.0" layoutY="76.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
-            <TextField fx:id="cnic_field" layoutX="776.0" layoutY="135.0" prefHeight="25.0" prefWidth="157.0" promptText="45#######" />
+            <TextField fx:id="name_field" layoutX="777.0" layoutY="148.0" prefHeight="33.0" prefWidth="171.0" promptText="Name" />
+            <TextField fx:id="cnic_field" layoutX="776.0" layoutY="207.0" prefHeight="33.0" prefWidth="171.0" promptText="45#######" />
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="968.0" style="-fx-background-color: teal;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: white;" text="Update Record" textFill="#f2e9e9">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
     </AnchorPane>
   </children>

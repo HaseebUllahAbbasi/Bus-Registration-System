@@ -43,7 +43,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: teal;">
          <children>
             <HBox prefHeight="100.0" prefWidth="136.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="246.0" style="-fx-background-color: #394263;">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="246.0" style="-fx-background-color: teal;">
                <children>
                   <Label fx:id="user_name" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="User_Name">
                      <font>
