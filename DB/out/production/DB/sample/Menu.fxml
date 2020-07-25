@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1239.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1239.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -40,7 +40,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </LineChart>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: #394263;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: teal;">
          <children>
             <HBox prefHeight="100.0" prefWidth="136.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="246.0" style="-fx-background-color: #394263;">
@@ -52,7 +52,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="205.0" style="-fx-background-color: #394263;">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="205.0" style="-fx-background-color: teal;">
                <children>
                   <Label alignment="CENTER" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="DashBoard">
                      <font>
@@ -61,8 +61,8 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: #394263;" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" style="-fx-background-color: #394263;">
+            <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: teal;" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" style="-fx-background-color: teal;">
                <children>
                   <Button fx:id="sign_out1" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="About">
                      <font>
@@ -86,7 +86,7 @@
       </Label>
       <VBox layoutX="-1.0" layoutY="99.0" prefHeight="627.0" prefWidth="200.0" style="-fx-background-color: #394263; -fx-border-image-insets: black; -fx-border-width: 0px 2px 0px 0px;">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="89.0" prefWidth="200.0">
                <children>
                   <Button fx:id="insert_button" mnemonicParsing="false" onAction="#insert" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="173.0" style="-fx-background-color: lightgreen;" text="Book Seat">
                      <font>
@@ -95,7 +95,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="85.0" prefWidth="200.0">
                <children>
                   <Button fx:id="search_button" mnemonicParsing="false" onAction="#search_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Search Record">
                      <font>
@@ -104,7 +104,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="81.0" prefWidth="200.0">
                <children>
                   <Button fx:id="view_history_button" mnemonicParsing="false" onAction="#view_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View all record">
                      <font>
@@ -113,7 +113,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="200.0">
                <children>
                   <Button fx:id="edit_button" mnemonicParsing="false" onAction="#update_date" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Update Record">
                      <font>
@@ -122,7 +122,7 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="83.0" prefWidth="200.0">
                <children>
                   <Button fx:id="remove_button" mnemonicParsing="false" onAction="#remove_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Cancel Seat">
                      <font>
@@ -131,9 +131,18 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0">
                <children>
                   <Button fx:id="total_button" mnemonicParsing="false" onAction="#bus_menu" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View buses">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="today_booking" mnemonicParsing="false" onAction="#print_today_seats" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Today's Bookings">
                      <font>
                         <Font size="16.0" />
                      </font>

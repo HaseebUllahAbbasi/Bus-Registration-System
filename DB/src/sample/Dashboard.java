@@ -2,6 +2,7 @@ package sample;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.EventObject;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -35,7 +36,7 @@ public class Dashboard implements Initializable {
     @FXML
     Button search_button;
     @FXML
-    Button remove_button;
+    Button remove_button, today_booking;
     @FXML
     Button view_history_button;
     @FXML
@@ -79,8 +80,8 @@ public class Dashboard implements Initializable {
         int barca = 0;
         int bayern = 0;
         try {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             statement.execute("Select * from [Seats] where IssueDate = '"+java.time.LocalDate.now()+"';");
             //statement.execute("Select * from [Seats]");
@@ -288,5 +289,21 @@ public class Dashboard implements Initializable {
     public void changed_info(MouseEvent mouseEvent)
     {
         ((VBox)mouseEvent.getSource()).setStyle("-fx-background-color: pink");
+    }
+
+    public void print_today_seats(ActionEvent actionEvent) throws IOException
+    {
+        ((Node) actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("today_bookings.fxml").openStream());
+
+        Today_Bookings today_bookings = loader.getController();
+        today_bookings.show(User_Label);
+
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("All Records");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
