@@ -25,6 +25,7 @@ public class Controller
     @FXML
     Button new_user_button;
     @FXML Button login_button;
+    @FXML VBox vbox;
 
     Alert alert;
     int user_found = 0;
@@ -32,10 +33,6 @@ public class Controller
 
 
 
-    public void close_app(MouseEvent event)
-    {
-        System.exit(0);
-    }
     @FXML
     public void new_user_button_method(ActionEvent event) throws IOException
     {
