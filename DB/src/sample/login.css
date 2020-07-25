@@ -32,3 +32,9 @@
 .backbtn:hover{
     -fx-fill: teal;
 }
+.bkbtn{
+    -fx-fil: #48D1CC;
+}
+.bkbtn:hover{
+    -fx-fil: #FFFF;
+}

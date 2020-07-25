@@ -71,8 +71,8 @@ public class Booking implements Initializable{
         try
         {
 
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
 
             /*This statements needs to be improved, */
@@ -91,7 +91,7 @@ public class Booking implements Initializable{
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
-
+            root.getStylesheets().add(getClass().getResource("dashboard.css").toString());
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Menu Screen");
@@ -111,17 +111,6 @@ public class Booking implements Initializable{
             }
         }
 
-    }
-
-    public void Back(ActionEvent event) throws IOException{
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Register Customer");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
     public void Dis()
     {
@@ -179,7 +168,6 @@ public class Booking implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    //t3.setDisable(true);
-    //Dis();
+
     }
 }

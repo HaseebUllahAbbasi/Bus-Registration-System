@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="430.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Insertion">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="424.0" prefWidth="666.0" VBox.vgrow="ALWAYS">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Insertion">
+   <children>
+      <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="42.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/Git_Prok/DB_project/DB/src/images/dawl.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="51.0" layoutY="137.0" text="Booking Information" textFill="TEAL">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="166.0" text="Fill the form for booking" textFill="#a3a3a3">
+         <font>
+            <Font name="Ebrima Bold" size="14.0" />
+         </font>
+      </Label>
+      <VBox layoutX="48.0" layoutY="218.0" prefHeight="280.0" prefWidth="300.0" spacing="12.0">
          <children>
-            <TextField fx:id="cnic" layoutX="327.0" layoutY="125.0" prefHeight="25.0" prefWidth="157.0" promptText="45XXXXXXXXXXX" />
-            <DatePicker fx:id="date_id" layoutX="327.0" layoutY="174.0" prefHeight="25.0" prefWidth="157.0" />
-            <Label layoutX="180.0" layoutY="75.0" text="Name">
+            <TextField fx:id="name" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Enter Name">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Label>
-            <Label layoutX="179.0" layoutY="124.0" text="CNIC">
+            </TextField>
+            <TextField fx:id="cnic" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Enter CNIC">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="14.0" />
                </font>
-            </Label>
-            <Label layoutX="181.0" layoutY="173.0" text="Date">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="rout_box" editable="true" layoutX="331.0" layoutY="230.0" onAction="#check_route" prefWidth="150.0" promptText="None" />
-            <Label layoutX="180.0" layoutY="229.0" text="Route">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="bus_box" editable="true" layoutX="330.0" layoutY="278.0" onAction="#check_bus" prefWidth="150.0" promptText="None" />
-            <Label layoutX="180.0" layoutY="277.0" text="View Buses">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="back_butt" layoutX="547.0" layoutY="369.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="79.0" text="Back">
-               <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="book_butt" layoutX="243.0" layoutY="368.0" mnemonicParsing="false" onAction="#insert" prefHeight="48.0" prefWidth="131.0" text=" Book Seats">
-               <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
-               </font>
-            </Button>
-            <TextField fx:id="name" layoutX="326.0" layoutY="76.0" prefHeight="25.0" prefWidth="157.0" promptText="Name" />
-            <Label layoutX="218.0" layoutY="20.0" text="Registration Form">
-               <font>
-                  <Font name="Wingdings 2" size="22.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="time" editable="true" layoutX="330.0" layoutY="321.0" prefWidth="150.0" promptText="None" />
-            <Label layoutX="180.0" layoutY="320.0" text="Time">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
+            </TextField>
+            <DatePicker fx:id="date_id" prefHeight="35.0" prefWidth="300.0" promptText="Select Date" />
+            <ComboBox fx:id="rout_box" editable="true" onAction="#check_route" prefHeight="35.0" prefWidth="300.0" promptText="To - From" />
+            <ComboBox fx:id="bus_box" editable="true" onAction="#check_bus" prefHeight="35.0" prefWidth="300.0" promptText="Bus Name" />
+            <ComboBox fx:id="time" editable="true" prefHeight="35.0" prefWidth="300.0" promptText="Time" />
          </children>
-    </AnchorPane>
-  </children>
-</VBox>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" />
+         </padding>
+      </VBox>
+      <Button fx:id="book_butt" layoutX="50.0" layoutY="506.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#insert" prefHeight="50.0" prefWidth="300.0" styleClass="loginbtn" stylesheets="@login.css" text="Book seats" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon fx:id="back_butt" glyphName="ARROW_LEFT" layoutX="14.0" layoutY="25.0" onMouseClicked="#back" size="2em" styleClass="backbtn">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </FontAwesomeIcon>
+   </children>
+</AnchorPane>

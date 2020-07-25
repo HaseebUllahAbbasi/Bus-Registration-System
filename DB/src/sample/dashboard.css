@@ -32,3 +32,9 @@
 .backbtn:hover{
     -fx-fill: teal;
 }*/
+.btns{
+    -fx-background-color: transparent;
+}
+.btns:hover{
+    -fx-background-color: #202332;
+}   

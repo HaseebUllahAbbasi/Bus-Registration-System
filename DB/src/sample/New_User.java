@@ -32,10 +32,9 @@ public class New_User
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
-
+        root.getStylesheets().add(getClass().getResource("Login.css").toString());
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        root.getStylesheets().add(getClass().getResource("Login.css").toString());
         primaryStage.show();
     }
     public void register_method()

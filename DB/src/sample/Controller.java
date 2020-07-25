@@ -61,8 +61,8 @@ public class Controller
             Statement statement = null;
             try
             {
-                connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-                //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+                //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+                connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
                 statement = connection.createStatement();
                 statement.execute("Select * from [Admin]");
                 ResultSet resultSet = statement.getResultSet();
@@ -83,6 +83,7 @@ public class Controller
                         Stage primaryStage = new Stage();
                         FXMLLoader loader = new FXMLLoader();
                         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+                        root.getStylesheets().add(getClass().getResource("dashboard.css").toString());
 
                         Dashboard dashboard = loader.getController();
                         dashboard.show(resultSet.getString("name"));

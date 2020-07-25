@@ -14,11 +14,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="forgot_label" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: teal;">
+      <VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: teal;" styleClass="sidebar">
          <children>
             <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/daweoon.png" />
+                  <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/Git_Prok/DB_project/DB/src/images/daweoon.png" />
                </image>
             </ImageView>
             <Label text="Welcome To" textFill="WHITE">
@@ -33,7 +33,7 @@
             </Label>
          </children>
       </VBox>
-      <Pane fx:id="content_area" layoutX="400.0" layoutY="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;" styleClass="closebtn">
+      <Pane fx:id="content_area" layoutX="400.0" layoutY="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;" styleClass="parent">
          <children>
             <Label layoutX="240.0" layoutY="388.0" styleClass="forgot_label" text="Forgot password?" textFill="#a3a3a3">
                <font>
@@ -66,7 +66,7 @@
             </Button>
             <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="44.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/dawl.png" />
+                  <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/Git_Prok/DB_project/DB/src/images/dawl.png" />
                </image>
             </ImageView>
             <Label layoutX="53.0" layoutY="141.0" text="Welcome Back" textFill="TEAL">
