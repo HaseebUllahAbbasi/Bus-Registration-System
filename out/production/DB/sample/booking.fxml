@@ -25,38 +25,98 @@
          <children>
             <VBox prefHeight="350.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <ToggleButton fx:id="t1" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 1" />
-                  <ToggleButton fx:id="t5" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 5" />
-                  <ToggleButton fx:id="t9" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 9" />
-                  <ToggleButton fx:id="t13" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 13" />
-                  <ToggleButton fx:id="t17" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 17" />
+                  <ToggleButton fx:id="t1" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 1">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t5" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 5">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t9" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 9">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t13" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 13">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t17" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 17">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
                </children>
             </VBox>
             <VBox prefHeight="350.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <ToggleButton fx:id="t2" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 2" />
-                  <ToggleButton fx:id="t6" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text=" Seat 6" />
-                  <ToggleButton fx:id="t10" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 10" />
-                  <ToggleButton fx:id="t14" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 14" />
-                  <ToggleButton fx:id="t18" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 18" />
+                  <ToggleButton fx:id="t2" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 2">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t6" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text=" Seat 6">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t10" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 10">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t14" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 14">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t18" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 18">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
                </children>
             </VBox>
             <VBox prefHeight="350.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <ToggleButton fx:id="t3" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 3" />
-                  <ToggleButton fx:id="t7" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 7" />
-                  <ToggleButton fx:id="t11" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 11" />
-                  <ToggleButton fx:id="t15" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 15" />
-                  <ToggleButton fx:id="t19" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 19" />
+                  <ToggleButton fx:id="t3" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 3">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t7" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 7">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t11" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 11">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t15" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 15">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t19" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 19">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
                </children>
             </VBox>
             <VBox prefHeight="350.0" prefWidth="100.0" spacing="10.0">
                <children>
-                  <ToggleButton fx:id="t4" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 4" />
-                  <ToggleButton fx:id="t8" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 8" />
-                  <ToggleButton fx:id="t12" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 12" />
-                  <ToggleButton fx:id="t16" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 16" />
-                  <ToggleButton fx:id="t20" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 20" />
+                  <ToggleButton fx:id="t4" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 4">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t8" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 8">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t12" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 12">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t16" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 16">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
+                  <ToggleButton fx:id="t20" mnemonicParsing="false" onAction="#toggle_1" prefHeight="50.0" prefWidth="100.0" text="Seat 20">
+                     <font>
+                        <Font name="Ebrima Bold" size="14.0" />
+                     </font></ToggleButton>
                </children>
             </VBox>
          </children>

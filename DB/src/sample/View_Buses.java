@@ -41,6 +41,7 @@ public class View_Buses
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Buses_Menu buses_menu = loader.getController();
         buses_menu.show(user_label);

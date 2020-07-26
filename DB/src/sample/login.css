@@ -26,12 +26,43 @@
     -fx-border-radius:3px;
 
 }
+.busbtn{
+    -fx-background-color: teal;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+}
+.busbtn:hover{
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-text-fill: teal;
+    -fx-border-color: teal;
+    -fx-border-vidth:1px;
+    -fx-border-style: solid;
+    -fx-border-radius:3px;
+}
+.busbtn:hover .bus{
+    -fx-fill : teal;
+}
+.bus{
+    -fx-fill : white;
+}
+
+
+
+
 .backbtn{
     -fx-fill: #545454;
 }
 .backbtn:hover{
     -fx-fill: teal;
 }
+.busback{
+    -fx-fill: #545454;
+}
+.busback:hover{
+    -fx-fill: white;
+}
+
 .bkbtn{
     -fx-fil: #48D1CC;
 }

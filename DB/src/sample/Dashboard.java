@@ -176,7 +176,7 @@ public class Dashboard implements Initializable {
             Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
             Scene scene = new Scene(root);
 
-            scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             primaryStage.setTitle("Login Screen");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -211,7 +211,7 @@ public class Dashboard implements Initializable {
 
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Search Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -228,7 +228,7 @@ public class Dashboard implements Initializable {
         delete.show(User_Label);
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Delete Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -244,7 +244,7 @@ public class Dashboard implements Initializable {
         update.show(User_Label);
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Update Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -260,7 +260,7 @@ public class Dashboard implements Initializable {
         view.show(User_Label);
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -271,7 +271,7 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
-
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         Buses_Menu buses_menu = loader.getController();
         buses_menu.show(User_Label);
 
@@ -312,7 +312,7 @@ public class Dashboard implements Initializable {
         today_bookings.show(User_Label);
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -31,6 +31,12 @@
                <font>
                   <Font name="Ebrima Bold" size="18.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" size="2em" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Label>
             <HBox fx:id="insert_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#insert" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
@@ -134,7 +140,7 @@
             <HBox fx:id="total_button" alignment="CENTER_LEFT" layoutX="10.0" layoutY="295.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bus_menu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" stylesheets="@dashboard.css">
                <children>
                   <FontAwesomeIcon fill="#7c8184" glyphName="BUS" size="1.3em" />
-                  <Label text="View buses" textFill="#7c8184">
+                  <Label onDragDetected="#bus_menu" text="View buses" textFill="#7c8184">
                      <font>
                         <Font name="Calibri Light" size="15.0" />
                      </font>
@@ -147,7 +153,7 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bus_menu" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
                   <FontAwesomeIcon fill="#7c8184" glyphName="USER" size="1.3em" />
                   <Label text="About" textFill="#7c8184">
@@ -202,12 +208,12 @@
             </Pane>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="724.0">
                <children>
-                  <PieChart fx:id="pieChart" layoutX="39.0" layoutY="47.0" prefHeight="170.0" prefWidth="275.0" titleSide="BOTTOM">
+                  <PieChart fx:id="pieChart" layoutX="11.0" layoutY="44.0" prefHeight="230.0" prefWidth="319.0" titleSide="BOTTOM">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </PieChart>
-                  <LineChart fx:id="LineChart" layoutX="334.0" layoutY="44.0" prefHeight="200.0" prefWidth="386.0">
+                  <LineChart fx:id="LineChart" layoutX="313.0" layoutY="37.0" prefHeight="262.0" prefWidth="411.0">
                      <xAxis>
                         <CategoryAxis side="BOTTOM" fx:id="x" />
                      </xAxis>
@@ -269,7 +275,7 @@
                                     <Insets top="5.0" />
                                  </StackPane.margin>
                               </Circle>
-                              <Label fx:id="total_buses" text="0" textFill="#f8efef">
+                              <Label fx:id="total_buses" text="6" textFill="#f8efef">
                                  <font>
                                     <Font size="24.0" />
                                  </font>

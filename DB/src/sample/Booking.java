@@ -57,6 +57,7 @@ public class Booking implements Initializable{
         boolean status=toggl.isSelected();
         if(status) {
             toggl.setStyle("-fx-background-color: Blue");
+            toggl.setStyle("-fx-text-fill: white");
             SeatNo.add(toggl.getText());
         }
         else {
