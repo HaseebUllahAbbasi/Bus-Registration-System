@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -35,7 +36,7 @@ public class View_Buses
     }
 
 
-    public void Back(ActionEvent event) throws IOException
+    public void Back(MouseEvent event) throws IOException
     {
         ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
