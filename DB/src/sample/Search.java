@@ -55,25 +55,25 @@ public class Search implements Initializable
         seat.setCellValueFactory(new PropertyValueFactory<>("seat"));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-
-
         choice_box.setItems(choice);
 
     }
     public void back(ActionEvent ae) throws IOException
     {
-                ((Node)ae.getSource()).getScene().getWindow().hide();
-                Stage primaryStage = new Stage();
-                FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+        ((Node)ae.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
 
-                Dashboard dashboard = loader.getController();
-                dashboard.show(User_Label);
+        Dashboard dashboard = loader.getController();
+        dashboard.show(User_Label);
 
-                Scene scene = new Scene(root);
-                primaryStage.setTitle("DashBoard");
-                primaryStage.setScene(scene);
-                primaryStage.show();
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("DashBoard");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
     }
     public void search_data(ActionEvent ae) throws SQLException
     {

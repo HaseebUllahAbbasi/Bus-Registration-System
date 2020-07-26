@@ -113,6 +113,7 @@ public class Today_Bookings implements Initializable
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
 
         Dashboard dashboard = loader.getController();
         dashboard.show(User_Label);
@@ -121,6 +122,7 @@ public class Today_Bookings implements Initializable
         primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
     public void print_data() throws PrinterException
     {

@@ -2,7 +2,6 @@ package sample;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.util.EventObject;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -80,11 +79,10 @@ public class Dashboard implements Initializable {
         int barca = 0;
         int bayern = 0;
         try {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             statement.execute("Select * from [Seats] where IssueDate = '"+java.time.LocalDate.now()+"';");
-            //statement.execute("Select * from [Seats]");
             ResultSet resultSet = statement.getResultSet();
             while (resultSet.next())
             {
@@ -112,8 +110,6 @@ public class Dashboard implements Initializable {
                 count++;
                 sum+=Integer.parseInt(resultSet.getString("price"));
             }
-            // System.out.println("total seats booked are "+count);
-            //System.out.println("total booking earning is "+sum);
             totol_booking.setText(Integer.toString(count));
             earned.setText(Integer.toString(sum));
 
@@ -132,7 +128,6 @@ public class Dashboard implements Initializable {
                         new EventHandler<MouseEvent>() {
                             @Override
                             public void handle(MouseEvent e) {
-                                //System.out.println(String.valueOf(data.getPieValue()) + "%");
                                 pieChart.setTitle(data.getName()+" : "+Math.round(data.getPieValue()/ finalCount*100)+"%");
                             }
                         });
@@ -169,31 +164,34 @@ public class Dashboard implements Initializable {
         alert = new Alert(Alert.AlertType.CONFIRMATION, " Are you really want to Logout !", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         // confirmation for the long out
-        if (alert.getResult() == ButtonType.YES) {
+        if (alert.getResult() == ButtonType.YES)
+        {
             ((Node) event.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+
             Scene scene = new Scene(root);
 
-            root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             primaryStage.setTitle("Login Screen");
             primaryStage.setScene(scene);
             primaryStage.show();
         }
     }
 
-    public void insert(MouseEvent event) throws IOException {
+    public void insert(MouseEvent event) throws IOException
+    {
         ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
         root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+
         Insertion insertion = loader.getController();
         insertion.show(User_Label);
 
         Scene scene = new Scene(root);
-
 
         primaryStage.setTitle("Seat Booking");
         primaryStage.setScene(scene);
@@ -205,13 +203,13 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("search.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Search search = loader.getController();
         search.show(User_Label);
 
         Scene scene = new Scene(root);
 
-        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Search Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -223,12 +221,12 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("delete.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Delete delete = loader.getController();
         delete.show(User_Label);
         Scene scene = new Scene(root);
 
-        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Delete Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -239,12 +237,12 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("update.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Update update = loader.getController();
         update.show(User_Label);
         Scene scene = new Scene(root);
 
-        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("Update Record");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -255,12 +253,12 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("view.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         View view = loader.getController();
         view.show(User_Label);
 
         Scene scene = new Scene(root);
-        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -272,13 +270,13 @@ public class Dashboard implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("buses_menu.fxml").openStream());
         root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+
         Buses_Menu buses_menu = loader.getController();
         buses_menu.show(User_Label);
 
 
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -307,12 +305,12 @@ public class Dashboard implements Initializable {
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("today_bookings.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Today_Bookings today_bookings = loader.getController();
         today_bookings.show(User_Label);
 
         Scene scene = new Scene(root);
-        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         primaryStage.setTitle("All Records");
         primaryStage.setScene(scene);
         primaryStage.show();

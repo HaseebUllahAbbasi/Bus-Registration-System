@@ -61,8 +61,8 @@ public class Controller
             Statement statement = null;
             try
             {
-                //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-                connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+                connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+                //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
                 statement = connection.createStatement();
                 statement.execute("Select * from [Admin]");
                 ResultSet resultSet = statement.getResultSet();
@@ -70,11 +70,8 @@ public class Controller
                 {
                     if (user_name.getText().equalsIgnoreCase(resultSet.getString("id")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
                     {
-                        //Printed in order to check the whether the user  is same or not
-                        //System.out.println(resultSet.getString("id") + "\t" + resultSet.getString("password"));
 
                         user_found++;
-
 
                         alert = new Alert(Alert.AlertType.INFORMATION,resultSet.getString("name")+" has Logged In ", ButtonType.OK);
                         alert.showAndWait();
