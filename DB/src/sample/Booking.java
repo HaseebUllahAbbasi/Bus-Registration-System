@@ -1,4 +1,6 @@
 package sample;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,6 +76,19 @@ public class Booking implements Initializable{
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
+           int price = 0;
+            if(busName.equals("Madrid Exp"))
+                price+=500;
+            else if(busName.equals("City Exp"))
+                price+=900;
+            else if(busName.equals("Bayern Exp"))
+                price+=1000;
+            else if(busName.equals("Juventus Exp"))
+                price+=1200;
+            else if(busName.equals("Paris Exp"))
+                price+=1300;
+            else if(busName.equals("Barca Exp"))
+                price+=1500;
 
             /*This statements needs to be improved, */
             for(int i =0 ; i<SeatNo.size(); i++)
@@ -81,7 +96,7 @@ public class Booking implements Initializable{
                 String str;
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"');");
+                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time,price) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"','"+price+"');");
             }
 
 

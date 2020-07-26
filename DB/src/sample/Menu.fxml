@@ -64,7 +64,7 @@
             <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: teal;" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" style="-fx-background-color: teal;">
                <children>
-                  <Button fx:id="sign_out1" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="About">
+                  <Button fx:id="sign_out1" alignment="CENTER" mnemonicParsing="false" onAction="#about_button" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="About">
                      <font>
                         <Font size="17.0" />
                      </font></Button>

@@ -6,19 +6,20 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="543.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Today_Bookings">
+<VBox prefHeight="518.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Today_Bookings">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="428.0" prefWidth="831.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="518.0" prefWidth="818.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button layoutX="675.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="128.0" text="Back">
+            <Button layoutX="655.0" layoutY="82.0" mnemonicParsing="false" onAction="#back" prefHeight="47.0" prefWidth="148.0" styleClass="loginbtn" stylesheets="@login.css" text="Back">
                <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
-            <TableView fx:id="tableView" layoutX="1.0" layoutY="115.0" prefHeight="428.0" prefWidth="817.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0">
+            <TableView fx:id="tableView" layoutY="139.0" prefHeight="383.0" prefWidth="818.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0">
               <columns>
                   <TableColumn fx:id="id" prefWidth="62.0" resizable="false" text="id" />
                 <TableColumn fx:id="name" prefWidth="98.0" resizable="false" text="name" />
@@ -36,16 +37,20 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </TableView>
-            <Label layoutX="275.0" layoutY="31.0" text="Today's Record">
+            <Button fx:id="print" layoutX="498.0" layoutY="82.0" mnemonicParsing="false" onAction="#print_data" prefHeight="47.0" prefWidth="148.0" styleClass="loginbtn" stylesheets="@login.css" text="Print">
                <font>
-                  <Font size="39.0" />
-               </font>
-            </Label>
-            <Button fx:id="print" layoutX="675.0" layoutY="68.0" mnemonicParsing="false" onAction="#print_data" prefHeight="33.0" prefWidth="128.0" text="Print">
-               <font>
-                  <Font name="Calisto MT Bold" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Button>
+            <HBox alignment="CENTER" layoutX="1.0" layoutY="-1.0" prefHeight="72.0" prefWidth="817.0" style="-fx-background-color: teal;">
+               <children>
+                  <Label text="Today's Record" textFill="WHITE">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
     </AnchorPane>
   </children>

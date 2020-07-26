@@ -22,12 +22,12 @@
                </font>
             </Label>
             <ComboBox fx:id="choice_box" editable="true" layoutX="315.0" layoutY="91.0" prefHeight="26.0" prefWidth="128.0" promptText="None" />
-            <Button layoutX="450.0" layoutY="88.0" mnemonicParsing="false" onAction="#search_data" prefHeight="33.0" prefWidth="104.0" text="Search">
+            <Button layoutX="450.0" layoutY="88.0" mnemonicParsing="false" onAction="#search_data" prefHeight="33.0" prefWidth="143.0" styleClass="loginbtn" stylesheets="@login.css" text="Search">
                <font>
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
             </Button>
-            <Button layoutX="568.0" layoutY="88.0" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="128.0" text="Remove">
+            <Button layoutX="602.0" layoutY="88.0" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="143.0" styleClass="loginbtn" stylesheets="@login.css" text="Remove">
                <font>
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>
@@ -51,7 +51,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </TableView>
-            <Button layoutX="712.0" layoutY="88.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="128.0" text="Back">
+            <Button layoutX="761.0" layoutY="88.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="143.0" styleClass="loginbtn" stylesheets="@login.css" text="Back">
                <font>
                   <Font name="Calisto MT Bold" size="17.0" />
                </font>

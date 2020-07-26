@@ -234,6 +234,23 @@ public class Dashboard implements Initializable {
         primaryStage.show();
     }
 
+    public void about_button(ActionEvent actionEvent) throws IOException
+    {
+        ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("about.fxml").openStream());
+
+        About about = loader.getController();
+        about.show(User_Label);
+        Scene scene = new Scene(root);
+
+        scene.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+        primaryStage.setTitle("Update Record");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
     public void update_date(ActionEvent event) throws IOException {
         ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
@@ -249,7 +266,6 @@ public class Dashboard implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
     public void view_data(ActionEvent event) throws IOException {
         ((Node) event.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
