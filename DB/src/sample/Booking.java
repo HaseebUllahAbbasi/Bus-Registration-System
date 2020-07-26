@@ -59,6 +59,7 @@ public class Booking implements Initializable{
         boolean status=toggl.isSelected();
         if(status) {
             toggl.setStyle("-fx-background-color: Blue");
+            toggl.setStyle("-fx-text-fill: white");
             SeatNo.add(toggl.getText());
         }
         else {
@@ -73,8 +74,8 @@ public class Booking implements Initializable{
         try
         {
 
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
            int price = 0;
             if(busName.equals("Madrid Exp"))
@@ -106,7 +107,7 @@ public class Booking implements Initializable{
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
-
+            root.getStylesheets().add(getClass().getResource("dashboard.css").toString());
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("Menu Screen");
@@ -126,17 +127,6 @@ public class Booking implements Initializable{
             }
         }
 
-    }
-
-    public void Back(ActionEvent event) throws IOException{
-        ((Node) event.getSource()).getScene().getWindow().hide();
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Pane root = loader.load(getClass().getResource("Insert.fxml").openStream());
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("Register Customer");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
     public void Dis()
     {
@@ -194,7 +184,6 @@ public class Booking implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    //t3.setDisable(true);
-    //Dis();
+
     }
 }

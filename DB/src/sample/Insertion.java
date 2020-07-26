@@ -1,5 +1,6 @@
 package sample;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,10 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -32,7 +33,8 @@ public class Insertion implements Initializable
     @FXML TextField cnic;
     @FXML DatePicker date_id;
     @FXML ComboBox bus_box;
-    @FXML Button back_butt;
+    @FXML
+    FontAwesomeIcon back_butt;
     @FXML ComboBox time;
     Alert alert;
     String User_Label;
@@ -57,15 +59,14 @@ public class Insertion implements Initializable
         return cnic.getText();
     }
 
-    public void  insert(ActionEvent ae) throws SQLException
-    {
+    public void  insert(ActionEvent ae) throws SQLException, IOException {
         Connection connection = null;
         Statement statement = null;
         ArrayList<Integer> SeatNoD = new ArrayList<Integer>();
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             if(name.getText().equals("")||cnic.getText().equals("")||date_id.getValue()==null||bus_box.getValue()==null||rout_box.getValue()==null)
             {
@@ -93,7 +94,6 @@ public class Insertion implements Initializable
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
-
             Booking ob = loader.getController();
             ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD,date_id.getValue(), (String) time.getValue());
 
@@ -120,12 +120,13 @@ public class Insertion implements Initializable
             }
         }
     }
-    public void back(ActionEvent ae) throws IOException
+    public void back(MouseEvent ae) throws IOException
     {
         ((Node)ae.getSource()).getScene().getWindow().hide();
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
 
         Dashboard dashboard = loader.getController();
         dashboard.show(User_Label);

@@ -1,235 +1,314 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1239.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="parent" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <children>
-      <PieChart fx:id="pieChart" layoutX="292.0" layoutY="157.0" prefHeight="299.0" prefWidth="420.0" titleSide="BOTTOM">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></PieChart>
-      <Label layoutX="411.0" layoutY="105.0" text="Seats Booked">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <LineChart fx:id="LineChart" layoutX="756.0" layoutY="143.0" prefHeight="328.0" prefWidth="420.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" fx:id="x" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="y" side="LEFT" />
-        </yAxis>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </LineChart>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1239.0" style="-fx-background-color: #394263;">
+      <VBox layoutX="8.0" prefHeight="600.0" prefWidth="300.0" styleClass="sidebar" stylesheets="@dashboard.css" AnchorPane.leftAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="136.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="246.0" style="-fx-background-color: #394263;">
+            <Label fx:id="user_name" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: teal;" text="Admin" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font name="Ebrima Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" size="2em" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <HBox fx:id="insert_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#insert" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Label fx:id="user_name" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="User_Name">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="TICKET" size="1.3em" />
+                  <Label text="Book seat" textFill="#7c8184">
                      <font>
-                        <Font size="33.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="205.0" style="-fx-background-color: #394263;">
+            <HBox fx:id="search_button" alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#search_data" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="202.0" style="-fx-font-size: 2em; -fx-text-fill: white; -fx-border-width: 0px 2px 0px 2px;" text="DashBoard">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="SEARCH" size="1.3em" />
+                  <Label onMouseClicked="#search_data" text="Search record" textFill="#7c8184">
                      <font>
-                        <Font size="33.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="340.0" style="-fx-background-color: #394263;" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="219.0" style="-fx-background-color: #394263;">
+            <HBox fx:id="view_history_button" alignment="CENTER_LEFT" layoutX="10.0" layoutY="120.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#view_data" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Button fx:id="sign_out1" alignment="CENTER" mnemonicParsing="false" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="About">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="EYE" size="1.3em" />
+                  <Label text="View all records" textFill="#7c8184">
                      <font>
-                        <Font size="17.0" />
-                     </font></Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="240.0">
-               <children>
-                  <Button fx:id="sign_out" mnemonicParsing="false" onAction="#signOut" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: lightgreen;" text="Long Out">
-                     <font>
-                        <Font size="17.0" />
-                     </font></Button>
-               </children>
-            </HBox>
-         </children></HBox>
-      <Label layoutX="915.0" layoutY="106.0" text="Price Earned">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <VBox layoutX="-1.0" layoutY="99.0" prefHeight="627.0" prefWidth="200.0" style="-fx-background-color: #394263; -fx-border-image-insets: black; -fx-border-width: 0px 2px 0px 0px;">
-         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="insert_button" mnemonicParsing="false" onAction="#insert" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="173.0" style="-fx-background-color: lightgreen;" text="Book Seat">
-                     <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="edit_button" alignment="CENTER_LEFT" layoutX="10.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#update_date" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Button fx:id="search_button" mnemonicParsing="false" onAction="#search_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Search Record">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="WRENCH" size="1.3em" />
+                  <Label text=" Update record" textFill="#7c8184">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="remove_button" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#remove_data" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Button fx:id="view_history_button" mnemonicParsing="false" onAction="#view_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View all record">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="TRASH" size="1.3em" />
+                  <Label text="Delete record" textFill="#7c8184">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="today_booking" alignment="CENTER_LEFT" layoutX="10.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#print_today_seats" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Button fx:id="edit_button" mnemonicParsing="false" onAction="#update_date" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Update Record">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="BOOK" size="1.3em" />
+                  <Label text="Today's bookings" textFill="#7c8184">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="total_button" alignment="CENTER_LEFT" layoutX="10.0" layoutY="295.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#bus_menu" prefHeight="40.0" prefWidth="300.0" styleClass="btns" stylesheets="@dashboard.css">
                <children>
-                  <Button fx:id="remove_button" mnemonicParsing="false" onAction="#remove_data" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="Cancel Seat">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="BUS" size="1.3em" />
+                  <Label onDragDetected="#bus_menu" text="View buses" textFill="#7c8184">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
-                  <Button fx:id="total_button" mnemonicParsing="false" onAction="#bus_menu" onMouseEntered="#changed_button" onMouseExited="#base_button" prefHeight="50.0" prefWidth="169.0" style="-fx-background-color: lightgreen;" text="View buses">
+                  <FontAwesomeIcon fill="#7c8184" glyphName="USER" size="1.3em" />
+                  <Label text="About" textFill="#7c8184">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Calibri Light" size="15.0" />
                      </font>
-                  </Button>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="sign_out" alignment="CENTER_LEFT" layoutX="10.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#signOut" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+               <children>
+                  <FontAwesomeIcon fill="#7c8184" glyphName="POWER_OFF" size="1.3em" />
+                  <Label text="Logout" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="243.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
+      <VBox layoutX="300.0" prefHeight="600.0" prefWidth="724.0" styleClass="parent" stylesheets="@dashboard.css" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="724.0" style="-fx-background-color: whitesmoke;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="WHITE" height="10.0" radius="4.5" width="10.0" />
+               </effect>
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Earned Today ">
+                  <Label layoutX="14.0" layoutY="24.0" text="Dashboard" textFill="#7c8184">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <FontAwesomeIcon fill="#7c8184" glyphName="BELL" layoutX="637.0" layoutY="48.0" size="1.5em" />
+                  <FontAwesomeIcon fill="#7c8184" glyphName="GEAR" layoutX="683.0" layoutY="48.0" size="1.5em" />
+               </children>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="724.0">
+               <children>
+                  <PieChart fx:id="pieChart" layoutX="11.0" layoutY="44.0" prefHeight="230.0" prefWidth="319.0" titleSide="BOTTOM">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </PieChart>
+                  <LineChart fx:id="LineChart" layoutX="313.0" layoutY="37.0" prefHeight="262.0" prefWidth="411.0">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" fx:id="x" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y" side="LEFT" />
+                     </yAxis>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </LineChart>
+                  <Label layoutX="487.0" layoutY="14.0" text="Price earned" textFill="TEAL">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="112.0" layoutY="14.0" text="Seats booked" textFill="TEAL">
+                     <font>
+                        <Font name="Ebrima Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            </Pane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0">
                <children>
-                  <StackPane prefHeight="170.0" prefWidth="210.0">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="241.3" style="-fx-background-color: lightskyblue;">
                      <children>
-                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="earned" text="number" textFill="#f8efef">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="247.0" style="-fx-background-color: lightseagreen;" text="Earned Today">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Ebrima Bold" size="14.0" />
                            </font>
                         </Label>
+                        <StackPane prefHeight="196.0" prefWidth="241.0">
+                           <children>
+                              <Circle fill="TEAL" radius="85.0" stroke="#00abab" strokeType="INSIDE" strokeWidth="5.0">
+                                 <StackPane.margin>
+                                    <Insets top="5.0" />
+                                 </StackPane.margin>
+                              </Circle>
+                              <Label fx:id="earned" text="0" textFill="#f8efef">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
                      </children>
-                  </StackPane>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </VBox>
-         </children>
-      </VBox>
-      <VBox layoutX="582.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
-         <children>
-            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
-               <children>
-                  <Label text="Present Vehicle ">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <StackPane>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="241.3" style="-fx-background-color: navajowhite;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="total_buses" text="6" textFill="#fcf5f5">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="244.0" style="-fx-background-color: peru;" text="Present Buses">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Ebrima Bold" size="14.0" />
                            </font>
                         </Label>
+                        <StackPane maxWidth="-Infinity" prefHeight="196.0" prefWidth="240.0">
+                           <children>
+                              <Circle fill="CHOCOLATE" radius="85.0" stroke="SANDYBROWN" strokeType="INSIDE" strokeWidth="5.0">
+                                 <StackPane.margin>
+                                    <Insets top="5.0" />
+                                 </StackPane.margin>
+                              </Circle>
+                              <Label fx:id="total_buses" text="6" textFill="#f8efef">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
                      </children>
-                  </StackPane>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </VBox>
-         </children>
-      </VBox>
-      <VBox layoutX="915.0" layoutY="471.0" onMouseEntered="#changed_info" onMouseExited="#base_info" prefHeight="248.0" prefWidth="300.0" style="-fx-background-color: #bd77be; -fx-border-color: #394263;">
-         <children>
-            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="233.0" style="-fx-background-color: orange;">
-               <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="169.0" text="Seats Booked">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <StackPane>
+                  </VBox>
+                  <VBox layoutX="250.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="241.3" style="-fx-background-color: silver;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Circle fill="#394263" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="totol_booking" alignment="CENTER" prefHeight="50.0" prefWidth="109.0" text="Bookings" textFill="#e8dfdf">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="241.3" style="-fx-background-color: slategray;" text="Seats Booked">
                            <font>
-                              <Font size="22.0" />
+                              <Font name="Ebrima Bold" size="14.0" />
                            </font>
                         </Label>
+                        <StackPane prefHeight="196.0" prefWidth="240.0">
+                           <children>
+                              <Circle fill="DARKSLATEGRAY" radius="85.0" stroke="LIGHTSLATEGRAY" strokeType="INSIDE" strokeWidth="5.0">
+                                 <StackPane.margin>
+                                    <Insets top="5.0" />
+                                 </StackPane.margin>
+                              </Circle>
+                              <Label fx:id="totol_booking" text="0" textFill="#f8efef">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
                      </children>
-                  </StackPane>
+                  </VBox>
                </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </VBox>
+            </HBox>
          </children>
       </VBox>
    </children>
