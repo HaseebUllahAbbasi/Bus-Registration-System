@@ -38,7 +38,6 @@ public class Booking implements Initializable{
     {
         this.User_Label = user;
     }
-
     public void getVal(String user, String user2, ArrayList<Integer> Arr, LocalDate date, String time)
     {
         this.cnicNum=user;
@@ -58,8 +57,8 @@ public class Booking implements Initializable{
         ToggleButton toggl =(ToggleButton)event.getSource();
         boolean status=toggl.isSelected();
         if(status) {
-            toggl.setStyle("-fx-background-color: Blue");
-            toggl.setStyle("-fx-text-fill: white");
+            toggl.setStyle("-fx-background-color:Blue;-fx-text-fill: white");
+            //toggl.setStyle("-fx-text-fill: white");
             SeatNo.add(toggl.getText());
         }
         else {
@@ -74,8 +73,8 @@ public class Booking implements Initializable{
         try
         {
 
-            //connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
            int price = 0;
             if(busName.equals("Madrid Exp"))
@@ -97,7 +96,8 @@ public class Booking implements Initializable{
                 String str;
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time,price) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"','"+price+"');");
+                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time,price) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"',"+price+");");
+               // statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"');");
             }
 
 

@@ -87,12 +87,12 @@
          </padding>
       </HBox>
       <DatePicker fx:id="datePicker" layoutX="207.0" layoutY="442.0" prefHeight="33.0" prefWidth="227.0" promptText="Select Date" />
-      <Label layoutX="81.0" layoutY="442.0" text="Enter Date" textFill="TEAL">
+      <Label layoutX="59.0" layoutY="442.0" text="Enter Date" textFill="TEAL">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="442.0" text="Time" textFill="TEAL">
+      <Label layoutX="466.0" layoutY="442.0" text="Time" textFill="TEAL">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>

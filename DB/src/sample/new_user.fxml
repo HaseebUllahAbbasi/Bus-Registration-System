@@ -11,12 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.New_User">
    <children>
       <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="42.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/dawl.png" />
+            <Image url="file:/home/peaceseeker/DB_project/DB/src/images/dawl.png" />
          </image>
       </ImageView>
       <Label layoutX="51.0" layoutY="155.0" text="Registration Form" textFill="TEAL">

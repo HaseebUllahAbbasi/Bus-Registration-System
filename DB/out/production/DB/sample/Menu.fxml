@@ -153,7 +153,7 @@
                   <Insets left="10.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="335.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#about" prefHeight="40.0" prefWidth="300.0" styleClass="btns">
                <children>
                   <FontAwesomeIcon fill="#7c8184" glyphName="USER" size="1.3em" />
                   <Label text="About" textFill="#7c8184">

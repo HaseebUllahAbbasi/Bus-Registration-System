@@ -148,13 +148,14 @@ public class Dashboard implements Initializable {
                 }
             }
         }
+
        XYChart.Series series = new XYChart.Series();
-        series.getData().add(new XYChart.Data("Juventus Exp",juventus*100));
-        series.getData().add(new XYChart.Data("City Exp",city*100));
-        series.getData().add(new XYChart.Data("Bayern Exp",bayern*100));
-        series.getData().add(new XYChart.Data("Paris Exp",paris*100));
-        series.getData().add(new XYChart.Data("Barcelona Exp",barca*100));
-        series.getData().add(new XYChart.Data( "Madrid Exp",madrid*100));
+        series.getData().add(new XYChart.Data("Juventus Exp",juventus*1200));
+        series.getData().add(new XYChart.Data("City Exp",city*900));
+        series.getData().add(new XYChart.Data("Bayern Exp",bayern*1000));
+        series.getData().add(new XYChart.Data("Paris Exp",paris*1300));
+        series.getData().add(new XYChart.Data("Barcelona Exp",barca*1500));
+        series.getData().add(new XYChart.Data( "Madrid Exp",madrid*500));
         LineChart.getData().addAll(series);
     }
 
@@ -315,4 +316,23 @@ public class Dashboard implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    public void about(MouseEvent actionEvent) throws IOException
+    {
+        System.out.println("this is check");
+        ((Node) actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("about.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
+
+        About about = loader.getController();
+        about.show(User_Label);
+
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("ABOUT");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
 }

@@ -23,6 +23,7 @@ public class About
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
 
         Dashboard dashboard = loader.getController();
         dashboard.show(user_label);

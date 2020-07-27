@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.About">
    <children>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="800.0" style="-fx-background-color: teal;" stylesheets="@login.css">
          <children>
@@ -44,40 +45,41 @@
             </Label>
          </children>
       </HBox>
-      <Label layoutX="18.0" layoutY="250.0" text="Features :" textFill="TEAL">
+      <Label layoutX="15.0" layoutY="245.0" text="Features :" textFill="TEAL">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="210.0" layoutY="258.0" text="This Program is designed for the Bus Booking System" textFill="TEAL">
+      <Label layoutX="59.0" layoutY="290.0" text="This Program is designed for the Bus Booking System" textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="210.0" layoutY="294.0" text="It allows the booker to book seats, Search for a Specific" textFill="TEAL">
+      <Label layoutX="59.0" layoutY="317.0" text="It allows the booker to book seats, Search for a Specific" textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="207.0" layoutY="329.0" text="Customer, Delete A Customer Record, Update  Record," textFill="TEAL">
+      <Label layoutX="56.0" layoutY="346.0" text="Customer, Delete A Customer Record, Update  Record," textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="209.0" layoutY="370.0" text="View Today Bokings, View Seats of each bus by date," textFill="TEAL">
+      <Label layoutX="58.0" layoutY="376.0" text="View Today Bokings, View Seats of each bus by date," textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="210.0" layoutY="406.0" text="Graphs and Information Boxes make use of database and" textFill="TEAL">
+      <Label layoutX="59.0" layoutY="408.0" text="Graphs and Information Boxes make use of database and" textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="207.0" layoutY="441.0" text=" show the current statistics of the System." textFill="TEAL">
+      <Label layoutX="56.0" layoutY="440.0" text=" show the current statistics of the System." textFill="TEAL">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
+      <Button layoutX="649.0" layoutY="433.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="130.0" styleClass="loginbtn" stylesheets="@login.css" text="Back" />
    </children>
 </AnchorPane>

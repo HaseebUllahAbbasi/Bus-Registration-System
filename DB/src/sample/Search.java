@@ -61,6 +61,8 @@ public class Search implements Initializable
     public void back(ActionEvent ae) throws IOException
     {
         ((Node)ae.getSource()).getScene().getWindow().hide();
+        ((Node)ae.getSource()).getScene().getWindow().hide();
+
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Menu.fxml").openStream());
@@ -73,7 +75,6 @@ public class Search implements Initializable
         primaryStage.setTitle("DashBoard");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
     public void search_data(ActionEvent ae) throws SQLException
     {

@@ -18,7 +18,7 @@
    <children>
       <ImageView fitHeight="110.0" fitWidth="139.0" layoutX="42.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/D:/CS%20IBA/Semester%204/DBMS/Project/Git_Prok/DB_project/DB/src/images/dawl.png" />
+            <Image url="file:/home/peaceseeker/DB_project/DB/src/images/dawl.png" />
          </image>
       </ImageView>
       <Label layoutX="51.0" layoutY="137.0" text="Booking Information" textFill="TEAL">

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="500.0" prefWidth="800.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.About">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.About">
    <children>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="800.0" style="-fx-background-color: teal;" stylesheets="@login.css">
          <children>
@@ -82,4 +82,4 @@
       </Label>
       <Button layoutX="649.0" layoutY="433.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="130.0" styleClass="loginbtn" stylesheets="@login.css" text="Back" />
    </children>
-</fx:root>
+</AnchorPane>

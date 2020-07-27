@@ -32,7 +32,7 @@ public class New_User
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("Login.fxml").openStream());
-        root.getStylesheets().add(getClass().getResource("Login.css").toString());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -51,7 +51,7 @@ public class New_User
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter with more than four letters !", ButtonType.OK);
             alert.showAndWait();
         }
-        else if(passwordField.getText()!=passwordField2.getText())
+        else if(!passwordField.getText().equals(passwordField2.getText()))
         {
             alert = new Alert(Alert.AlertType.WARNING, "Please Enter same password !", ButtonType.OK);
             alert.showAndWait();

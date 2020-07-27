@@ -40,10 +40,10 @@ public class Controller
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         Pane root = loader.load(getClass().getResource("new_user.fxml").openStream());
+        root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        root.getStylesheets().add(getClass().getResource("Login.css").toString());
         primaryStage.show();
 
     }
@@ -68,7 +68,7 @@ public class Controller
                 ResultSet resultSet = statement.getResultSet();
                 while (resultSet.next())
                 {
-                    if (user_name.getText().equalsIgnoreCase(resultSet.getString("id")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
+                    if (user_name.getText().equalsIgnoreCase(resultSet.getString("name")) && pass_word.getText().equalsIgnoreCase(resultSet.getString("password")))
                     {
 
                         user_found++;

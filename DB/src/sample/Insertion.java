@@ -66,7 +66,7 @@ public class Insertion implements Initializable
         try
         {
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+           // connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
             if(name.getText().equals("")||cnic.getText().equals("")||date_id.getValue()==null||bus_box.getValue()==null||rout_box.getValue()==null)
             {
@@ -94,7 +94,9 @@ public class Insertion implements Initializable
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("booking.fxml").openStream());
+            root.getStylesheets().add(getClass().getResource("login.css").toExternalForm());
             Booking ob = loader.getController();
+            ob.show(User_Label);
             ob.getVal(cnic.getText(), (String)bus_box.getValue(),SeatNoD,date_id.getValue(), (String) time.getValue());
 
             Scene scene = new Scene(root);
@@ -113,7 +115,7 @@ public class Insertion implements Initializable
         }
         finally
         {
-            if (connection!=null)
+            if (connection!=null&&statement!=null)
             {
                 statement.close();
                 connection.close();
