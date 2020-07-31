@@ -74,7 +74,12 @@ public class Insertion implements Initializable
                 alert.showAndWait();
                 return;
             }
-
+            if(cnic.getText().length()<10)
+            {
+                alert = new Alert(Alert.AlertType.ERROR,"Please Enter Cnic of 10 number  !",ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
             if (date_id.getValue().isBefore(java.time.LocalDate.now()))
             {
                 alert = new Alert(Alert.AlertType.ERROR,"Please Enter current date or after  !",ButtonType.OK);

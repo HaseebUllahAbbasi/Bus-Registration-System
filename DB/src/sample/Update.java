@@ -164,6 +164,7 @@ public class Update implements Initializable
             alert.showAndWait();
             return;
         }
+
         alert = new Alert(Alert.AlertType.WARNING,"Do You Really Want to Update ", ButtonType.YES,ButtonType.NO);
         alert.showAndWait();
         if(alert.getResult() == ButtonType.NO)

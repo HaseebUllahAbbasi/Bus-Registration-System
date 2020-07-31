@@ -96,7 +96,7 @@ public class Booking implements Initializable{
                 String str;
                 str=SeatNo.get(i).substring(5).replaceAll("\\D+","");
                 //System.out.println(Integer.parseInt(cnicNum)+"  "+);
-                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time,price) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"',"+price+");");
+                statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time,price) VALUES ("+(cnicNum)+","+(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"',"+price+");");
                // statement.execute("INSERT INTO seats (Cnic , SeatNo, Bus, IssueDate, Time) VALUES ("+Integer.parseInt(cnicNum)+","+Integer.parseInt(str)+",'"+busName+"', '"+IssueDate+"','"+Time+"');");
             }
 
