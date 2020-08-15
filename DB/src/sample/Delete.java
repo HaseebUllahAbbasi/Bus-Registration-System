@@ -13,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -183,10 +182,24 @@ public class Delete implements Initializable
             connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
             //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
             statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("Select * FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
+            int count = 0;
+            while (resultSet.next())
+            {
+                count++;
+            }
+            if(count==1)
+            {
+                statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
+                statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
+            }
+            else if(count>1)
+            {
+                statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"' and [SeatNo] = '"+to_be_del.getSeat()+"'");
+            }
 
-            statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
-            statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
-
+            //statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
+            //statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
             alert = new Alert(Alert.AlertType.WARNING,"User With  "+to_be_del.getCnic()+" CNINC is Deleted", ButtonType.OK);
             alert.showAndWait();
         }
