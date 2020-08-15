@@ -21,11 +21,9 @@ import java.util.ResourceBundle;
 
 public class Delete implements Initializable
 {
-    @FXML
-    TextField search_text_field;
+    @FXML TextField search_text_field;
     String User_Label;
-    @FXML
-    private ComboBox<String> choice_box;
+    @FXML private ComboBox<String> choice_box;
     @FXML private TableView<Customer> tableView;
     @FXML private TableColumn<Customer,String> name;
     @FXML private TableColumn<Customer,String> cnic;
@@ -175,6 +173,9 @@ public class Delete implements Initializable
         {
             return;
         }
+
+        alert = new Alert(Alert.AlertType.WARNING,"Do  Want to Delete All the Seats with "+to_be_del.getName(), ButtonType.YES,ButtonType.NO);
+        alert.showAndWait();
         Connection connection = null;
         Statement statement = null;
         try
@@ -188,19 +189,21 @@ public class Delete implements Initializable
             {
                 count++;
             }
-            if(count==1)
+            if(alert.getResult() == ButtonType.YES)
             {
                 statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
                 statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
             }
-            else if(count>1)
+            else if(alert.getResult() == ButtonType.NO)
             {
-                statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"' and [SeatNo] = '"+to_be_del.getSeat()+"'");
-            }
 
-            //statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
-            //statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
-            alert = new Alert(Alert.AlertType.WARNING,"User With  "+to_be_del.getCnic()+" CNINC is Deleted", ButtonType.OK);
+                statement.execute("DELETE FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"' and [SeatNo] = '"+to_be_del.getSeat()+"'");
+                if(count==1)
+                {
+                    statement.execute("DELETE FROM Customer WHERE Cnic = '"+to_be_del.getCnic()+"'");
+                }
+            }
+            alert = new Alert(Alert.AlertType.WARNING,"User With  "+to_be_del.getCnic()+" CNIC , Name = "+to_be_del.getName()+" is Deleted", ButtonType.OK);
             alert.showAndWait();
         }
         catch (SQLException sqlException)
