@@ -89,8 +89,7 @@ public class Search implements Initializable
         data.clear();
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Base.db");
             statement = connection.createStatement();
             if(choice_box.getValue().equals("Name"))
                 statement.execute("select * from [Customer] INNER join [seats] using(cnic) where CusName like '"+search_text_field.getText()+"%'");

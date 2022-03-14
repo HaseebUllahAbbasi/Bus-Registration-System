@@ -73,8 +73,7 @@ public class Booking implements Initializable{
         try
         {
 
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Base.db");
             statement = connection.createStatement();
            int price = 0;
             if(busName.equals("Madrid Exp"))

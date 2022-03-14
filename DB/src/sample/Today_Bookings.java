@@ -63,8 +63,7 @@ public class Today_Bookings implements Initializable
         data.clear();
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Base.db");
             statement = connection.createStatement();
             statement.execute("SELECT * from [Customer] INNER join [seats] using(cnic) where seats.IssueDate = '"+java.time.LocalDate.now()+"';");
             ResultSet resultSet = statement.getResultSet();

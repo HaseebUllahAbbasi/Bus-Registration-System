@@ -90,8 +90,8 @@ public class Delete implements Initializable
         data.clear();
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Base.db");
+
             statement = connection.createStatement();
             if(choice_box.getValue().equals("Name"))
                 statement.execute("select * from [Customer] INNER join [seats] using(cnic) where CusName like '"+search_text_field.getText()+"%'");
@@ -180,8 +180,7 @@ public class Delete implements Initializable
         Statement statement = null;
         try
         {
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/peaceseeker/DB_project/Base.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:/D:/CS IBA/Semester 4/DBMS/Project/Git_Prok/DB_project/Base.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Base.db");
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * FROM Seats WHERE Cnic = '"+to_be_del.getCnic()+"'");
             int count = 0;

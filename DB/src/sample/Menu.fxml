@@ -19,7 +19,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" styleClass="parent" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dashboard">
    <children>
-      <VBox layoutX="8.0" prefHeight="600.0" prefWidth="300.0" styleClass="sidebar" stylesheets="@dashboard.css" AnchorPane.leftAnchor="0.0">
+      <VBox layoutX="8.0" prefHeight="600.0" prefWidth="300.0" styleClass="sidebar" stylesheets="./dashboard.css" AnchorPane.leftAnchor="0.0">
          <children>
             <Label fx:id="user_name" prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: teal;" text="Admin" textFill="WHITE">
                <opaqueInsets>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.About">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.About">
    <children>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="800.0" style="-fx-background-color: teal;" stylesheets="@login.css">
          <children>
@@ -38,7 +38,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label text="Bakhtiar Hussain &amp; Haseeb Ullah" textFill="TEAL">
+            <Label text="Haseeb Ullah &amp; Bakhtiar Hussain " textFill="TEAL">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
