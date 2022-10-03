@@ -1,5 +1,17 @@
 # Database_project
 
+## Pre Req
+  
+  Java 8  , if not then latest jdk with javafx and jdbc jars or dependencies
+  Intellij IDE
+  Scene Builder  ( To change the UI)
+  
+
+## Download and Run
+
+  git clone https://github.com/HaseebUllahAbbasi/DB_project.git
+
+
 ## Project Proposal:
 Bus Registration System
 
