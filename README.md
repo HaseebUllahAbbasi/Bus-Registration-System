@@ -6,28 +6,32 @@
   Intellij IDE
   Scene Builder  ( To change the UI)
   
-
 ## Download and Run
 
-  git clone https://github.com/HaseebUllahAbbasi/DB_project.git
+  git clone <https://github.com/HaseebUllahAbbasi/DB_project.git>
 
+## Project Proposal
 
-## Project Proposal:
 Bus Registration System
 
-## Project Overview:
+## Project Overview
+
 ```
 The bus registration system is designed to keep track of information of the
 administration, customer and price.
 ```
-## Project Description:
+
+## Project Description
+
 ```
 The bus registration system allows only authentic registration by the only
 administrators. Administrators can book seats ,modify customer record , delete
 any customer record and can view the availability of seats in a particular routed
 bus. It can also be used in transport organization globally.
 ```
-## Purpose Of The Project:
+
+## Purpose Of The Project
+
 ```
 The bus registration system maintains the record each customer information
 including its id, number of seats, and price. System also maintains the records of
@@ -37,7 +41,9 @@ particular bus terminals in different cities. In this system customers are only
 allowed to access or look for the availability of seats in a particular bus of a
 particular rout at terminal.
 ```
-## Problems In The Existing System:
+
+## Problems In The Existing System
+
 ```
 The existing system handles variety of DBMS problems and tries to deviate from
 the flaws like data redundancy, safety, security, data inconsistency, data isolation,
@@ -49,7 +55,9 @@ resolution of queries related to the customer information. Moreover, this system
 objects to maintains the data consistency, integrity and its security by the help of
 certain database operations and domain constraints.
 ```
-## Solutions of This Problems:
+
+## Solutions of This Problems
+
 ```
 The construction of this new system encircle the following activities, which try to
 automate the entire process with respect to the view of database integration
@@ -65,3 +73,10 @@ approach.
 • while customers are only allowed to view the data but are not authorized to manipulate it.
 • Administrator can rollback or retrieve the previous data from the stored backup database.
 ```
+
+# Tech Stack
+
+- Java
+- Javafx
+- JFeonix
+- Sqlite
